@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { SocialLoginModule, SocialAuthServiceConfig, FacebookLoginProvider } from '@abacritt/angularx-social-login';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import {
   GoogleLoginProvider,
 } from '@abacritt/angularx-social-login';
@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from '../core/core.module';
 import { MainSharedModule } from '../shareds/main-shared/main-shared.module';
 import { AuthModule } from '../auth/auth.module';
+import { ToastComponent } from '../shareds/main-shared/components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AuthModule } from '../auth/auth.module';
     SocialLoginModule
   ],
   providers: [
+    ToastComponent,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MediaQueriesService } from 'src/app/core/services/media-queries.service';
-import { MainSharedService } from 'src/app/shareds/main-shared/main-shared.service';
+import { MainSharedService } from 'src/app/shareds/main-shared/services/main-shared.service';
 
 @Component({
   selector: 'app-layout',

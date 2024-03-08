@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <i class="fa-solid fa-xmark"></i>
+    <i *ngIf="!disableDelete" class="fa-solid fa-xmark"></i>
     <span class="wrapper__text">
         {{ categoryTagName }}
     </span>

@@ -1,6 +1,9 @@
 import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
 import { DesktopCartDropdownComponent } from './desktop-cart-dropdown/desktop-cart-dropdown.component';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { CategoryTagListPage } from '../../models/category-tag-list-page';
+import { ListPageMainService } from '../../services/list-page-main.service';
+import { ToastService } from 'src/app/shareds/main-shared/services/toast.service';
 
 @Component({
   selector: 'app-list-page-desktop-body',
@@ -23,6 +26,7 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
   sortOption: string = 'Sắp xếp';
   isSortOptionShow: boolean = false;
   isSortPristine: boolean = true;
+  currentSearchCategoryTag: CategoryTagListPage[] = [];
 
   // SOMETHING ELSE
   displayedCategory: string = "";
@@ -30,7 +34,9 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
   isCategoryContentShow: boolean = false;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private listPageMainService: ListPageMainService,
+    private toastService: ToastService
   ) {
   }
 
@@ -43,6 +49,37 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+  }
+
+  handleToastCall($event: any) {
+    this.toastService.showToast($event.type, $event.title, $event.desc);
+  }
+
+  resetSearchSortInfo() {
+    this.listPageMainService.currentSearchCategoryTag = [];
+    this.resetInput();
+  }
+
+  toggleToFilter(category: CategoryTagListPage) {
+    const currentTags = this.getCurrentSearchCategoryTag();
+    const index = currentTags.findIndex(tag => tag.id === category.id);
+    if (index !== -1) {
+      currentTags.splice(index, 1);
+    } else {
+      this.listPageMainService.updateCurrentSearchCategoryTag(category);
+    }
+  }
+
+  removePreviewCategory() {
+    this.listPageMainService.previewCategory = null;
+  }
+
+  getPreviewCategory() {
+    return this.listPageMainService.previewCategory;
+  }
+
+  getCurrentSearchCategoryTag() {
+    return this.listPageMainService.currentSearchCategoryTag;
   }
 
   toggleCategoryContent($event: any) {
@@ -125,8 +162,8 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
     return this.authService.isLogged;
   }
 
-  search() {
-    console.log('vô');
+  changeSearchInput() {
+    this.listPageMainService.updateCurrentSearchCategoryTag({ id: -2, name: '"' + this.searchInput + '"'});
   }
 
   loadDesktopCartDropDown() {

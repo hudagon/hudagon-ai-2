@@ -1,6 +1,7 @@
 import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Injectable } from '@angular/core';
 import { BrowserStorageService } from 'src/app/core/services/browser-storage.service';
+import { ToastService } from 'src/app/shareds/main-shared/services/toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,13 @@ export class AuthService {
 
   constructor(
     private browserStorageService: BrowserStorageService,
-    private socialAuthService: SocialAuthService
+    private socialAuthService: SocialAuthService,
+    private toastService: ToastService
   ) {
   }
 
   login(user: any) {
+    this.toastService.showToast("success", "Đăng nhập thành công", "Xin chào " + user.name);
     this.userFullName = user.name;
     this.userAvatar = user.photoUrl;
     this.userSocialType = user.PROVIDER;

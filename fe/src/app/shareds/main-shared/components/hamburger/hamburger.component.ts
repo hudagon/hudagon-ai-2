@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MainSharedService } from '../../main-shared.service';
+import { MainSharedService } from '../../services/main-shared.service';
 
 @Component({
   selector: 'app-hamburger',

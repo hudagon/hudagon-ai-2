@@ -4,6 +4,8 @@
     padding: 6px;
     display: flex;
     justify-content: space-between;
+    max-height: 1200px !important;
+    max-width: 2100px;
 }
 
 .left-side, .right-side {

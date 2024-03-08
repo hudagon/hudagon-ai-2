@@ -14,7 +14,7 @@ export class LoginModalComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private socialAuthService: SocialAuthService
+    private socialAuthService: SocialAuthService,
   ) {}
 
   ngOnInit(): void {
@@ -27,8 +27,8 @@ export class LoginModalComponent implements OnInit {
 
     this.socialAuthService.authState.subscribe((user) => {
       this.user = user;
-      if (user) {
-        this.authService.login(user);
+      if (this.user) {
+        this.authService.login(this.user);
         this.handleToggleModal();
       }
     });

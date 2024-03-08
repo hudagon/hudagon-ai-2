@@ -6,7 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./category-tag.component.css']
 })
 export class CategoryTagComponent {
-  @Input() categoryTagName: string = "";
-  
-
+  @Input() categoryTagName: string | undefined = "";
+  @Input() disableDelete: boolean = false;
 }

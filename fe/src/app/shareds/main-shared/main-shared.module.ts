@@ -4,13 +4,15 @@ import { OverlayComponent } from './components/overlay/overlay.component';
 import { HamburgerComponent } from './components/hamburger/hamburger.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CategoryTagComponent } from './components/category-tag/category-tag.component';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
     OverlayComponent,
     HamburgerComponent,
     SpinnerComponent,
-    CategoryTagComponent
+    CategoryTagComponent,
+    ToastComponent
   ],
   imports: [
     CommonModule
@@ -19,7 +21,8 @@ import { CategoryTagComponent } from './components/category-tag/category-tag.com
     OverlayComponent, 
     HamburgerComponent, 
     SpinnerComponent,
-    CategoryTagComponent
+    CategoryTagComponent,
+    ToastComponent
   ]
 })
 export class MainSharedModule { }

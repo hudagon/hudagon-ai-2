@@ -1,10 +1,10 @@
 <div class="right-side__inside">
     <header class="right-side__inside__header">
         <div class="right-side__inside__header__search-group">
-            <input (keyup.enter)="search()" [(ngModel)]="searchInput" id="searchInput" tabindex="1" type="text" placeholder="Tìm tranh..."
+            <input (keyup.enter)="changeSearchInput()" [(ngModel)]="searchInput" id="searchInput" tabindex="1" type="text" placeholder="Tìm tranh..."
                 class="round right-side__inside__header__search-group__search-bar">
             <i tabindex="2" *ngIf="searchInput.length !== 0" (click)="resetInput()" (keyup.enter)="resetInput()" class="hover-effect-yellow-bright fa-solid fa-xmark"></i>
-            <i (keyup.enter)="search()" tabindex="3"
+            <i (keyup.enter)="changeSearchInput()" tabindex="3"
                 class="hover-effect-yellow-bright fa-solid fa-magnifying-glass"></i>
         </div>
 
@@ -30,39 +30,27 @@
     </header>
 
     <section id="right-side-body" (scroll)="checkScroll()" class="right-side__inside__body">
-        <div class="right-side__inside__body__search-utilities">
+        <div [ngClass]="{ 'pushed' : isCategoryContentShow }" class="right-side__inside__body__search-utilities">
             <div class="right-side__inside__body__search-utilities__summary">
                 <ul class="right-side__inside__body__search-utilities__summary__category-tag-group">
                     <span class="right-side__inside__body__search-utilities__summary__results-count">
                         <span>12345</span> kết quả cho
                     </span>
-                    <li
-                        class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
-                        <app-category-tag [categoryTagName]="'&quot;Con mèo mà trèo cây cau...&quot;'"
+                    <li *ngIf="getCurrentSearchCategoryTag().length == 0"
+                        class="right-side__inside__body__search-utilities__summary__category-tag-group__item" style="opacity: 0.81;">
+                        <app-category-tag [disableDelete]="true" [categoryTagName]="'Tất cả tranh'"
                             style="display: contents"></app-category-tag>
                     </li>
-                    <li
+                    <li *ngFor="let x of getCurrentSearchCategoryTag()" (click)="toggleToFilter({ id: x.id, name: x.name })" 
                         class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
-                        <app-category-tag [categoryTagName]="'Con người'" style="display: contents"></app-category-tag>
+                        <app-category-tag [categoryTagName]="x.name"
+                            style="display: contents"></app-category-tag>
                     </li>
-                    <li
-                        class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
-                        <app-category-tag [categoryTagName]="'Phong cảnh'" style="display: contents"></app-category-tag>
-                    </li>
-                    <li
-                        class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
-                        <app-category-tag [categoryTagName]="'Phong cảnh'" style="display: contents"></app-category-tag>
-                    </li>
-                    <li
-                        class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
-                        <app-category-tag [categoryTagName]="'Phong cảnh'" style="display: contents"></app-category-tag>
-                    </li>
-                    <li
-                        class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
-                        <app-category-tag [categoryTagName]="'Phong cảnh'" style="display: contents"></app-category-tag>
-                    </li>
-                    <button class="hover-effect-yellow-bright btn right-side__inside__body__utilities__reset">
+                    <button (click)="resetSearchSortInfo()" *ngIf="getCurrentSearchCategoryTag().length != 0" type="button" class="hover-effect-yellow-bright btn right-side__inside__body__utilities__reset">
                         <i class="fa-solid fa-rotate"></i> Đặt lại
+                    </button>
+                    <button *ngIf="getCurrentSearchCategoryTag().length != 0" type="button" class="hover-effect-yellow-bright btn right-side__inside__body__utilities__reset">
+                        <i class="fa-solid fa-magnifying-glass"></i> Áp dụng
                     </button>
                 </ul>
             </div>
@@ -70,7 +58,7 @@
 
         <div class="right-side__inside__body__gallery">
             <div class="right-side__inside__body__gallery__utilities">
-                <div class="right-side__inside__body__search-utilities__sort">
+                <div [ngClass]="{ 'pushed' : isCategoryContentShow }" class="right-side__inside__body__search-utilities__sort">
                     <div tabindex="0" (blur)="toggleSortOptionBlur()" (click)="toggleSortOptions()"
                         class="right-side__inside__body__search-utilities__sort__select select">
                         <span
@@ -104,6 +92,15 @@
                                 <i class="fa-regular fa-eye"></i>
                             </li>
                         </ul>
+                    </div>
+                </div>
+
+                <div *ngIf="getPreviewCategory()" class="right-side__inside__body__gallery__utilities__preview">
+                    <span class="right-side__inside__body__gallery__utilities__preview__text">
+                        Đang xem trước
+                    </span>
+                    <div (click)="removePreviewCategory()" class="hover-effect-danger right-side__inside__body__gallery__utilities__preview__category-tag-group">
+                        <app-category-tag [categoryTagName]="getPreviewCategory()?.name" style="display: contents"></app-category-tag>
                     </div>
                 </div>
             </div>
@@ -246,7 +243,7 @@
         </div>
 
         <div class="right-side__inside__category__body">
-            <app-subject-category style="display: contents" *ngIf="displayedCategory == 'subject'" ></app-subject-category>
+            <app-subject-category (notifyToastCall)="handleToastCall($event)" style="display: contents" *ngIf="displayedCategory == 'subject'" ></app-subject-category>
             <app-style-category style="display: contents" *ngIf="displayedCategory == 'style'" ></app-style-category>
             <app-topic-category style="display: contents" *ngIf="displayedCategory == 'topic'" ></app-topic-category>
             <app-ratio-category style="display: contents" *ngIf="displayedCategory == 'ratio'" ></app-ratio-category>

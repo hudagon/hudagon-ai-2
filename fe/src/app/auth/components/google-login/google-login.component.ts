@@ -16,7 +16,6 @@ export class GoogleLoginComponent implements OnInit {
   @Input() template: string | undefined;
 
   ngOnInit(): void {
-    
   }
 
   createFakeGoogleWrapper = () => {
