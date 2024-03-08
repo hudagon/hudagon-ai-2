@@ -1,0 +1,17 @@
+<div *ngIf="isContentLoaded" class="wrapper">
+    <div class="left-side">
+        <app-list-page-desktop-side-bar #listPageDesktopSideBar style="display: contents" (notifyToggleCategoryContent)="handleToggleCategoryContent($event)"
+            *ngIf="(getViewportWidth() > getBreakpointValues('TABLET')!)"></app-list-page-desktop-side-bar>
+        <app-list-page-tablet-side-bar style="display: contents"
+            *ngIf="(getViewportWidth() <= getBreakpointValues('TABLET')!) && (getViewportWidth() > getBreakpointValues('LARGE_PHONE')!)"></app-list-page-tablet-side-bar>
+    </div>
+
+    <div class="right-side">
+        <app-list-page-desktop-body (notifyResetAsideCategory)="handleResetAsideCategory($event)"  #listPageDesktopBody (notifyToggleLoginModal)="handleToggleLoginModal()" style="display: contents"
+            *ngIf="(getViewportWidth() > getBreakpointValues('TABLET')!)"></app-list-page-desktop-body>
+    </div>
+
+    <app-login-modal [z_index]="'9'" style="display: contents" *ngIf="isLoginModalOpen" (notifyToggleLoginModal)="handleToggleLoginModal()"></app-login-modal>
+</div>
+
+<app-spinner [spinnerSize]="'lg'" *ngIf="!isContentLoaded"></app-spinner>

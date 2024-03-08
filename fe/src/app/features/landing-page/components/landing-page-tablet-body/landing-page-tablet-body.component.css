@@ -1,0 +1,205 @@
+.wrapper {
+    height: calc(100svh - var(--top-info-height) - var(--header-height) - 4.2svh);
+    width: 100%;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 720px;
+}
+
+.left-side {
+    overflow: hidden;
+    height: 100%;
+    width: 68%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.left-side__banner {
+    border: 1px solid var(--dark-border-color);
+    width: 100%;
+    border-radius: var(--border-radius-2);
+    min-height: 120px;
+    height: 60%;
+    overflow: hidden;
+}
+
+.left-side__banner__inside {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-side__banner__inside app-overlay {
+    z-index: 2;
+}
+
+.left-side__banner__inside__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    object-fit: cover;
+    object-position: center;
+}
+
+.left-side__banner__inside__container {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 9px;
+    margin-top: -15px;
+}
+
+.left-side__banner__inside__container__sub_desc {
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.left-side__banner__inside__container__title {
+    font-size: 72px;
+    font-family: var(--font-secondary);
+    white-space: nowrap;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    margin-top: -12px;
+}
+
+.left-side__banner__inside__container__desc {
+    white-space: nowrap;
+    margin-top: -9px;
+}
+
+.landing-page-clickbate {
+    position: relative;
+    padding: 9px 15px;
+    margin: 0 auto;
+    margin-top: 6px;
+    width: 171px;
+    color: var(--dark-text-color);
+    background: linear-gradient(90deg, #3e008a, #3c0084, #7300ff, #3e008a);
+    background-size: 400%;
+    border-radius: 30px;
+    z-index: 1;
+    line-height: 1.2;
+    animation: landing-page-clickbate-banner-animate 36s linear infinite reverse;
+}
+
+.landing-page-clickbate:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: -1;
+    background: linear-gradient(90deg, #3e008a, #6e6122, #6a2e87, #3e008a);
+    background-size: 180%;
+    border-radius: 40px;
+    filter: blur(9px);
+    opacity: 0.3;
+    transition: 0.5s;
+}
+
+.landing-page-clickbate:hover:before {
+    opacity: 1;
+    animation: landing-page-clickbate-banner-animate 18s linear infinite reverse;
+}
+
+.left-side__service {
+    padding-top: 12px;
+    width: 100%;
+    min-height: 120px;
+    height: 40%;
+}
+
+.left-side__service__inside {
+    border: 1px solid var(--dark-border-color);
+    border-radius: var(--border-radius-2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-side__service__inside__header {
+    width: 100%;
+    padding: 12px;
+    padding-bottom: 0;
+}
+
+.left-side__service__inside__header__list {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+}
+
+.left-side__service__inside__header__list_item {
+    padding-bottom: 6px;
+}
+
+.left-side__service__inside__header__list_item.activated {
+    border-bottom: 1px solid var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.left-side__service__inside__body {
+    padding: 9px 12px;
+    row-gap: 3%;
+    column-gap: 1%;
+    flex: 1;
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-side {
+    overflow: hidden;
+    width: 32%;
+    height: 100%;
+    padding-left: 12px;
+    position: relative;
+}
+
+.right-side__inside {
+    border: 1px solid var(--dark-border-color);
+    border-radius: var(--border-radius-2);
+    height: 100%;
+    background-color: rgb(226, 226, 226);
+}
+
+.right-side__inside.dark-mode {
+    background-color: #151515;
+}
+
+.right-side__inside__frame-containter {
+    width: 100%;
+    height: 240%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    flex-direction: column;
+    position: relative;
+    animation: landing-page-responsive-right-side-move 120s linear infinite;
+}
+
+.right-side__inside__frame-containter.no-animation {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+/* Below small screen [TABLET] */
+@media (max-width: 1023px) {
+    .left-side__service__inside__body {}
+}

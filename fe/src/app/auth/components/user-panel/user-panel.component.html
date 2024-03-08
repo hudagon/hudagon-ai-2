@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <div *ngIf="page !== 'list'" class="user-name">
+        {{ getUserFullName() }}
+    </div>
+
+    <img [src]="getUserAvatar()" alt="user-avatar" [ngClass]="{ 'list' : page === 'list'}" class="user-avatar">
+
+    <ul [ngClass]="{ 'list' : page === 'list'}" class="dropdown">
+        <li class="hover-effect-yellow-bright dropdown__content">
+            <i class="fa-solid fa-user"></i>
+            <span>Trang cá nhân</span>
+        </li>
+        <li *ngIf="page !== 'list'" class="hover-effect-yellow-bright dropdown__content">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Giỏ hàng</span>
+        </li>
+        <li (click)="logOut()" class="hover-effect-yellow-bright dropdown__content">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Đăng xuất</span>
+        </li>
+    </ul>
+</div>

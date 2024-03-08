@@ -1,0 +1,214 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@300;400;500;600&display=swap');
+
+/*#region BASE*/
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+button > * {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+i {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+a {
+    color: var(--secondary-color-lighter);
+    transition: 0.24s ease-in-out;
+}
+
+a:hover {
+    color: var(--primary-color-lighter);
+}
+
+a.nothing {
+    color: var(--dark-text-color);
+    text-align: center;
+}
+
+a.nothing:hover {
+    color: var(--dark-text-color);
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--dark-background-color);
+    color: var(--dark-text-color);
+    font-size: var(--fs-normal);
+    font-weight: 300;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--dark-scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--dark-scrollbar-thumb);
+    border-radius: 3px;
+}
+
+.fw {
+    height: inherit;
+    overflow-x: hidden;
+}
+
+.fh {
+    height: 100%;
+}
+
+.no-select {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.gap-handle-landing-page {
+    display: flex !important;
+    flex-direction: column;
+    gap: calc((100svh - var(--top-info-height) - var(--header-height) - var(--banner-height) - var(--service-height)) / 4);
+}
+
+/*#endregion*/
+
+/*#region VARIABLES*/
+:root {
+    /* Scrollbar */
+    --vertical-width: 3px;
+    --horizontal-height: 3px;
+    --dark-scrollbar-track: #242424;
+    --dark-scrollbar-thumb: #727272;
+
+    /* SOCIAL MEDIA */
+    --facebook-color: #1974EC;
+    --google-color: #D73427;
+    --zalo-color: #17ABE2;
+
+    /* Color */
+    --primary-color: #3e008a;
+    --primary-color-lighter: #974cf1;
+    --secondary-color: #c5b358;
+    --secondary-color-lighter: #c9bc7a;
+    --danger-color: #a73131;
+    --red-color: #d0312d;
+
+    --dark-border-color: #282b28;
+    --light-border-color: #c2c2c261;
+    --dark-level2-border-color: #393b39;
+
+    --dark-glass-blur: hsla(0, 0%, 7%, 0.695);
+
+    --dark-background-color: #09060a;
+    --light-background-color: whitesmoke;
+
+    --dark-panel-color: #080508;
+
+    --dark-text-color: #dfdfdf;
+    --light-text-color: #333;
+
+    /* Painting filter Menu color */
+    --level3-color: rgba(21, 21, 21, 0.918);
+    --level2-color: rgba(15, 15, 15, 0.952);
+    --level1-color: rgba(6, 6, 6, 0.925);
+
+    /* Overlay color */
+    --overlay-color: rgba(0, 0, 0, 0.72);
+    --overlay-color-light: rgba(15, 15, 15, 0.72);
+
+    /* Form Color */
+    --checkbox-border-color: #505050;
+    --input-text-focus-color: #616161;
+
+    /* font-family */
+    --font-primary: 'Anuphan', sans-serif;
+    --font-secondary: 'EB Garamond', serif;
+
+    /* Font Size */
+    --fs-less-3: calc(var(--fs-normal) - 9px);
+    --fs-less-2: calc(var(--fs-normal) - 6px);
+    --fs-less-1: calc(var(--fs-normal) - 3px);
+    --fs-normal: 18px;
+
+    --fs-larger-1: calc(var(--fs-normal) + 3px);
+    --fs-larger-2: calc(var(--fs-normal) + 6px);
+    --fs-larger-3: calc(var(--fs-normal) + 9px);
+    --fs-larger-4: calc(var(--fs-normal) + 12px);
+    --fs-larger-5: calc(var(--fs-normal) + 15px);
+
+    --fs-main-title: clamp(3.1875rem, 2.2039rem + 4.918vw, 5.625rem);
+    --fs-main-title-mobile: clamp(1.5rem, 0.4314rem + 4.7493vw, 2.625rem);
+
+    /* Border-radius */
+    --border-radius-1: 3px;
+    --border-radius-2: 6px;
+    --border-radius-3: 9px;
+
+    /* Masonry gap */
+    --masonry-gap: 7.2px;
+}
+/*#endregion*/
+
+/*#region HOVER EFFECT*/
+.hover-effect-yellow-bright,
+.hover-effect-danger,
+.hover-effect-painting-tag,
+.hover-effect-button-1,
+.hover-effect-menu-1,
+.hover-effect-silver-border,
+.hover-effect-brighter-opaquer {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hovering.hover-effect-brighter-opaquer:hover {
+    background-color: rgba(0, 0, 0, 0.349);
+    filter: brightness(1.2);
+}
+
+.hover-effect-yellow-bright:hover {
+    color: var(--secondary-color) !important;
+    filter: brightness(1.2);
+}
+
+.hover-effect-silver-border:hover {
+    border-color: var(--light-border-color);
+    filter: brightness(1.35);
+}
+
+.hover-effect-danger:hover {
+    color: var(--danger-color);
+    filter: brightness(1.2);
+}
+
+.hover-effect-button-1:hover {
+    color: var(--secondary-color);
+    filter: brightness(1.2);
+    box-shadow: 0px 1px 21px -9px #c5b358;
+}
+
+.hover-effect-menu-1:hover {
+    color: var(--secondary-color);
+    filter: brightness(1.2);
+    transform: translateX(3px);
+}
+/*#endregion*/
+    

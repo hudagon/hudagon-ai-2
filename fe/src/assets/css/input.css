@@ -1,0 +1,116 @@
+/*#region TEXT*/
+input[type="text"],
+input[type="password"] {
+    color: var(--dark-text-color);
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid var(--dark-border-color);
+    border-radius: var(--border-radius-1);
+    transition: 0.3s ease-in-out;
+}
+
+input[type="text"].round {
+    border-radius: 21px;
+}
+
+input:focus {
+    border-color: var(--light-border-color);
+    outline: none;
+}
+
+::placeholder {
+    color: var(--dark-text-color);
+    opacity: 0.81;
+}
+
+/*#endregion*/
+
+/*#region CHECKBOX*/
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    font: inherit;
+    color: var(--checkbox-border-color);
+    width: 1em;
+    height: 1em;
+    border: 1px solid var(--checkbox-border-color);
+    transform: translateY(-0.075em);
+
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--secondary-color);
+    background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+    outline-offset: max(2px, 0.15em);
+}
+
+input[type="checkbox"]:disabled {
+    color: var(--dark-scrollbar-thumb);
+    cursor: not-allowed;
+}
+
+/*#endregion*/
+
+/*#region SELECT-OPTION */
+.select {
+    height: 100%;
+    border: 1px solid var(--dark-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: var(--border-radius-1);
+    position: relative;
+    cursor: pointer;
+}
+
+.select span {
+    padding: 6px;
+    padding-left: 12px;
+    font-size: var(--fs-less-1);
+    opacity: 0.81;
+}
+
+.select .icon {
+    height: 100%;
+    border-left: 1px solid var(--dark-border-color);
+    padding: 6px 9px;
+    background-color: var(--level1-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select .icon i {
+    margin-top: 3px;
+}
+
+.select .options {
+    position: absolute;
+    top: 111%;
+    left: -0.5%;
+    width: 101.4%;
+    border: 1px solid var(--dark-border-color);
+    border-radius: var(--border-radius-1);
+    background-color: var(--level1-color);
+    display: flex;
+    flex-direction: column;
+    font-size: var(--fs-less-1);
+}
+/*#endregion*/

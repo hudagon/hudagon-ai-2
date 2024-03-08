@@ -1,0 +1,35 @@
+<div class="wrapper" id="wrapper">
+    <app-overlay (notifyToggleModal)="handleToggleModal()" ></app-overlay>
+
+    <div class="login-modal-container">
+        <div (click)="handleToggleModal()" class="hover-effect-yellow-bright login-modal-container__turn-off">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+
+        <div class="login-modal-container__left-side">
+            <h2 class="no-select login-modal-container__left-side__logo">
+                Hudagon
+            </h2>
+        </div>
+
+        <div class="login-modal-container__right-side">
+            <div class="login-modal-container__right-side__header">
+                <span class="login-modal-container__right-side__header__text">Đăng nhập</span>
+                <span class="login-modal-container__right-side__header__line"></span>
+            </div>
+
+            <section class="login-modal-container__right-side__body">
+                <app-google-login [template]="'LOGIN_MODAL'" style="display: contents" (notifyLoginWithGoogle)="googleSignIn($event)"></app-google-login>
+                <div class="login-modal-container__right-side__body__choice zalo">
+                    <div class="login-modal-container__right-side__body__choice__icon-group zalo">
+                        <i class="fa-solid fa-z"></i>
+                    </div>
+                    <p class="login-modal-container__right-side__body__choice__text">
+                        Thông qua Zalo
+                        <span>(Chưa khả dụng)</span>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="wrapper">
+    <app-overlay (notifyToggleModal)="toggleHamburgerContent()" [z_index]="'1'"></app-overlay>
+
+    <div class="wrapper__containter">
+        <app-google-login *ngIf="!isLogged()" [template]="'LOGIN_TABLET'" style="display: contents" (notifyLoginWithGoogle)="googleSignIn($event)"></app-google-login>
+
+        <section *ngIf="isLogged()" class="wrapper__containter__user-info">
+            <img [src]="getUserAvatar()" alt="user-avatar" class="wrapper__containter__user-info__avatar">
+            <span class="wrapper__containter__user-info__user-fullname">
+                {{ getUserFullName() }}
+            </span>
+        </section>
+
+        <ul *ngIf="isLogged()" class="wrapper__containter__user-functionalities">
+            <li class="wrapper__containter__user-functionalities__item">
+                <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+            </li>
+            <li class="wrapper__containter__user-functionalities__item">
+                <i class="fa-solid fa-user"></i> Trang cá nhân
+            </li>
+            <li (click)="logOut()" class="wrapper__containter__user-functionalities__item">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất
+            </li>
+        </ul>
+
+        <section class="wrapper__containter__contact">
+            <div class="wrapper__containter__contact__top">
+                <div class="wrapper__containter__contact__top__item">
+                    <i class="fa-solid fa-envelope"></i>
+                    amthanhloama&#64;gmail.com
+                </div>
+                <div class="wrapper__containter__contact__top__item">
+                    <i class="fa-solid fa-phone"></i>
+                    0766011120
+                </div>
+            </div>
+            <div class="wrapper__containter__contact__bottom">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-tiktok"></i>
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+        </section>
+
+        <section class="wrapper__containter__footer">
+            <span class="wrapper__containter__footer__text">Điều
+                khoản</span>
+            <i class="fa-solid fa-diamond"></i>
+            <span class="wrapper__containter__footer__text">Chính
+                sách</span>
+        </section>
+    </div>
+</div>

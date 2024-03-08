@@ -1,0 +1,70 @@
+<div class="left-side__inside">
+    <div class="left-side__inside__upper">
+        <div class="left-side__inside__upper__content">
+            <app-overlay [z_index]="'3'"></app-overlay>
+            <h1 class="hover-effect-yellow-bright left-side__inside__upper__content__title">
+                <a routerLink="/"
+                    class="nothing left-side__inside__upper__content__title__responsive-screen">Hudagon
+                    AI</a>
+            </h1>
+        </div>
+    </div>
+
+    <div class="left-side__inside__lower">
+        <span class="left-side__inside__lower__title">
+            Bộ lọc
+        </span>
+
+        <ul class="left-side__inside__lower__level1-list">
+            <li id="subject-category" (click)="toggleCategoryContent('subject')" class="hover-effect-silver-border left-side__inside__lower__level1-list__item">
+                <span class="left-side__inside__lower__level1-list__item__text">
+                    Chủ thể
+                </span>
+
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li id="topic-category" (click)="toggleCategoryContent('topic')" class="hover-effect-silver-border left-side__inside__lower__level1-list__item">
+                <span class="left-side__inside__lower__level1-list__item__text">
+                    Chủ đề
+                </span>
+
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li id="style-category" (click)="toggleCategoryContent('style')" class="hover-effect-silver-border left-side__inside__lower__level1-list__item">
+                <span class="left-side__inside__lower__level1-list__item__text">
+                    Phong cách
+                </span>
+
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li id="ratio-category" (click)="toggleCategoryContent('ratio')" class="hover-effect-silver-border left-side__inside__lower__level1-list__item">
+                <span class="left-side__inside__lower__level1-list__item__text">
+                    Khung hình
+                </span>
+
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+            <li id="color-category" (click)="toggleCategoryContent('color')" class="hover-effect-silver-border left-side__inside__lower__level1-list__item">
+                <span class="left-side__inside__lower__level1-list__item__text">
+                    Màu sắc
+                </span>
+
+                <i class="fa-solid fa-angle-right"></i>
+            </li>
+        </ul>
+
+        <div class="left-side__inside__lower__term-and-service">
+            <a href="#" class="hover-effect-yellow-bright left-side__inside__lower__term-and-service__link">
+                Liên hệ
+            </a>
+            <i class="fa-solid fa-diamond"></i>
+            <a href="#" class="hover-effect-yellow-bright left-side__inside__lower__term-and-service__link">
+                Điều khoản
+            </a>
+            <i class="fa-solid fa-diamond"></i>
+            <a href="#" class="hover-effect-yellow-bright left-side__inside__lower__term-and-service__link">
+                Chính sách
+            </a>
+        </div>
+    </div>
+</div>

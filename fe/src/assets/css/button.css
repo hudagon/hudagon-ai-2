@@ -1,0 +1,27 @@
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 21px;
+    color: var(--text-color);
+    white-space: nowrap;
+    font-size: var(--fs-normal);
+    padding: 9px 18px;
+    padding-bottom: 9.9px;
+}
+
+.btn.pr {
+    background-color: var(--primary-color);
+}
+
+.btn.pr.outline {
+    background-color: transparent;
+    border: 1px solid var(--primary-color)
+}
+
+.btn.sc {
+    background-color: transparent;
+    border: 1px solid var(--dark-border-color);
+}

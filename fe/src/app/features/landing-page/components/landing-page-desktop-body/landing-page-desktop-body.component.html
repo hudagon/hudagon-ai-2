@@ -1,0 +1,76 @@
+<div class="wrapper">
+    <section class="banner">
+        <app-overlay></app-overlay>
+
+        <div class="banner__left-side">
+            <div class="banner__left-side__container">
+                <div class="banner__left-side__container__sub_desc">
+                    Giá chỉ từ 150.000 VNĐ
+                </div>
+                <h1 class="banner__left-side__container__title">
+                    Hudagon
+                </h1>
+                <p class="banner__left-side__container__desc">
+                    Nền tảng bán tranh AI đầu tiên tại Việt Nam
+                </p>
+                <a class="btn landing-page-clickbate" routerLink="list">Mua
+                    ngay</a>
+            </div>
+        </div>
+
+        <div id="banner__right-side" class="banner__right-side">
+            <div id="banner__right-side__frame-container" class="banner__right-side__frame-container">
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-11'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-34'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-169'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-43'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-916'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-43'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-11'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-916'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-34'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-169'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-43'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-11'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-916'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-34'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-169'"></app-landing-page-frame>
+            </div>
+
+            <app-theme-bar (notifyToggleTheme)="handleToggleTheme()"
+                (notifyToggleResume)="handleToggleResume()"></app-theme-bar>
+        </div>
+    </section>
+
+    <section class="service">
+        <header class="service__header">
+            <ul class="service__header__list">
+                <li (click)="showServiceCategory('subject')"
+                    [ngClass]="{'activated' : currentServiceCategory == 'subject'}"
+                    class="hover-effect-yellow-bright service__header__list__item">
+                    Chủ thể
+                </li>
+                <li (click)="showServiceCategory('topic')" [ngClass]="{'activated' : currentServiceCategory == 'topic'}"
+                    class="hover-effect-yellow-bright service__header__list__item">
+                    Chủ đề
+                </li>
+                <li (click)="showServiceCategory('style')" [ngClass]="{'activated' : currentServiceCategory == 'style'}"
+                    class="hover-effect-yellow-bright service__header__list__item">
+                    Phong cách
+                </li>
+                <li (click)="showServiceCategory('color')" [ngClass]="{'activated' : currentServiceCategory == 'color'}"
+                    class="hover-effect-yellow-bright service__header__list__item">
+                    Màu
+                </li>
+            </ul>
+        </header>
+
+        <div class="service__body">
+            <app-landing-page-service-subject
+                style="display: contents" *ngIf="currentServiceCategory == 'subject'"></app-landing-page-service-subject>
+            <app-landing-page-service-topic style="display: contents" *ngIf="currentServiceCategory == 'topic'"></app-landing-page-service-topic>
+            <app-landing-page-service-style style="display: contents" *ngIf="currentServiceCategory == 'style'"></app-landing-page-service-style>
+            <app-landing-page-service-color style="display: contents" *ngIf="currentServiceCategory == 'color'"></app-landing-page-service-color>
+        </div>
+    </section>
+</div>

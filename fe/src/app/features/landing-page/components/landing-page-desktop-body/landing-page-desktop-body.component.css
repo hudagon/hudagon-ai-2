@@ -1,0 +1,182 @@
+.wrapper {
+    width: 100%;
+    padding: 0 39px;
+    padding-bottom: 1.2svh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: calc(100svh - var(--top-info-height) - var(--header-height) - 2.4svh);
+    gap: 18px;
+}
+
+.banner {
+    display: flex;
+    height: var(--banner-height);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 90px;
+    border: 1px solid var(--dark-border-color);
+    border-radius: var(--border-radius-2);
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2");
+}
+
+.banner__left-side {
+    height: 100%;
+    position: relative;
+    font-family: var(--font-secondary);
+    padding: 21px 42px;
+    width: 30%;
+    z-index: 2;
+}
+
+.banner__left-side__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: -15px;
+}
+
+.banner__left-side__container__sub_desc {
+    color: var(--secondary-color);
+    font-size: var(--fs-larger-1);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.banner__left-side__container__title {
+    font-size: var(--fs-main-title);
+    white-space: nowrap;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    margin-top: -12px;
+}
+
+.banner__left-side__container__desc {
+    font-size: var(--fs-larger-1);
+    white-space: nowrap;
+}
+
+.landing-page-clickbate {
+    position: relative;
+    padding: 9px 18px;
+    width: 210px;
+    margin-top: 18px;
+    color: var(--dark-text-color);
+    font-size: var(--fs-larger-1);
+    background: linear-gradient(90deg, #3e008a, #3c0084, #7300ff, #3e008a);
+    background-size: 400%;
+    border-radius: 30px;
+    z-index: 1;
+    line-height: 1.2;
+    animation: landing-page-clickbate-banner-animate 36s linear infinite reverse;
+}
+
+.landing-page-clickbate:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: -1;
+    background: linear-gradient(90deg, #3e008a, #6e6122, #6a2e87, #3e008a);
+    background-size: 180%;
+    border-radius: 40px;
+    filter: blur(9px);
+    opacity: 0.3;
+    transition: 0.5s;
+}
+
+.landing-page-clickbate:hover:before {
+    opacity: 1;
+    animation: landing-page-clickbate-banner-animate 18s linear infinite reverse;
+}
+
+.banner__right-side {
+    height: 100%;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    width: 70%;
+    z-index: 4;
+    background-color: rgb(226, 226, 226);
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.banner__right-side.dark-mode {
+    background-color: #151515;
+}
+
+.banner__right-side__frame-container {
+    padding: 30px 0;
+    animation: landing-page-banner-right-side-bannermove 300s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    height: 90%;
+    width: 100%;
+}
+
+.banner__right-side__frame-container > * {
+    display: contents;
+}
+
+.banner__right-side__frame-container.no-animation {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.service {
+    padding: 15px 18px;
+    width: 100%;
+    height: var(--service-height);
+    border: 1px solid var(--dark-border-color);
+    border-radius: var(--border-radius-2);
+    display: flex;
+    flex-direction: column;
+}
+
+.service__header {
+    width: 100%;
+    padding-bottom: 9px;
+}
+
+.service__header__list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.service__header__list__item {
+    padding-bottom: 6px;
+    transition: 0.3s ease-in-out;
+}
+
+.service__header__list__item.activated {
+    border-bottom: 1px solid var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.service__body {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.service__body .row>* {
+    display: contents;
+}

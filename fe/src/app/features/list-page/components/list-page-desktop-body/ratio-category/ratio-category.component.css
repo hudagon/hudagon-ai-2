@@ -1,0 +1,60 @@
+.wrapper {
+    position: absolute;
+    padding: 12px;
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 0;
+}
+
+.portrait-group, .landscape-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.portrait-group {
+    width: 36%;
+}
+
+.landscape-group {
+    flex: 1;
+}
+
+.portrait-group__content, .landscape-group__content {
+    border: 1px solid var(--dark-level2-border-color);
+    border-radius: var(--border-radius-1);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.portrait-group__content input, .landscape-group__content input {
+    position: absolute;
+    top: 11px;
+    left: 9px;
+}
+
+.ar-11 {
+    aspect-ratio: 1/1;
+}
+
+.ar-34 {
+    aspect-ratio: 3/4;
+}
+
+.ar-916 {
+    aspect-ratio: 9/16;
+}
+
+.ar-169 {
+    aspect-ratio: 16/9;
+}
+
+.ar-43 {
+    aspect-ratio: 4/3;
+}

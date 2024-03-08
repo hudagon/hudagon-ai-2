@@ -1,0 +1,94 @@
+<div class="wrapper">
+    <section class="banner">
+        <div class="banner__inside">
+            <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt="banner-mobile-image" class="banner__inside__img">
+            <app-overlay [z_index]="'2'"></app-overlay>
+            <div class="banner__inside__left-side">
+                <h1 class="banner__inside__left-side__title">
+                    Hudagon
+                </h1>
+            </div>
+            <div class="banner__inside__right-side">
+                <div class="banner__inside__right-side__top">
+                    <div
+                        class="banner__inside__right-side__top__desc">
+                        Nền tảng tranh AI đầu tiên tại Việt Nam
+                    </div>
+                </div>
+                <div class="banner__inside__right-side__slash"></div>
+                <div class="banner__inside__right-side__bottom">
+                    <div
+                        class="banner__inside__right-side__bottom__sub-desc">
+                        Chỉ từ 150.000 VNĐ
+                    </div>
+                    <a routerLink="/list" class="btn landing-page-clickbate">Mua ngay!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div id="gallery__inside" class="gallery__inside">
+            <div id="gallery__inside__frame-container" class="gallery__inside__frame-container">
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-11'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-34'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-169'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-43'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-916'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-43'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-11'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-916'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-34'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-169'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-43'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-11'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-916'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-34'"></app-landing-page-frame>
+                <app-landing-page-frame [imgUrl]="'huhuhu'" [aspectRatio]="'ar-169'"></app-landing-page-frame>
+            </div>
+
+            <app-theme-bar (notifyToggleTheme)="handleToggleTheme()"
+            (notifyToggleResume)="handleToggleResume()"></app-theme-bar>
+        </div>
+    </section>
+
+    <section class="service">
+        <div class="service__inside">
+            <header class="service__inside__header">
+                <ul class="service__inside__header__list">
+                    <li (click)="showServiceCategory('subject')"
+                        [ngClass]="{'activated' : currentServiceCategory == 'subject'}"
+                        class="activated service__inside__header__list_item">
+                        Chủ thể
+                    </li>
+                    <li (click)="showServiceCategory('topic')"
+                        [ngClass]="{'activated' : currentServiceCategory == 'topic'}"
+                        class="service__inside__header__list_item">
+                        Chủ đề
+                    </li>
+                    <li (click)="showServiceCategory('style')"
+                        [ngClass]="{'activated' : currentServiceCategory == 'style'}"
+                        class="service__inside__header__list_item">
+                        Phong cách
+                    </li>
+                    <li (click)="showServiceCategory('color')"
+                        [ngClass]="{'activated' : currentServiceCategory == 'color'}"
+                        class="service__inside__header__list_item">
+                        Màu
+                    </li>
+                </ul>
+            </header>
+
+            <div class="service__inside__body">
+                <app-landing-page-service-subject style="display: contents;"
+                    *ngIf="currentServiceCategory == 'subject'"></app-landing-page-service-subject>
+                <app-landing-page-service-topic style="display: contents;"
+                    *ngIf="currentServiceCategory == 'topic'"></app-landing-page-service-topic>
+                <app-landing-page-service-style style="display: contents;"
+                    *ngIf="currentServiceCategory == 'style'"></app-landing-page-service-style>
+                <app-landing-page-service-color style="display: contents;"
+                    *ngIf="currentServiceCategory == 'color'"></app-landing-page-service-color>
+            </div>
+        </div>
+    </section>
+</div>

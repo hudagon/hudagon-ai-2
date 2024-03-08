@@ -1,0 +1,87 @@
+<div class="wrapper">
+    <div class="left-side">
+        <section class="left-side__banner">
+            <div class="left-side__banner__inside">
+                <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                    alt="banner-image" class="left-side__banner__inside__img">
+                <app-overlay [z_index]="'3'" style="display: contents"></app-overlay>
+
+                <div class="left-side__banner__inside__container">
+                    <h1 class="left-side__banner__inside__container__title">
+                        Hudagon
+                    </h1>
+                    <p class="left-side__banner__inside__container__desc">
+                        Nền tảng bán tranh AI đầu tiên tại Việt Nam
+                    </p>
+                    <div class="left-side__banner__inside__container__sub_desc">
+                        Giá chỉ từ 150.000 VNĐ
+                    </div>
+                    <a class="btn landing-page-clickbate" href="../list-page/list-page.html">Mua
+                        ngay</a>
+                </div>
+            </div>
+        </section>
+        <section class="left-side__service">
+            <div class="left-side__service__inside">
+                <header class="left-side__service__inside__header">
+                    <ul class="left-side__service__inside__header__list">
+                        <li (click)="showServiceCategory('subject')"
+                            [ngClass]="{'activated' : currentServiceCategory == 'subject'}"
+                            class="activated left-side__service__inside__header__list_item">
+                            Chủ thể
+                        </li>
+                        <li (click)="showServiceCategory('topic')"
+                            [ngClass]="{'activated' : currentServiceCategory == 'topic'}"
+                            class="left-side__service__inside__header__list_item">
+                            Chủ đề
+                        </li>
+                        <li (click)="showServiceCategory('style')"
+                            [ngClass]="{'activated' : currentServiceCategory == 'style'}"
+                            class="left-side__service__inside__header__list_item">
+                            Phong cách
+                        </li>
+                        <li (click)="showServiceCategory('color')"
+                            [ngClass]="{'activated' : currentServiceCategory == 'color'}"
+                            class="left-side__service__inside__header__list_item">
+                            Màu
+                        </li>
+                    </ul>
+                </header>
+
+                <div class="left-side__service__inside__body">
+                    <app-landing-page-service-subject style="display: contents;"
+                        *ngIf="currentServiceCategory == 'subject'"></app-landing-page-service-subject>
+                    <app-landing-page-service-topic style="display: contents;"
+                        *ngIf="currentServiceCategory == 'topic'"></app-landing-page-service-topic>
+                    <app-landing-page-service-style style="display: contents;"
+                        *ngIf="currentServiceCategory == 'style'"></app-landing-page-service-style>
+                    <app-landing-page-service-color style="display: contents;"
+                        *ngIf="currentServiceCategory == 'color'"></app-landing-page-service-color>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="right-side">
+        <div id="right-side__inside" class="right-side__inside">
+            <div id="right-side__inside__frame-containter" class="right-side__inside__frame-containter">
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-11'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-34'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-169'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-43'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-916'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-43'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-11'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-916'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-34'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-169'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-43'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-11'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-916'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-34'"></app-landing-page-frame>
+                <app-landing-page-frame style="display: contents;" [imgUrl]="'huhuhu'" [aspectRatio]="'ar-169'"></app-landing-page-frame>
+            </div>
+        </div>
+        <app-theme-bar (notifyToggleTheme)="handleToggleTheme()"
+        (notifyToggleResume)="notifyToggleResume()"></app-theme-bar>
+    </div>
+</div>

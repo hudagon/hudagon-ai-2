@@ -1,0 +1,256 @@
+<div class="right-side__inside">
+    <header class="right-side__inside__header">
+        <div class="right-side__inside__header__search-group">
+            <input (keyup.enter)="search()" [(ngModel)]="searchInput" id="searchInput" tabindex="1" type="text" placeholder="Tìm tranh..."
+                class="round right-side__inside__header__search-group__search-bar">
+            <i tabindex="2" *ngIf="searchInput.length !== 0" (click)="resetInput()" (keyup.enter)="resetInput()" class="hover-effect-yellow-bright fa-solid fa-xmark"></i>
+            <i (keyup.enter)="search()" tabindex="3"
+                class="hover-effect-yellow-bright fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div class="right-side__inside__header__user-group">
+            <div (mouseover)="loadDesktopCartDropDown()" class="right-side__inside__header__user-group__cart-group">
+                <i class="hover-effect-yellow-bright fa-solid fa-cart-shopping"></i>
+                <span class="right-side__inside__header__user-group__cart-group__amount">
+                    0
+                </span>
+
+                <div id="cart_dropdown" class="right-side__inside__header__user-group__cart-group__dropdown">
+                    <ng-template #desktopCartDropDown></ng-template>
+                </div>
+            </div>
+
+            <div (click)="toggleLoginModal()" *ngIf="!isLogged()"
+                class="right-side__inside__header__user-group__login-group">
+                <i class="hover-effect-yellow-bright fa-solid fa-arrow-right-to-bracket"></i>
+            </div>
+
+            <app-user-panel [page]="'list'" *ngIf="isLogged()"></app-user-panel>
+        </div>
+    </header>
+
+    <section id="right-side-body" (scroll)="checkScroll()" class="right-side__inside__body">
+        <div class="right-side__inside__body__search-utilities">
+            <div class="right-side__inside__body__search-utilities__summary">
+                <ul class="right-side__inside__body__search-utilities__summary__category-tag-group">
+                    <span class="right-side__inside__body__search-utilities__summary__results-count">
+                        <span>12345</span> kết quả cho
+                    </span>
+                    <li
+                        class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
+                        <app-category-tag [categoryTagName]="'&quot;Con mèo mà trèo cây cau...&quot;'"
+                            style="display: contents"></app-category-tag>
+                    </li>
+                    <li
+                        class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
+                        <app-category-tag [categoryTagName]="'Con người'" style="display: contents"></app-category-tag>
+                    </li>
+                    <li
+                        class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
+                        <app-category-tag [categoryTagName]="'Phong cảnh'" style="display: contents"></app-category-tag>
+                    </li>
+                    <li
+                        class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
+                        <app-category-tag [categoryTagName]="'Phong cảnh'" style="display: contents"></app-category-tag>
+                    </li>
+                    <li
+                        class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
+                        <app-category-tag [categoryTagName]="'Phong cảnh'" style="display: contents"></app-category-tag>
+                    </li>
+                    <li
+                        class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
+                        <app-category-tag [categoryTagName]="'Phong cảnh'" style="display: contents"></app-category-tag>
+                    </li>
+                    <button class="hover-effect-yellow-bright btn right-side__inside__body__utilities__reset">
+                        <i class="fa-solid fa-rotate"></i> Đặt lại
+                    </button>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right-side__inside__body__gallery">
+            <div class="right-side__inside__body__gallery__utilities">
+                <div class="right-side__inside__body__search-utilities__sort">
+                    <div tabindex="0" (blur)="toggleSortOptionBlur()" (click)="toggleSortOptions()"
+                        class="right-side__inside__body__search-utilities__sort__select select">
+                        <span
+                            class="hover-effect-silver-border right-side__inside__body__search-utilities__sort__select__span">
+                            {{ sortOption }}
+                        </span>
+                        <div
+                            class="hover-effect-silver-border right-side__inside__body__search-utilities__sort__select__icon icon">
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+
+                        <ul *ngIf="isSortOptionShow"
+                            class="right-side__inside__body__search-utilities__sort__select__option-group options">
+                            <li (click)="chooseSortOption('Mặc định')"
+                                class="hover-effect-yellow-bright right-side__inside__body__search-utilities__sort__select__option-group__item">
+                                Mặc định
+                            </li>
+                            <li (click)="chooseSortOption('Ngẫu nhiên')"
+                                class="hover-effect-yellow-bright right-side__inside__body__search-utilities__sort__select__option-group__item">
+                                Ngẫu nhiên
+                                <i class="fa-solid fa-shuffle"></i>
+                            </li>
+                            <li (click)="chooseSortOption('Mới nhất')"
+                                class="hover-effect-yellow-bright right-side__inside__body__search-utilities__sort__select__option-group__item">
+                                Mới nhất
+                                <i class="fa-regular fa-clock"></i>
+                            </li>
+                            <li (click)="chooseSortOption('Xem nhiều nhất')"
+                                class="hover-effect-yellow-bright right-side__inside__body__search-utilities__sort__select__option-group__item">
+                                Xem nhiều nhất
+                                <i class="fa-regular fa-eye"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side__inside__body__gallery__exhibition">
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+                <div class="right-side__inside__body__gallery__exhibition__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
+                    class="right-side__inside__body__gallery__exhibition__item__img">
+                </div>
+            </div>
+
+            <div id="scroll-to-top" (click)="scrollToTop()" class="hover-effect-yellow-bright right-side__inside__body__gallery__scroll-to-top">
+                <i class="fa-solid fa-angle-up"></i>
+            </div>
+        </div>
+    </section>
+
+    <aside [ngClass]="{ 'activated' : isCategoryContentShow }" class="right-side__inside__category">
+        <div class="right-side__inside__category__header">
+            <span class="right-side__inside__category__header__tittle">
+                {{ displayedCategoryTitle }}
+            </span>
+
+            <i (click)="turnOffCategoryContent('returnCss')" class="hover-effect-yellow-bright fa-solid fa-xmark"></i>
+        </div>
+
+        <div class="right-side__inside__category__body">
+            <app-subject-category style="display: contents" *ngIf="displayedCategory == 'subject'" ></app-subject-category>
+            <app-style-category style="display: contents" *ngIf="displayedCategory == 'style'" ></app-style-category>
+            <app-topic-category style="display: contents" *ngIf="displayedCategory == 'topic'" ></app-topic-category>
+            <app-ratio-category style="display: contents" *ngIf="displayedCategory == 'ratio'" ></app-ratio-category>
+            <app-color-category style="display: contents" *ngIf="displayedCategory == 'color'" ></app-color-category>
+        </div>
+    </aside>
+</div>

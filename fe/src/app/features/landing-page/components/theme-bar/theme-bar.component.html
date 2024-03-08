@@ -1,0 +1,15 @@
+<div class="landing-page__theme-bar__wrapper">
+    <div (click)="toggleResume()" [ngClass]="{'dark-mode' : isDarkMode}" class="landing-page__theme-bar__wrapper__pause-group">
+        <i *ngIf="isRunning" class="fa-solid fa-pause" ></i>
+        <i *ngIf="!isRunning" class="fa-solid fa-play" ></i>
+    </div>
+
+    <div class="landing-page__theme-bar__wrapper__switch-theme-group">
+        <input id="checkbox-landing-page-theme-change" type="checkbox" class="landing-page__theme-bar__wrapper__switch-theme-group__checkbox" >
+        <label (click)="toggleTheme()" [ngClass]="{'dark-mode' : isDarkMode}" for="checkbox-landing-page-theme-change" class="landing-page__theme-bar__wrapper__switch-theme-group__checkbox-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <span [ngClass]="{'dark-mode' : isDarkMode}" class="landing-page__theme-bar__wrapper__switch-theme-group__ball"></span>
+        </label>
+    </div>
+</div>

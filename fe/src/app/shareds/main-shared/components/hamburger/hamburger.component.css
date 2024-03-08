@@ -1,0 +1,30 @@
+.wrapper {
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    gap: 3px;
+    cursor: pointer;
+    margin-top: 1px;
+}
+
+.bar {
+    height: 2px;
+    width: 21px;
+    display: block;
+    background-color: var(--dark-text-color);
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.toggle#bar1 {
+    transform: translateY(4px) rotateZ(-45deg);
+}
+
+.toggle#bar2 {
+    opacity: 0;
+}
+
+.toggle#bar3 {
+    transform: translateY(-6px) rotateZ(45deg);
+}

@@ -1,0 +1,24 @@
+.wrapper {
+    width: 100vw;
+    height: 100svh;
+    padding: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-side, .right-side {
+    padding: 4.5px;
+}
+
+.left-side {
+    width: 15%;
+    min-width: 291px;
+    height: 100%;
+}
+
+.right-side {
+    width: 85%;
+    height: 100%;
+}
+
+

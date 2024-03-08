@@ -1,0 +1,52 @@
+.login-modal-container__right-side__body__choice {
+    width: 100%;
+    border: 1px solid var(--dark-border-color);
+    border-radius: var(--border-radius-1);
+    display: flex;
+    align-items: center;
+}
+
+.login-modal-container__right-side__body__choice__text {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-modal-container__right-side__body__choice__icon-group {
+    padding: 12px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    border-right: 1px solid var(--dark-border-color);
+}
+
+.login-modal-container__right-side__body__choice__icon-group.google i {
+    color: var(--google-color);
+}
+
+.wrapper__containter__login {
+    border: 1px solid var(--dark-border-color);
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    border-radius: var(--border-radius-2);
+    overflow: hidden;
+}
+
+.wrapper__containter__login__text {
+    padding: 12px;
+}
+
+.wrapper__containter__login i {
+    border-right: 1px solid var(--dark-border-color);
+    width: 45px;
+    height: 100%;
+    background-color: var(--google-color);
+    color: var(--dark-text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

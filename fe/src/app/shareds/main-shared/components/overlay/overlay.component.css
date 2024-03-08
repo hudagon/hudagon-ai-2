@@ -1,0 +1,7 @@
+.overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--overlay-color);
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+}

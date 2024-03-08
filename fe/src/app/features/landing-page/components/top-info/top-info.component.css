@@ -1,0 +1,118 @@
+.top-info {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--dark-panel-color);
+    padding: 9px 15px;
+    border-bottom: 1px solid var(--light-border-color);
+    width: 100%;
+    min-height: 39px;
+    height: var(--top-info-height);
+}
+
+.top-info__term-and-policies {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.top-info__term-and-policies i {
+    font-size: var(--fs-less-3);
+    color: var(--primary-color);
+}
+
+.top-info__term-and-policies__text {
+    font-size: var(--fs-less-1);
+}
+
+
+.top-info>* {
+    flex: 1;
+}
+
+.top-info__social-media-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: var(--fs-less-1);
+}
+
+.top-info__contact-list {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.top-info__contact-list__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--fs-less-1);
+    gap: 3px;
+    height: 21px;
+    position: relative;
+}
+
+.top-info__contact-list__item__text {
+    height: 100%;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+    line-height: 8.1;
+}
+
+.top-info__hamburger-bar-group {
+    align-items: end;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3px;
+    display: none;
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+.top-info__hamburger-bar-group.mobile {
+    display: none;
+}
+
+.top-info__hamburger-bar-group__bar {
+    height: 2px;
+    width: 21px;
+    display: block;
+    background-color: var(--dark-text-color);
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.hamburger-toggle #bar1 {
+    transform: translateY(4px) rotateZ(-45deg);
+}
+
+.hamburger-toggle #bar2 {
+    opacity: 0;
+}
+
+.hamburger-toggle #bar3 {
+    transform: translateY(-6px) rotateZ(45deg);
+}
+
+.hamburger-toggle #bar1-mobile {
+    transform: translateY(4px) rotateZ(-45deg);
+}
+
+.hamburger-toggle #bar2-mobile {
+    opacity: 0;
+}
+
+.hamburger-toggle #bar3-mobile {
+    transform: translateY(-6px) rotateZ(45deg);
+}
+
+/* Below small screen [TABLET] */
+@media (max-width: 1023px) {
+    .top-info {
+        padding: 9px 18px;
+        flex-direction: row-reverse;
+    }
+} 

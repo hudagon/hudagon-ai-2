@@ -1,0 +1,18 @@
+<header class="landing-page-header">
+    <span *ngIf="(getViewportWidth() <= getBreakpointValues('TABLET')!)" class="landing-page-header__slash"></span>
+
+    <div class="landing-page-header__logo">
+        LOGO
+    </div>
+
+    <span *ngIf="(getViewportWidth() <= getBreakpointValues('TABLET')!)" class="landing-page-header__slash"></span>
+
+    <div *ngIf="!isLogged() && (getViewportWidth() > getBreakpointValues('TABLET')!)"  class="landing-page-header__button-group">
+        <button (click)="toggleLoginModal()" type="button" class="hover-effect-yellow-bright btn pr outline">
+            Đăng nhập
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </button>
+    </div>    
+
+    <app-user-panel style="display: contents" *ngIf="isLogged() && (getViewportWidth() > getBreakpointValues('TABLET')!)"></app-user-panel>
+</header>

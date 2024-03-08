@@ -1,0 +1,15 @@
+<div *ngIf="template == 'LOGIN_MODAL'" (click)="handleGoogleLogin()" class="hover-effect-silver-border login-modal-container__right-side__body__choice">
+    <div class="login-modal-container__right-side__body__choice__icon-group google">
+        <i class="fa-brands fa-google"></i>
+    </div>
+    <p class="login-modal-container__right-side__body__choice__text">
+        Thông qua Google
+    </p>
+</div>
+
+<section class="wrapper__containter__login" *ngIf="template == 'LOGIN_TABLET'" (click)="handleGoogleLogin()">
+    <i class="fa-brands fa-google"></i>
+    <span class="wrapper__containter__login__text">
+        Đăng nhập với Google
+    </span>
+</section>

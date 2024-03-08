@@ -1,0 +1,91 @@
+.landing-page__theme-bar__wrapper {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+    min-width: 15px;
+    min-height: 15px;
+}
+
+.landing-page__theme-bar__wrapper__pause-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-color);
+    cursor: pointer;
+    padding: 4px;
+    width: 30px;
+    border-radius: 6px;
+}
+
+.landing-page__theme-bar__wrapper__pause-group.dark-mode {
+    color: #5400bb;
+}
+
+.landing-page__theme-bar__wrapper__switch-theme-group__checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.landing-page__theme-bar__wrapper__switch-theme-group__checkbox-label {
+    width: 51px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--light-border-color);
+    background-color: #dfdfdf;
+}
+
+.landing-page__theme-bar__wrapper__switch-theme-group__checkbox-label.dark-mode {
+    border-color: var(--dark-border-color);
+    background-color: black;
+}
+
+.fa-moon {
+    color: #5400bb;
+    font-size: 14px;
+}
+
+.fa-sun {
+    color: var(--secondary-color);
+    font-size: 13px;
+    margin-right: 2px;
+}
+
+.landing-page__theme-bar__wrapper__switch-theme-group__ball {
+    width: 18px;
+    aspect-ratio: 1/1;
+    position: absolute;
+    top: 3px;
+    left: 7%;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+    background-color: whitesmoke;
+    border: 1px solid var(--light-border-color);
+}
+
+.landing-page__theme-bar__wrapper__switch-theme-group__checkbox:checked+.landing-page__theme-bar__wrapper__switch-theme-group__checkbox-label .landing-page__theme-bar__wrapper__switch-theme-group__ball {
+    transform: translateX(125%);
+}
+
+.landing-page__theme-bar__wrapper__switch-theme-group__ball.dark-mode {
+    background-color: black;
+    border-color: var(--dark-border-color);
+}
+
+/* Below small screen [TABLET] */
+@media (max-width: 1023px) {
+    .landing-page__theme-bar__wrapper {
+        bottom: 9px;
+        right: 9px;
+    }
+}
+
