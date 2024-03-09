@@ -53,7 +53,7 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
       const addSuccessFully = this.listPageMainService.updateCurrentSearchCategoryTag(category);
       if (!addSuccessFully) {
         $event.target.checked = false;
-        this.notifyToastCall.emit({ type: "warning", title: "Giới hạn tìm kiếm", desc:"Chỉ có thể tìm kiếm tối đa theo 6 tiêu chí" });
+        this.notifyToastCall.emit({ type: "warning", title: "Giới hạn tìm kiếm", desc:"Chỉ có thể tìm kiếm tối đa theo 5 thẻ" });
       }
     }
   }

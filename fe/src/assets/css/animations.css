@@ -5,6 +5,16 @@
     }
 }
 
+@keyframes displayOpacity {
+    from {
+        transform: scale(0.96);
+        opacity: 0;
+    } to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 @keyframes gradient-text-animation {
     from {
         background-position: 0 50%;

@@ -32,6 +32,7 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
   displayedCategory: string = "";
   displayedCategoryTitle: string = "";
   isCategoryContentShow: boolean = false;
+  isPreviewModalShow: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -49,6 +50,11 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+  }
+
+  togglePreviewModal() {
+    console.log("vô 3");
+    this.isPreviewModalShow = !this.isPreviewModalShow;
   }
 
   handleToastCall($event: any) {

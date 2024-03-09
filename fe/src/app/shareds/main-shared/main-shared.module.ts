@@ -5,6 +5,7 @@ import { HamburgerComponent } from './components/hamburger/hamburger.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CategoryTagComponent } from './components/category-tag/category-tag.component';
 import { ToastComponent } from './components/toast/toast.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { ToastComponent } from './components/toast/toast.component';
     HamburgerComponent,
     SpinnerComponent,
     CategoryTagComponent,
-    ToastComponent
+    ToastComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule
@@ -22,7 +24,8 @@ import { ToastComponent } from './components/toast/toast.component';
     HamburgerComponent, 
     SpinnerComponent,
     CategoryTagComponent,
-    ToastComponent
+    ToastComponent,
+    ModalComponent
   ]
 })
 export class MainSharedModule { }

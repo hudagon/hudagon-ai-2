@@ -68,6 +68,16 @@ body {
     border-radius: 3px;
 }
 
+::-moz-selection { 
+    color: var(--light-text-color);
+    background: var(--secondary-color-lighter);
+  }
+  
+  ::selection {
+    color: var(--light-text-color);
+    background: var(--secondary-color-lighter);
+  }
+
 .fw {
     height: inherit;
     overflow-x: hidden;

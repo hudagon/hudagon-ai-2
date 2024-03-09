@@ -12,6 +12,10 @@
     padding-bottom: 9.9px;
 }
 
+.btn.outline {
+    border: 1px solid var(--dark-border-color)
+}
+
 .btn.pr {
     background-color: var(--primary-color);
 }
@@ -19,6 +23,11 @@
 .btn.pr.outline {
     background-color: transparent;
     border: 1px solid var(--primary-color)
+}
+
+.btn.cts {
+    width: 100%;
+    height: 100%;
 }
 
 .btn.sc {
