@@ -1,129 +1,21 @@
 <div class="wrapper">
-    <div class="wrapper__accordion-group">
-        <div class="wrapper__accordion">
-            <input type="checkbox" [checked]="isCategoryTagSelected({ id: 1, name: 'Con người' })" 
-            (click)="toggleToFilter($event, { id: 1, name: 'Con người' })">
-            <span (click)="addToPreview({ id: 1, name: 'Con người' })" class="hover-effect-yellow-bright">Con người</span>
+    <div *ngFor="let x of categoryListPageSubjectLevel2" class="wrapper__accordion-group">
+        <div class="wrapper__accordion" id="level2{{x.id}}">
+            <span class="hover-effect-yellow-bright">{{ x.name }}</span>
             <i class="wrapper__accordion__icon hover-effect-yellow-bright fa-solid fa-chevron-down"></i>
         </div>
         <div class="wrapper__panel">
             <div class="wrapper__panel__wrapper">
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Cá nhân</span>
+                <div [ngClass]="{ 'activated': isCategoryTagSelected({id: 0, name: 'Tất cả' + ' - ' + x.name}) }"
+                (click)="toggleToFilter($event ,{ id: 0, name: 'Tất cả' + ' - ' + x.name })" class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
+                    <span class="wrapper__panel__wrapper__tag-filter__content">Tất cả</span>
                 </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Cặp đôi</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Châu Phi</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Châu Âu</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Châu Á</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Tuổi đôi mươi</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Trưởng thành</span>
+                <div *ngFor="let y of categoryListPageSubjectLevel3" [ngClass]="{ 'activated': isCategoryTagSelected({id: y.id, name: y.name}) }" 
+                (click)="toggleToFilter($event ,{ id: y.id, name: y.name })" 
+                class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
+                    <span class="wrapper__panel__wrapper__tag-filter__content">{{ y.name }}</span>
                 </div>
             </div>
         </div>
     </div>
-    <div class="wrapper__accordion-group">
-        <div class="wrapper__accordion">
-            <input type="checkbox" [checked]="isCategoryTagSelected({ id: 2, name: 'Phong cảnh' })"
-            (click)="toggleToFilter($event, { id: 2, name: 'Phong cảnh' })">
-            <span (click)="addToPreview({ id: 2, name: 'Phong cảnh' })" class="hover-effect-yellow-bright">Phong cảnh</span>
-            <i class="wrapper__accordion__icon hover-effect-yellow-bright fa-solid fa-chevron-down"></i>
-        </div>
-        <div class="wrapper__panel">
-            <div class="wrapper__panel__wrapper">
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input [checked]="isCategoryTagSelected({ id: 4, name: 'Cá nhân' })"
-                    (click)="toggleToFilter($event, { id: 4, name: 'Cá nhân' })" type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Cá nhân</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input [checked]="isCategoryTagSelected({ id: 5, name: 'Cặp đôi' })"
-                    (click)="toggleToFilter($event, { id: 5, name: 'Cặp đôi' })" type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Cặp đôi</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input [checked]="isCategoryTagSelected({ id: 6, name: 'Châu Phi' })"
-                    (click)="toggleToFilter($event, { id: 6, name: 'Châu Phi' })" type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Châu Phi</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Châu Âu</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Châu Á</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Tuổi đôi mươi</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Trưởng thành</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="wrapper__accordion-group">
-        <div class="wrapper__accordion">
-            <input type="checkbox" [checked]="isCategoryTagSelected({ id: 3, name: 'Động vật' })"
-            (click)="toggleToFilter($event, { id: 3, name: 'Động vật' })">
-            <span (click)="addToPreview({ id: 3, name: 'Động vật' })" class="hover-effect-yellow-bright">Động vật</span>
-            <i class="wrapper__accordion__icon hover-effect-yellow-bright fa-solid fa-chevron-down"></i>
-        </div>
-        <div class="wrapper__panel">
-            <div class="wrapper__panel__wrapper">
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Cá nhân</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Cặp đôi</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Châu Phi</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Châu Âu</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Châu Á</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Tuổi đôi mươi</span>
-                </div>
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
-                    <input type="checkbox">
-                    <span class="wrapper__panel__wrapper__tag-filter__content">Trưởng thành</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- <div *ngIf="!isViewLoaded" class="father-wrapper">
-        <app-spinner [spinnerSize]="'md'"></app-spinner>
-    </div> -->
 </div>

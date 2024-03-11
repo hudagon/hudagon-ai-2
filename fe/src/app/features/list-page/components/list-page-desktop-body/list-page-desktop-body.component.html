@@ -49,9 +49,6 @@
                     <button (click)="resetSearchSortInfo()" *ngIf="getCurrentSearchCategoryTag().length != 0" type="button" class="hover-effect-yellow-bright btn right-side__inside__body__utilities__reset">
                         <i class="fa-solid fa-rotate"></i> Đặt lại
                     </button>
-                    <button *ngIf="getCurrentSearchCategoryTag().length != 0" type="button" class="hover-effect-yellow-bright btn right-side__inside__body__utilities__reset">
-                        <i class="fa-solid fa-magnifying-glass"></i> Áp dụng
-                    </button>
                 </ul>
             </div>
         </div>
@@ -95,14 +92,6 @@
                     </div>
                 </div>
 
-                <div *ngIf="getPreviewCategory()" class="right-side__inside__body__gallery__utilities__preview">
-                    <span class="right-side__inside__body__gallery__utilities__preview__text">
-                        Đang xem trước
-                    </span>
-                    <div (click)="removePreviewCategory()" class="hover-effect-danger right-side__inside__body__gallery__utilities__preview__category-tag-group">
-                        <app-category-tag [categoryTagName]="getPreviewCategory()?.name" style="display: contents"></app-category-tag>
-                    </div>
-                </div>
             </div>
             <div class="right-side__inside__body__gallery__exhibition">
                 <div class="right-side__inside__body__gallery__exhibition__item">

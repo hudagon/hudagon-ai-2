@@ -76,14 +76,6 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
     }
   }
 
-  removePreviewCategory() {
-    this.listPageMainService.previewCategory = null;
-  }
-
-  getPreviewCategory() {
-    return this.listPageMainService.previewCategory;
-  }
-
   getCurrentSearchCategoryTag() {
     return this.listPageMainService.currentSearchCategoryTag;
   }

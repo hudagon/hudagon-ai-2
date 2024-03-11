@@ -19,10 +19,10 @@ export class UserPanelComponent {
   }
 
   getUserFullName() {
-    return this.authService.getUserFullName();
+    return this.authService.userFullName;
   }
 
   getUserAvatar() {
-    return this.authService.getUserAvatar();
+    return this.authService.userAvatar;
   }
 }

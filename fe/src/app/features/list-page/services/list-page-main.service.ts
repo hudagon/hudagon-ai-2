@@ -5,14 +5,9 @@ import { CategoryTagListPage } from '../models/category-tag-list-page';
   providedIn: 'root'
 })
 export class ListPageMainService {
-  previewCategory: CategoryTagListPage | null = null;
   currentSearchCategoryTag: CategoryTagListPage[] = [];
   
   constructor() { }
-
-  updatePreviewCategory(category: CategoryTagListPage) {
-    this.previewCategory = category;
-  }
 
   updateCurrentSearchCategoryTag(category: CategoryTagListPage) {
     if (category.id == -2) {
