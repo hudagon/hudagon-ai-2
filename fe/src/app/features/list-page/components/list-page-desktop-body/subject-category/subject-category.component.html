@@ -6,26 +6,24 @@
         </div>
         <div class="wrapper__panel">
             <div class="wrapper__panel__wrapper">
-                <div [ngClass]="{ 'activated': isCategoryTagSelected({id: 0, name: 'Tất cả' + ' - ' + x.level2Name}) }"
-                    (click)="toggleToFilter($event ,{ id: 0, name: 'Tất cả' + ' - ' + x.level2Name })"
-                    class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
+                <div [ngClass]="{ 'activated': isCategoryTagSelected(0, x.level2Id) }"
+                    (click)="toggleToFilter($event ,{id: 0, name: 'Tất cả' + ' - ' + x.level2Name, level2Id: x.level2Id})"
+                    class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter all">
                     <span class="wrapper__panel__wrapper__tag-filter__content">Tất cả</span>
                 </div>
 
                 <div *ngFor="let y of x.level3List">
-                    <div *ngIf="y.id === 1; else otherCondition">
-                        <!-- Điều kiện đặc biệt khi y.id bằng 1 -->
-                        <div [ngClass]="{ 'activated': isCategoryTagSelected({id: y.id, name: y.name + ' - ' + x.level2Name}) }"
-                            (click)="toggleToFilter($event, {id: y.id, name: y.name + ' - ' + x.level2Name})"
+                    <div *ngIf="y.name == 'Khác'; else otherCondition">
+                        <div [ngClass]="{ 'activated': isCategoryTagSelected(y.id, x.level2Id) }"
+                            (click)="toggleToFilter($event, {id: y.id, name: x.level2Name + ' - ' + y.name, level2Id: x.level2Id})"
                             class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
                             <span class="wrapper__panel__wrapper__tag-filter__content">{{ y.name }}</span>
                         </div>
                     </div>
                     <ng-template #otherCondition>
-                        <!-- Điều kiện khác -->
-                        <div [ngClass]="{ 'activated': isCategoryTagSelected({id: y.id, name: y.name}) }"
-                            (click)="toggleToFilter($event, { id: y.id, name: y.name })"
-                            class="wrapper__panel__wrapper__tag-filter">
+                        <div [ngClass]="{ 'activated': isCategoryTagSelected(y.id, x.level2Id) }"
+                            (click)="toggleToFilter($event, {id: y.id, name: y.name, level2Id: x.level2Id})"
+                            class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
                             <span class="wrapper__panel__wrapper__tag-filter__content">{{ y.name }}</span>
                         </div>
                     </ng-template>

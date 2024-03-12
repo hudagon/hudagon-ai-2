@@ -9,11 +9,8 @@ import { CategoryTagListPage } from '../../../models/category-tag-list-page';
 })
 export class SubjectCategoryComponent implements OnInit, AfterViewInit {
   @Output() notifyToastCall = new EventEmitter();
-  categoryListPageSubjectLevel3: any[] = [];
-  categoryListPageSubjectLevel2: any[] = [];
-
   categorySubjectList: any[] = [];
-
+  currentLevel2Id: number = 0;
 
   isViewLoaded: boolean = true;
 
@@ -71,11 +68,6 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
         accordion.classList.toggle("toggle");
         const accordionsPanel = accordion.nextElementSibling as HTMLElement;
 
-        const allElement = accordionsPanel.getElementsByClassName("all");
-        if (allElement.length != 0) {
-          allElement[0].classList.toggle("activated");
-        }
-
         if (accordionsPanel) {
           accordionsPanel.classList.toggle("toggle");
           if (accordionsPanel.style.maxHeight) {
@@ -91,9 +83,20 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
       for (let i = 0; i < this.categorySubjectList.length; i++) {
         const level3List = this.categorySubjectList[i].level3List;
         for (let j = 0; j < level3List.length; j++) {
-          if (this.isCategoryTagSelected({ id: level3List[j].id, name: level3List[j].name })) {
+          if (this.isCategoryTagSelected(level3List[j].id, this.categorySubjectList[i].level2Id)) {
             document.getElementById("level2" + this.categorySubjectList[i].level2Id)?.click();
             break;
+          } else {
+          }
+        }
+      }
+
+      const allTags = document.getElementsByClassName("all");
+      for (let i = 0; i < allTags.length; i++) {
+        if (allTags[i].classList.contains("activated")) {
+          const displayTag = allTags[i].parentElement?.parentElement?.previousElementSibling as HTMLElement;
+          if (!displayTag?.classList.contains("toggle")) {
+            displayTag.click();
           }
         }
       }
@@ -106,10 +109,20 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
     if (index !== -1) {
       currentTags.splice(index, 1);
     } else {
+
+      if (category.id == 0 || category.name.includes("Khác")) {
+        this.listPageMainService.clearCurrentSearchCategoryTag(category.level2Id + "");
+      }
+
+      if (category.level2Id != this.currentLevel2Id) {
+        this.listPageMainService.clearCurrentSearchCategoryTag("except_search");
+      }
+
       const addSuccessFully = this.listPageMainService.updateCurrentSearchCategoryTag(category);
       if (!addSuccessFully) {
         this.notifyToastCall.emit({ type: "warning", title: "Giới hạn tìm kiếm", desc: "Chỉ có thể tìm kiếm tối đa theo 5 thẻ" });
       } else {
+        this.currentLevel2Id = category.level2Id;
         $event.currentTarget.classList.toggle('activated');
       }
     }
@@ -119,7 +132,7 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
     return this.listPageMainService.currentSearchCategoryTag;
   }
 
-  isCategoryTagSelected(categoryTag: CategoryTagListPage) {
-    return this.getCurrentSearchCategoryTag().some(tag => tag.id === categoryTag.id);
+  isCategoryTagSelected(categoryTagId: number, level2Id: number) {
+    return this.getCurrentSearchCategoryTag().some(tag => tag.id === categoryTagId && tag.level2Id === level2Id);
   }
 }

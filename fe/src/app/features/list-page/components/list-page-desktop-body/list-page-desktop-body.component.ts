@@ -161,7 +161,7 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
   }
 
   changeSearchInput() {
-    this.listPageMainService.updateCurrentSearchCategoryTag({ id: -2, name: '"' + this.searchInput + '"'});
+    this.listPageMainService.updateCurrentSearchCategoryTag({ id: -2, name: '"' + this.searchInput + '"', level2Id: -2});
   }
 
   loadDesktopCartDropDown() {

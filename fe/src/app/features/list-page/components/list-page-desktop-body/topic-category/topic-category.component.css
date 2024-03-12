@@ -51,6 +51,11 @@
     opacity: 0.81;
 }
 
+.wrapper__accordion.activated {
+    opacity: 0.81;
+    color: var(--secondary-color);
+}
+
 .wrapper__accordion i {
     transition: 0.21s ease-in-out;
 }

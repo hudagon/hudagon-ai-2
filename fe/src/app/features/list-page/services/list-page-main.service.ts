@@ -6,7 +6,7 @@ import { CategoryTagListPage } from '../models/category-tag-list-page';
 })
 export class ListPageMainService {
   currentSearchCategoryTag: CategoryTagListPage[] = [];
-  
+
   constructor() { }
 
   updateCurrentSearchCategoryTag(category: CategoryTagListPage) {
@@ -14,7 +14,7 @@ export class ListPageMainService {
       const existingSearchIndex = this.currentSearchCategoryTag.findIndex(t => t.id === -2);
       if (existingSearchIndex !== -1) {
         this.currentSearchCategoryTag.shift();
-      } 
+      }
       this.currentSearchCategoryTag.unshift(category);
     } else {
 
@@ -30,6 +30,15 @@ export class ListPageMainService {
         }
       }
 
+      for (let i = 0; i < this.currentSearchCategoryTag.length; i++) {
+        if (this.currentSearchCategoryTag[i].id == 0 || this.currentSearchCategoryTag[i].name.includes("Khác")) {
+          if (this.currentSearchCategoryTag[i].level2Id == category.level2Id) {
+            this.clearCurrentSearchCategoryTag(this.currentSearchCategoryTag[i].level2Id + "");
+            break;
+          }
+        }
+      }
+
       this.currentSearchCategoryTag.push(category);
     }
     return true;
@@ -41,6 +50,27 @@ export class ListPageMainService {
       this.currentSearchCategoryTag.splice(index, 1);
     } else {
       this.updateCurrentSearchCategoryTag(category);
+    }
+  }
+
+  clearCurrentSearchCategoryTag(mode: string) {
+    switch (mode) {
+      case "all":
+        this.currentSearchCategoryTag = [];
+        break;
+      case "except_search":
+        if (this.currentSearchCategoryTag.length != 0 && this.currentSearchCategoryTag[0].level2Id == -2) {
+          this.currentSearchCategoryTag = [this.currentSearchCategoryTag[0]];
+        } else {
+          this.currentSearchCategoryTag = [];
+        }
+        break;
+      default:
+        const modeAsNumber = +mode;
+        if (!isNaN(modeAsNumber)) {
+          this.currentSearchCategoryTag = this.currentSearchCategoryTag.filter(tag => tag.level2Id !== modeAsNumber);
+        }
+        break;
     }
   }
 }

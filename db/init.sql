@@ -160,6 +160,16 @@ INSERT INTO category_style (name, updated_date, created_date, delete_status) VAL
 ('Painting', NOW(), NOW(), 0),
 ('Based on Author', NOW(), NOW(), 0);
 
+ALTER TABLE category_color ADD INDEX idx_id (id);
+ALTER TABLE category_topic ADD INDEX idx_id (id);
+ALTER TABLE category_ratio ADD INDEX idx_id (id);
+ALTER TABLE painting ADD INDEX idx_category_ratio_id (category_ratio_id);
+ALTER TABLE painting ADD INDEX idx_category_topic_id (category_topic_id);
+ALTER TABLE painting ADD INDEX idx_category_subject_id (category_subject_id);
+ALTER TABLE painting ADD INDEX idx_category_style_id (category_style_id);
+ALTER TABLE category_level_3_painting ADD INDEX idx_painting_id_category_level_3_id (painting_id, category_level_3_id);
+ALTER TABLE painting_category_color ADD INDEX idx_painting_id_category_color_id (painting_id, category_color_id);
+
 INSERT INTO category_level_3 (category_subject_id, category_style_id, name, updated_date, created_date, delete_status) 
 VALUES (1, NULL, 'Female', NOW(), NOW(), 0),
        (1, NULL, 'Male', NOW(), NOW(), 0),
