@@ -12,6 +12,9 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
   categoryListPageSubjectLevel3: any[] = [];
   categoryListPageSubjectLevel2: any[] = [];
 
+  categorySubjectList: any[] = [];
+
+
   isViewLoaded: boolean = true;
 
   constructor(
@@ -20,18 +23,43 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.categoryListPageSubjectLevel2 = [
-      { id: 1, name: 'Con người' }
-    ];
-    this.categoryListPageSubjectLevel3 = [
-      { id: 1, name: 'Khác' , level2_id: 1 },
-      { id: 2, name: 'Cá nhân', level2_id: 1 },
-      { id: 3, name: 'Cặp đôi', level2_id: 1 },
-      { id: 4, name: 'Châu Phi', level2_id: 1 },
-      { id: 5, name: 'Châu Âu', level2_id: 1 },
-      { id: 6, name: 'Châu Á', level2_id: 1 },
-      { id: 7, name: 'Tuổi đôi mươi', level2_id: 1 },
-      { id: 8, name: 'Trưởng thành', level2_id: 1 }
+    this.categorySubjectList = [
+      {
+        level2Id: 1,
+        level2Name: "Con người",
+        level3List: [
+          { id: 1, name: 'Khác' },
+          { id: 2, name: 'Cá nhân' },
+          { id: 3, name: 'Cặp đôi' },
+          { id: 4, name: 'Châu Phi' },
+          { id: 5, name: 'Châu Âu' },
+          { id: 6, name: 'Châu Á' },
+          { id: 7, name: 'Tuổi đôi mươi' },
+          { id: 8, name: 'Trưởng thành' }
+        ]
+      },
+      {
+        level2Id: 2,
+        level2Name: "Động vật",
+        level3List: [
+          { id: 9, name: 'Khác' },
+          { id: 10, name: 'Trên cạn' },
+          { id: 11, name: 'Dưới nước' },
+          { id: 12, name: 'Trên không' },
+          { id: 13, name: 'Thần thoại' },
+        ]
+      },
+      {
+        level2Id: 3,
+        level2Name: "Phong cảnh",
+        level3List: [
+          { id: 14, name: 'Khác' },
+          { id: 15, name: 'Phong cảnh 1' },
+          { id: 16, name: 'Phong cảnh 2' },
+          { id: 17, name: 'Phong cảnh 3' },
+          { id: 18, name: 'Phong cảnh 4' },
+        ]
+      }
     ];
   }
 
@@ -59,20 +87,17 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
       });
     }
 
-    let flagCheck = false;
-    for (let i = 0; i < this.categoryListPageSubjectLevel3.length; i++) {
-      const categoryListPageSubjectLevel3Item = this.categoryListPageSubjectLevel3[i];
-      if (this.isCategoryTagSelected({ id: categoryListPageSubjectLevel3Item.id, name: categoryListPageSubjectLevel3Item.name }) && !flagCheck) {
-        for (let j = 0; j < this.categoryListPageSubjectLevel2.length; j++) {
-          if (this.categoryListPageSubjectLevel2[j].id == categoryListPageSubjectLevel3Item.level2_id) {
-            console.log("vô", document.getElementById("level2" + categoryListPageSubjectLevel3Item.level2_id));
-            document.getElementById("level2" + categoryListPageSubjectLevel3Item.level2_id)?.click();
-            flagCheck = true;
+    setTimeout(() => {
+      for (let i = 0; i < this.categorySubjectList.length; i++) {
+        const level3List = this.categorySubjectList[i].level3List;
+        for (let j = 0; j < level3List.length; j++) {
+          if (this.isCategoryTagSelected({ id: level3List[j].id, name: level3List[j].name })) {
+            document.getElementById("level2" + this.categorySubjectList[i].level2Id)?.click();
             break;
           }
         }
       }
-    }
+    }, 210);
   }
 
   toggleToFilter($event: any, category: CategoryTagListPage) {
@@ -83,7 +108,7 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
     } else {
       const addSuccessFully = this.listPageMainService.updateCurrentSearchCategoryTag(category);
       if (!addSuccessFully) {
-        this.notifyToastCall.emit({ type: "warning", title: "Giới hạn tìm kiếm", desc:"Chỉ có thể tìm kiếm tối đa theo 5 thẻ" });
+        this.notifyToastCall.emit({ type: "warning", title: "Giới hạn tìm kiếm", desc: "Chỉ có thể tìm kiếm tối đa theo 5 thẻ" });
       } else {
         $event.currentTarget.classList.toggle('activated');
       }

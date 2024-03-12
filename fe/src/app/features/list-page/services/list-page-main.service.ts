@@ -21,12 +21,10 @@ export class ListPageMainService {
       if (this.currentSearchCategoryTag.length != 0) {
         if (this.currentSearchCategoryTag[0].id == -2) {
           if (this.currentSearchCategoryTag.length == 6) {
-            console.log("Chỉ cho phép tối đa 6 tiêu chí tìm kiếm (đã bao gồm tìm theo tên)");
             return false;
           }
         } else {
           if (this.currentSearchCategoryTag.length == 5) {
-            console.log("Chỉ cho phép tối đa 6 tiêu chí tìm kiếm (đã bao gồm tìm theo tên)");
             return false;
           }
         }
