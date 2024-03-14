@@ -20,10 +20,6 @@ export class TopicCategoryComponent implements OnInit {
   ngOnInit(): void {
     this.categoryTopicList = [
       {
-        id: 1,
-        name: "Khác"
-      },
-      {
         id: 2,
         name: "Phong thủy"
       },
@@ -59,6 +55,7 @@ export class TopicCategoryComponent implements OnInit {
     } else {
 
       this.listPageMainService.clearCurrentSearchCategoryTag(category.level2Id + "");
+      this.removeActivatedCSS();
 
       const addSuccessFully = this.listPageMainService.updateCurrentSearchCategoryTag(category);
       if (!addSuccessFully) {
@@ -75,5 +72,14 @@ export class TopicCategoryComponent implements OnInit {
 
   isCategoryTagSelected(categoryTagId: number, level2Id: number) {
     return this.getCurrentSearchCategoryTag().some(tag => tag.id === categoryTagId && tag.level2Id === level2Id);
+  }
+
+  removeActivatedCSS() {
+    const activatedTag = document.getElementById("topic-wrapper")!.getElementsByClassName("activated"); 
+    for (let i = 0; i < activatedTag.length; i++) {
+      if (activatedTag[i].classList.contains("activated")) {
+        activatedTag[i].classList.remove("activated");
+      }
+    }
   }
 }

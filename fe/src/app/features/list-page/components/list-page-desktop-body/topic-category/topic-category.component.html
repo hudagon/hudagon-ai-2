@@ -1,20 +1,25 @@
-<div class="wrapper">
+<div id="topic-wrapper" class="wrapper">
+    <div class="wrapper__accordion-group different">
+        <div [ngClass]="{ 'activated': isCategoryTagSelected(0, -3) }"
+            (click)="toggleToFilter($event, { id: 0, name: 'Tất cả - Chủ đề', level2Id: -3 })"
+            class="hover-effect-yellow-bright wrapper__accordion-group__item-all">
+            Tất cả
+        </div>
+        <div [ngClass]="{ 'activated': isCategoryTagSelected(1, -3) }"
+            (click)="toggleToFilter($event, { id: 1, name: 'Chủ đề - Khác', level2Id: -3 })"
+            class="hover-effect-yellow-bright wrapper__accordion-group__item-else">
+            Khác
+        </div>
+    </div>
 
     <div *ngFor="let x of categoryTopicList" class="wrapper__accordion-group">
-        <ng-template *ngIf="x.id == 1; else otherCondition">
-            <div (click)="toggleToFilter($event, { id: x.id, name: x.name, level2Id: -3 })"
-                class="hover-effect-yellow-bright wrapper__accordion">
-                {{ x.name }}
-            </div>
-        </ng-template>
-        <ng-template #otherCondition>
-            <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-                alt="religion-picture" class="wrapper__accordion-group__img">
-            <div (click)="toggleToFilter($event, { id: x.id, name: x.name, level2Id: -3 })"
-                class="hover-effect-yellow-bright wrapper__accordion">
-                {{ x.name }}
-            </div>
-        </ng-template>
+        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+            alt="religion-picture" class="wrapper__accordion-group__img">
+        <div (click)="toggleToFilter($event, { id: x.id, name: x.name, level2Id: -3 })"
+            [ngClass]="{ 'activated': isCategoryTagSelected(x.id, -3) }"
+            class="hover-effect-yellow-bright wrapper__accordion">
+            {{ x.name }}
+        </div>
     </div>
 
     <div *ngIf="!isViewLoaded" class="father-wrapper">

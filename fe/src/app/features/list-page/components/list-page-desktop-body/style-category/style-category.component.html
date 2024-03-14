@@ -1,98 +1,42 @@
 <div class="wrapper">
-    <div class="wrapper__accordion-group">
-        <div class="wrapper__accordion">
-            <input type="checkbox" (click)="addToFilter($event)">
-            <span class="hover-effect-yellow-bright">Nhiếp ảnh</span>
-            <i class="wrapper__accordion__icon hover-effect-yellow-bright fa-solid fa-chevron-down"></i>
-        </div>
-        <div class="wrapper__panel">
-            <div class="wrapper__panel__wrapper__level3-item">
-                <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-                    alt="" class="wrapper__panel__wrapper__level3-item__img">
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
-                    <input (click)="addToFilter($event)" type="checkbox">
-                    <span>Đời thường</span>
+    <ng-container *ngFor="let x of categoryStyleList">
+        <ng-container *ngIf="x.level2Name == 'Nhiếp ảnh'; else specialWrapper">
+            <div class="wrapper__accordion-group">
+                <div class="wrapper__accordion">
+                    <span class="hover-effect-yellow-bright">{{x.level2Name}}</span>
+                    <i class="wrapper__accordion__icon hover-effect-yellow-bright fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="wrapper__panel">
+                    <div *ngFor="let y of x.level3List" class="wrapper__panel__wrapper__level3-item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt="" class="wrapper__panel__wrapper__level3-item__img">
+                        <div class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
+                            <span>{{y.name}}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="wrapper__panel__wrapper__level3-item">
-                <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-                    alt="" class="wrapper__panel__wrapper__level3-item__img">
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
-                    <input (click)="addToFilter($event)" type="checkbox">
-                    <span>Đời thường</span>
+        </ng-container>
+      
+        <ng-template #specialWrapper>
+            <div class="wrapper__accordion-group-special">
+                <div class="wrapper__accordion-group-special__classify-group">
+                    <div class="wrapper__accordion-group-special__classify-group__accordion">
+                        <span class="hover-effect-yellow-bright">{{x.level2Name}}</span>
+                        <i class="hover-effect-yellow-bright wrapper__accordion__icon__special fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel">
+                        
+                    </div>
                 </div>
             </div>
-            <div class="wrapper__panel__wrapper__level3-item">
-                <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-                    alt="" class="wrapper__panel__wrapper__level3-item__img">
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
-                    <input (click)="addToFilter($event)" type="checkbox">
-                    <span>Đời thường</span>
-                </div>
-            </div>
-            <div class="wrapper__panel__wrapper__level3-item">
-                <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-                    alt="" class="wrapper__panel__wrapper__level3-item__img">
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
-                    <input (click)="addToFilter($event)" type="checkbox">
-                    <span>Đời thường</span>
-                </div>
-            </div>
-            <div class="wrapper__panel__wrapper__level3-item">
-                <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-                    alt="" class="wrapper__panel__wrapper__level3-item__img">
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
-                    <input (click)="addToFilter($event)" type="checkbox">
-                    <span>Đời thường</span>
-                </div>
-            </div>
-            <div class="wrapper__panel__wrapper__level3-item">
-                <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-                    alt="" class="wrapper__panel__wrapper__level3-item__img">
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
-                    <input (click)="addToFilter($event)" type="checkbox">
-                    <span>Đời thường</span>
-                </div>
-            </div>
-            <div class="wrapper__panel__wrapper__level3-item">
-                <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-                    alt="" class="wrapper__panel__wrapper__level3-item__img">
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
-                    <input (click)="addToFilter($event)" type="checkbox">
-                    <span>Đời thường</span>
-                </div>
-            </div>
-            <div class="wrapper__panel__wrapper__level3-item">
-                <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-                    alt="" class="wrapper__panel__wrapper__level3-item__img">
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
-                    <input (click)="addToFilter($event)" type="checkbox">
-                    <span>Đời thường</span>
-                </div>
-            </div>
-            <div class="wrapper__panel__wrapper__level3-item">
-                <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-                    alt="" class="wrapper__panel__wrapper__level3-item__img">
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
-                    <input (click)="addToFilter($event)" type="checkbox">
-                    <span>Đời thường</span>
-                </div>
-            </div>
-            <div class="wrapper__panel__wrapper__level3-item">
-                <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-                    alt="" class="wrapper__panel__wrapper__level3-item__img">
-                <div class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
-                    <input (click)="addToFilter($event)" type="checkbox">
-                    <span>Đời thường</span>
-                </div>
-            </div>
-        </div>
-    </div>
+        </ng-template>
+      </ng-container>
 
-    <div class="wrapper__accordion-group-special">
+      
+    <!-- <div class="wrapper__accordion-group-special">
         <div class="wrapper__accordion-group-special__classify-group">
             <div class="wrapper__accordion-group-special__classify-group__accordion">
-                <input type="checkbox" (click)="addToFilter($event)">
                 <span class="hover-effect-yellow-bright">Hội họa</span>
                 <i class="hover-effect-yellow-bright wrapper__accordion__icon__special fa-solid fa-chevron-down"></i>
             </div>
@@ -111,7 +55,6 @@
                         <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680" alt=""
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
                         <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
-                            <input type="checkbox">
                             Nguyễn Gia Trí
                         </p>
                     </div>
@@ -119,7 +62,6 @@
                         <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680" alt=""
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
                         <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
-                            <input type="checkbox">
                             Nguyễn Gia Trí
                         </p>
                     </div>
@@ -139,7 +81,6 @@
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
                         <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
                             Nguyễn Gia Trí
-                            <input type="checkbox">
                         </p>
                     </div>
                     <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
@@ -147,7 +88,6 @@
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
                         <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
                             Nguyễn Gia Trí
-                            <input type="checkbox">
                         </p>
                     </div>
                 </div>
@@ -158,7 +98,6 @@
     <div class="wrapper__accordion-group-special">
         <div class="wrapper__accordion-group-special__classify-group">
             <div class="wrapper__accordion-group-special__classify-group__accordion">
-                <input type="checkbox" (click)="addToFilter($event)">
                 <span class="hover-effect-yellow-bright">Cảm hứng tác giả</span>
                 <i class="hover-effect-yellow-bright wrapper__accordion__icon__special fa-solid fa-chevron-down"></i>
             </div>
@@ -177,7 +116,6 @@
                         <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680" alt=""
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
                         <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
-                            <input type="checkbox">
                             Nguyễn Gia Trí
                         </p>
                     </div>
@@ -185,7 +123,6 @@
                         <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680" alt=""
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
                         <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
-                            <input type="checkbox">
                             Nguyễn Gia Trí
                         </p>
                     </div>
@@ -205,7 +142,6 @@
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
                         <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
                             Nguyễn Gia Trí
-                            <input type="checkbox">
                         </p>
                     </div>
                     <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
@@ -213,13 +149,12 @@
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
                         <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
                             Nguyễn Gia Trí
-                            <input type="checkbox">
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div *ngIf="!isViewLoaded" class="father-wrapper">
         <app-spinner [spinnerSize]="'md'"></app-spinner>

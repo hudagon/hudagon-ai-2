@@ -10,8 +10,6 @@ import { CategoryTagListPage } from '../../../models/category-tag-list-page';
 export class SubjectCategoryComponent implements OnInit, AfterViewInit {
   @Output() notifyToastCall = new EventEmitter();
   categorySubjectList: any[] = [];
-  currentLevel2Id: number = 0;
-
   isViewLoaded: boolean = true;
 
   constructor(
@@ -114,7 +112,7 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
         this.listPageMainService.clearCurrentSearchCategoryTag(category.level2Id + "");
       }
 
-      if (category.level2Id != this.currentLevel2Id) {
+      if (category.level2Id != this.listPageMainService.categorySubjectLevel2Current) {
         this.listPageMainService.clearCurrentSearchCategoryTag("except_search");
       }
 
@@ -122,7 +120,7 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
       if (!addSuccessFully) {
         this.notifyToastCall.emit({ type: "warning", title: "Giới hạn tìm kiếm", desc: "Chỉ có thể tìm kiếm tối đa theo 5 thẻ" });
       } else {
-        this.currentLevel2Id = category.level2Id;
+        this.listPageMainService.categorySubjectLevel2Current = category.level2Id;
         $event.currentTarget.classList.toggle('activated');
       }
     }

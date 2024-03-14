@@ -6,6 +6,7 @@ import { CategoryTagListPage } from '../models/category-tag-list-page';
 })
 export class ListPageMainService {
   currentSearchCategoryTag: CategoryTagListPage[] = [];
+  categorySubjectLevel2Current: number = 0;
 
   constructor() { }
 
