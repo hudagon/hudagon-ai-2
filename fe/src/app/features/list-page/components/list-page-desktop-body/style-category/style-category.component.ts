@@ -15,14 +15,15 @@ export class StyleCategoryComponent implements AfterViewInit, OnInit {
         level2Id: 1,
         level2Name: "Nhiếp ảnh",
         level3List: [
-          { id: 1, name: 'Nhiếp ảnh 1' },
-          { id: 2, name: 'Nhiếp ảnh 2' },
+          { id: 1, name: 'Khác' },
+          { id: 2, name: 'Nhiếp ảnh 1' },
           { id: 3, name: 'Nhiếp ảnh 3' },
           { id: 4, name: 'Nhiếp ảnh 4' },
           { id: 5, name: 'Nhiếp ảnh 5' },
           { id: 6, name: 'Nhiếp ảnh 6' },
           { id: 7, name: 'Nhiếp ảnh 7' },
-          { id: 8, name: 'Nhiếp ảnh 8' }
+          { id: 8, name: 'Nhiếp ảnh 8' },
+          { id: 9, name: 'Nhiếp ảnh 9' }
         ]
       },
       {
@@ -88,7 +89,7 @@ export class StyleCategoryComponent implements AfterViewInit, OnInit {
           if (specialAccordionsPanel.style.maxHeight) {
             specialAccordionsPanel.style.maxHeight = "";
           } else {
-            specialAccordionsPanel.style.maxHeight = 999 + "px";
+            specialAccordionsPanel.style.maxHeight = 9999 + "px";
           }
         }
       });
