@@ -1,6 +1,6 @@
 <div class="wrapper">
     <ng-container *ngFor="let x of categoryStyleList">
-        <ng-container *ngIf="x.level2Name == 'Nhiếp ảnh'; else specialWrapper">
+        <ng-container *ngIf="!hasDescription(x.level3List); else specialWrapper">
             <div class="wrapper__accordion-group">
                 <div class="wrapper__accordion">
                     <span class="hover-effect-yellow-bright">{{x.level2Name}}</span>
@@ -17,7 +17,7 @@
                 </div>
             </div>
         </ng-container>
-      
+
         <ng-template #specialWrapper>
             <div class="wrapper__accordion-group-special">
                 <div class="wrapper__accordion-group-special__classify-group">
@@ -26,15 +26,36 @@
                         <i class="hover-effect-yellow-bright wrapper__accordion__icon__special fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="wrapper__accordion-group-special__classify-group__panel">
-                        
+                        <ng-container *ngFor="let z of extractUniqueDescs(x.level3List)">
+                            <div class="hover-effect-silver-border wrapper__accordion-group-special__classify-group__panel__slash-group">
+                                <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__slash"></span>
+                                <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__text">
+                                    {{z | capitalize}}
+                                </span>
+                                <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__slash"></span>
+                            </div>
+
+                            <div  class="wrapper__accordion-group-special__classify-group__panel__level3-group">
+                                <ng-container *ngFor="let j of x.level3List">
+                                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                                            alt=""
+                                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                                        <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                                            {{ j.name }}
+                                        </p>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </ng-container>
                     </div>
                 </div>
             </div>
         </ng-template>
-      </ng-container>
-
-      
-    <!-- <div class="wrapper__accordion-group-special">
+    </ng-container>
+    
+      <!-- Đây là khu vực mockup -->
+      <div class="wrapper__accordion-group-special">
         <div class="wrapper__accordion-group-special__classify-group">
             <div class="wrapper__accordion-group-special__classify-group__accordion">
                 <span class="hover-effect-yellow-bright">Hội họa</span>
@@ -42,7 +63,8 @@
             </div>
 
             <div class="wrapper__accordion-group-special__classify-group__panel">
-                <div class="hover-effect-silver-border wrapper__accordion-group-special__classify-group__panel__slash-group">
+                <div
+                    class="hover-effect-silver-border wrapper__accordion-group-special__classify-group__panel__slash-group">
                     <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__slash"></span>
                     <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__text">
                         Theo chất liệu
@@ -52,22 +74,99 @@
 
                 <div class="wrapper__accordion-group-special__classify-group__panel__level3-group">
                     <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
-                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680" alt=""
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
-                        <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
                             Nguyễn Gia Trí
                         </p>
                     </div>
                     <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
-                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680" alt=""
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
-                        <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
                             Nguyễn Gia Trí
                         </p>
                     </div>
                 </div>
 
-                <div class="hover-effect-silver-border wrapper__accordion-group-special__classify-group__panel__slash-group">
+                <div
+                    class="hover-effect-silver-border wrapper__accordion-group-special__classify-group__panel__slash-group">
                     <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__slash"></span>
                     <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__text">
                         Theo trường phái
@@ -77,16 +176,101 @@
 
                 <div class="wrapper__accordion-group-special__classify-group__panel__level3-group">
                     <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
-                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680" alt=""
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
-                        <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
                             Nguyễn Gia Trí
                         </p>
                     </div>
                     <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
-                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680" alt=""
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
-                        <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                            Nguyễn Gia Trí
+                        </p>
+                    </div>
+                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
+                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
                             Nguyễn Gia Trí
                         </p>
                     </div>
@@ -103,7 +287,8 @@
             </div>
 
             <div class="wrapper__accordion-group-special__classify-group__panel">
-                <div class="hover-effect-silver-border wrapper__accordion-group-special__classify-group__panel__slash-group">
+                <div
+                    class="hover-effect-silver-border wrapper__accordion-group-special__classify-group__panel__slash-group">
                     <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__slash"></span>
                     <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__text">
                         Theo chất liệu
@@ -113,22 +298,27 @@
 
                 <div class="wrapper__accordion-group-special__classify-group__panel__level3-group">
                     <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
-                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680" alt=""
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
-                        <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
                             Nguyễn Gia Trí
                         </p>
                     </div>
                     <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
-                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680" alt=""
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
-                        <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
                             Nguyễn Gia Trí
                         </p>
                     </div>
                 </div>
 
-                <div class="hover-effect-silver-border wrapper__accordion-group-special__classify-group__panel__slash-group">
+                <div
+                    class="hover-effect-silver-border wrapper__accordion-group-special__classify-group__panel__slash-group">
                     <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__slash"></span>
                     <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__text">
                         Theo trường phái
@@ -138,23 +328,28 @@
 
                 <div class="wrapper__accordion-group-special__classify-group__panel__level3-group">
                     <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
-                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680" alt=""
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
-                        <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
                             Nguyễn Gia Trí
                         </p>
                     </div>
                     <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
-                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680" alt=""
+                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                            alt=""
                             class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
-                        <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                        <p
+                            class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
                             Nguyễn Gia Trí
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
+    <!-- kết thúc khu vực mockup -->
 
     <div *ngIf="!isViewLoaded" class="father-wrapper">
         <app-spinner [spinnerSize]="'md'"></app-spinner>

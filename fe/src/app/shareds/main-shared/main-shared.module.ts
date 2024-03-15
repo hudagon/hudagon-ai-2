@@ -6,6 +6,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CategoryTagComponent } from './components/category-tag/category-tag.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ModalComponent } from './components/modal/modal.component';
     SpinnerComponent,
     CategoryTagComponent,
     ToastComponent,
-    ModalComponent
+    ModalComponent,
+    CapitalizePipe
   ],
   imports: [
     CommonModule
@@ -25,7 +27,8 @@ import { ModalComponent } from './components/modal/modal.component';
     SpinnerComponent,
     CategoryTagComponent,
     ToastComponent,
-    ModalComponent
+    ModalComponent,
+    CapitalizePipe
   ]
 })
 export class MainSharedModule { }

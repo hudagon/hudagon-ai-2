@@ -29,16 +29,16 @@ export class StyleCategoryComponent implements AfterViewInit, OnInit {
         level2Id: 2,
         level2Name: "Hội họa",
         level3List: [
-          { id: 9, name: 'Khác' , desc: ''},
-          { id: 10, name: 'Chất liệu 1', desc: 'material' },
-          { id: 11, name: 'Chất liệu 2', desc: 'material' },
-          { id: 12, name: 'Chất liệu 3', desc: 'material' },
-          { id: 13, name: 'Chất liệu 4', desc: 'material' },
-          { id: 14, name: 'Chất liệu 5', desc: 'material' },
-          { id: 15, name: 'Trường phái 6', desc: 'school' },
-          { id: 16, name: 'Trường phái 7', desc: 'school' },
-          { id: 17, name: 'Trường phái 8', desc: 'school' },
-          { id: 18, name: 'Trường phái 9', desc: 'school' },
+          { id: 9, name: 'Khác' },
+          { id: 10, name: 'Chất liệu 1', desc: 'chất liệu' },
+          { id: 11, name: 'Chất liệu 2', desc: 'chất liệu' },
+          { id: 12, name: 'Chất liệu 3', desc: 'chất liệu' },
+          { id: 13, name: 'Chất liệu 4', desc: 'chất liệu' },
+          { id: 14, name: 'Chất liệu 5', desc: 'chất liệu' },
+          { id: 15, name: 'Trường phái 6', desc: 'trường phái' },
+          { id: 16, name: 'Trường phái 7', desc: 'trường phái' },
+          { id: 17, name: 'Trường phái 8', desc: 'trường phái' },
+          { id: 18, name: 'Trường phái 9', desc: 'trường phái' },
         ]
       },
       {
@@ -46,14 +46,14 @@ export class StyleCategoryComponent implements AfterViewInit, OnInit {
         level2Name: "Dựa trên tác giả",
         level3List: [
           { id: 14, name: 'Khác' },
-          { id: 15, name: 'Dựa trên tác giả 1', desc: 'foreign' },
-          { id: 16, name: 'Dựa trên tác giả 2', desc: 'foreign' },
-          { id: 17, name: 'Dựa trên tác giả 3', desc: 'foreign' },
-          { id: 18, name: 'Dựa trên tác giả 4', desc: 'foreign' },
-          { id: 19, name: 'Dựa trên tác giả 5', desc: 'vietnam' },
-          { id: 20, name: 'Dựa trên tác giả 6', desc: 'vietnam' },
-          { id: 21, name: 'Dựa trên tác giả 7', desc: 'vietnam' },
-          { id: 22, name: 'Dựa trên tác giả 8', desc: 'vietnam' },
+          { id: 15, name: 'Dựa trên tác giả 1', desc: 'thế giới' },
+          { id: 16, name: 'Dựa trên tác giả 2', desc: 'thế giới' },
+          { id: 17, name: 'Dựa trên tác giả 3', desc: 'thế giới' },
+          { id: 18, name: 'Dựa trên tác giả 4', desc: 'thế giới' },
+          { id: 19, name: 'Dựa trên tác giả 5', desc: 'Việt Nam' },
+          { id: 20, name: 'Dựa trên tác giả 6', desc: 'Việt Nam' },
+          { id: 21, name: 'Dựa trên tác giả 7', desc: 'Việt Nam' },
+          { id: 22, name: 'Dựa trên tác giả 8', desc: 'Việt Nam' },
         ]
       }
     ];
@@ -114,5 +114,19 @@ export class StyleCategoryComponent implements AfterViewInit, OnInit {
 
   addToFilter($event: MouseEvent) {
     $event.stopPropagation();
+  }
+
+  hasDescription(level3List: any[]): boolean {
+    return level3List.some(item => item.desc && item.desc.trim() !== '');
+  }
+  
+  extractUniqueDescs(level3List: any[]) {
+    const descsSet = new Set<string>(); 
+    for (let item of level3List) {
+      if (item.desc) {
+        descsSet.add(item.desc);
+      }
+    }
+    return Array.from(descsSet);
   }
 }
