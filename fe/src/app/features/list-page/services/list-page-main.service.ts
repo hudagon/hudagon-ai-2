@@ -32,9 +32,9 @@ export class ListPageMainService {
       }
 
       for (let i = 0; i < this.currentSearchCategoryTag.length; i++) {
-        if (this.currentSearchCategoryTag[i].id == 0 || this.currentSearchCategoryTag[i].name.includes("Khác")) {
-          if (this.currentSearchCategoryTag[i].level2Id == category.level2Id) {
-            this.clearCurrentSearchCategoryTag(this.currentSearchCategoryTag[i].level2Id + "");
+        if (this.currentSearchCategoryTag[i].id == 0 || this.currentSearchCategoryTag[i].name.includes("other")) {
+          if (this.currentSearchCategoryTag[i].level2CategoryId == category.level2CategoryId) {
+            this.clearCurrentSearchCategoryTag(this.currentSearchCategoryTag[i].level2CategoryId + "");
             break;
           }
         }
@@ -60,7 +60,7 @@ export class ListPageMainService {
         this.currentSearchCategoryTag = [];
         break;
       case "except_search":
-        if (this.currentSearchCategoryTag.length != 0 && this.currentSearchCategoryTag[0].level2Id == -2) {
+        if (this.currentSearchCategoryTag.length != 0 && this.currentSearchCategoryTag[0].level2CategoryId == -2) {
           this.currentSearchCategoryTag = [this.currentSearchCategoryTag[0]];
         } else {
           this.currentSearchCategoryTag = [];
@@ -69,7 +69,7 @@ export class ListPageMainService {
       default:
         const modeAsNumber = +mode;
         if (!isNaN(modeAsNumber)) {
-          this.currentSearchCategoryTag = this.currentSearchCategoryTag.filter(tag => tag.level2Id !== modeAsNumber);
+          this.currentSearchCategoryTag = this.currentSearchCategoryTag.filter(tag => tag.level2CategoryId !== modeAsNumber);
         }
         break;
     }

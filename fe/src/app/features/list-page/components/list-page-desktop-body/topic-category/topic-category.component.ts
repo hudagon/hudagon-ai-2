@@ -48,13 +48,13 @@ export class TopicCategoryComponent implements OnInit {
 
   toggleToFilter($event: any, category: CategoryTagListPage) {
     const currentTags = this.getCurrentSearchCategoryTag();
-    const index = currentTags.findIndex(tag => tag.id === category.id && tag.level2Id == -3);
+    const index = currentTags.findIndex(tag => tag.id === category.id && tag.level2CategoryId == -3);
     if (index !== -1) {
       currentTags.splice(index, 1);
       $event.currentTarget.classList.toggle('activated');
     } else {
 
-      this.listPageMainService.clearCurrentSearchCategoryTag(category.level2Id + "");
+      this.listPageMainService.clearCurrentSearchCategoryTag(category.level2CategoryId + "");
       this.removeActivatedCSS();
 
       const addSuccessFully = this.listPageMainService.updateCurrentSearchCategoryTag(category);
@@ -70,8 +70,8 @@ export class TopicCategoryComponent implements OnInit {
     return this.listPageMainService.currentSearchCategoryTag;
   }
 
-  isCategoryTagSelected(categoryTagId: number, level2Id: number) {
-    return this.getCurrentSearchCategoryTag().some(tag => tag.id === categoryTagId && tag.level2Id === level2Id);
+  isCategoryTagSelected(categoryTagId: number, level2CategoryId: number) {
+    return this.getCurrentSearchCategoryTag().some(tag => tag.id === categoryTagId && tag.level2CategoryId === level2CategoryId);
   }
 
   removeActivatedCSS() {

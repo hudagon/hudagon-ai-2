@@ -41,7 +41,7 @@
                         <app-category-tag [disableDelete]="true" [categoryTagName]="'Tất cả tranh'"
                             style="display: contents"></app-category-tag>
                     </li>
-                    <li *ngFor="let x of getCurrentSearchCategoryTag()" (click)="toggleToFilter({ id: x.id, name: x.name, level2Id: x.level2Id })" 
+                    <li *ngFor="let x of getCurrentSearchCategoryTag()" (click)="toggleToFilter({ id: x.id, name: x.name, level2CategoryId: x.level2CategoryId })" 
                         class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
                         <app-category-tag [categoryTagName]="x.name"
                             style="display: contents"></app-category-tag>

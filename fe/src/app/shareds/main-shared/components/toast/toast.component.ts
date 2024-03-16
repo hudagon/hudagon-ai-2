@@ -34,7 +34,7 @@ export class ToastComponent {
         if (toast) {
           toast.remove();
         }
-      }, 5000);
+      }, 6000);
     }
   }
   
