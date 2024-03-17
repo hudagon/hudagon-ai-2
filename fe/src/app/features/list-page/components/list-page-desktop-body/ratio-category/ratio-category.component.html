@@ -1,27 +1,27 @@
-<div class="wrapper">
-    <div class="portrait-group">
-        <p class="hover-effect-silver-border portrait-group__content ar-11">
-            <input type="checkbox">
-            1:1
-        </p>
-        <p class="hover-effect-silver-border portrait-group__content ar-34">
-            <input type="checkbox">
-            3:4
-        </p>
-        <p class="hover-effect-silver-border portrait-group__content ar-916">
-            <input type="checkbox">
-            9:16
-        </p>
-    </div>
+<div class="wrapper" id="ratio-wrapper">
+    <ng-container *ngFor="let x of categoryRatioList">
+        <div class="portrait-group">
+            <ng-container *ngFor="let y of x.level3List">
+                <ng-container *ngIf="y.categoryDesc == 'portrait'">
+                    <p [ngClass]="{ 'activated': isCategoryTagSelected(y.id, x.level2CategoryId) }"
+                    (click)="toggleToFilter($event, { id: y.id, name: y.name, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId } )"
+                        class="hover-effect-silver-border portrait-group__content ar-{{removeColon(y.name)}}">
+                        {{ y.name }}
+                    </p>
+                </ng-container>
+            </ng-container>
+        </div>
 
-    <div class="landscape-group">
-        <p class="hover-effect-silver-border landscape-group__content ar-169">
-            <input type="checkbox">
-            16:9
-        </p>
-        <p class="hover-effect-silver-border landscape-group__content ar-43">
-            <input type="checkbox">
-            4:3
-        </p>
-    </div>
+        <div class="landscape-group">
+            <ng-container *ngFor="let y of x.level3List">
+                <ng-container *ngIf="y.categoryDesc == 'landscape'">
+                    <p [ngClass]="{ 'activated': isCategoryTagSelected(y.id, x.level2CategoryId) }"
+                    (click)="toggleToFilter($event,  { id: y.id, name: y.name, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId } )"
+                        class="hover-effect-silver-border landscape-group__content ar-{{removeColon(y.name)}}">
+                        {{ y.name }}
+                    </p>
+                </ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
 </div>

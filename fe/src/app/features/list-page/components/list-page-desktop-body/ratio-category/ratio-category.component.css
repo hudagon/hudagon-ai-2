@@ -33,10 +33,9 @@
     position: relative;
 }
 
-.portrait-group__content input, .landscape-group__content input {
-    position: absolute;
-    top: 11px;
-    left: 9px;
+.portrait-group__content.activated, .landscape-group__content.activated {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 .ar-11 {

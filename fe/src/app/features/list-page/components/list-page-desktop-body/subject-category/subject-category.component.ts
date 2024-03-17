@@ -558,7 +558,7 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
 
       if (category.level2CategoryId != this.listPageMainService.categorySubjectLevel2Current && 
           category.level1CategoryId == this.listPageMainService.categorySubjectLevel1Current) {
-        this.listPageMainService.clearCurrentSearchCategoryTag("except_search", null);
+        this.listPageMainService.clearCurrentSearchCategoryTag("clearLevel1", category.level1CategoryId);
       }
 
       const addSuccessFully = this.listPageMainService.updateCurrentSearchCategoryTag(category);
