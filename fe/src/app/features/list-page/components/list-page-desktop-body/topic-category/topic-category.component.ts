@@ -92,7 +92,7 @@ export class TopicCategoryComponent implements OnInit {
       }
     ];
 
-    this.categoryTopicList = this.listPageMainService.transformCategoryListWithLoop(this.categoryTopicListRaw);
+    this.categoryTopicList = this.listPageMainService.transformCategoryListWithLevels(this.categoryTopicListRaw);
   }
 
   toggleToFilter($event: any, category: CategoryTagListPage) {
@@ -103,8 +103,7 @@ export class TopicCategoryComponent implements OnInit {
       $event.currentTarget.classList.toggle('activated');
     } else {
 
-      console.log(category);
-      this.listPageMainService.clearCurrentSearchCategoryTag(category.level2CategoryId + "");
+      this.listPageMainService.clearCurrentSearchCategoryTag(category.level2CategoryId + "", null);
       this.removeActivatedCSS();
 
       const addSuccessFully = this.listPageMainService.updateCurrentSearchCategoryTag(category);

@@ -41,7 +41,7 @@
                         <app-category-tag [disableDelete]="true" [categoryTagName]="'Tất cả tranh'"
                             style="display: contents"></app-category-tag>
                     </li>
-                    <li *ngFor="let x of getCurrentSearchCategoryTag()" (click)="toggleToFilter({ id: x.id, name: x.name, level2CategoryId: x.level2CategoryId })" 
+                    <li *ngFor="let x of getCurrentSearchCategoryTag()" (click)="toggleToFilter({ id: x.id, name: x.name, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})" 
                         class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
                         <app-category-tag [categoryTagName]="x.name"
                             style="display: contents"></app-category-tag>
@@ -120,10 +120,10 @@
 
         <div class="right-side__inside__category__body">
             <app-subject-category (notifyToastCall)="handleToastCall($event)" style="display: contents" *ngIf="displayedCategory == 'subject'" ></app-subject-category>
-            <app-style-category style="display: contents" *ngIf="displayedCategory == 'style'" ></app-style-category>
-            <app-topic-category style="display: contents" *ngIf="displayedCategory == 'topic'" ></app-topic-category>
-            <app-ratio-category style="display: contents" *ngIf="displayedCategory == 'ratio'" ></app-ratio-category>
-            <app-color-category style="display: contents" *ngIf="displayedCategory == 'color'" ></app-color-category>
+            <app-style-category (notifyToastCall)="handleToastCall($event)" style="display: contents" *ngIf="displayedCategory == 'style'" ></app-style-category>
+            <app-topic-category (notifyToastCall)="handleToastCall($event)" style="display: contents" *ngIf="displayedCategory == 'topic'" ></app-topic-category>
+            <app-ratio-category (notifyToastCall)="handleToastCall($event)" style="display: contents" *ngIf="displayedCategory == 'ratio'" ></app-ratio-category>
+            <app-color-category (notifyToastCall)="handleToastCall($event)" style="display: contents" *ngIf="displayedCategory == 'color'" ></app-color-category>
         </div>
     </aside>
 </div>

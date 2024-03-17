@@ -1,19 +1,35 @@
-<div class="wrapper">
+<div class="wrapper" id="style-wrapper">
     <ng-container *ngFor="let x of categoryStyleList">
         <ng-container *ngIf="!hasDescription(x.level3List); else specialWrapper">
             <div class="wrapper__accordion-group">
-                <div class="wrapper__accordion">
+                <div id="level2{{x.level2CategoryId}}" class="wrapper__accordion">
                     <span class="hover-effect-yellow-bright">{{x.level2CategoryName}}</span>
                     <i class="wrapper__accordion__icon hover-effect-yellow-bright fa-solid fa-chevron-down"></i>
                 </div>
                 <div class="wrapper__panel">
-                    <div *ngFor="let y of x.level3List" class="wrapper__panel__wrapper__level3-item">
-                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-                            alt="" class="wrapper__panel__wrapper__level3-item__img">
-                        <div class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
-                            <span>{{y.name}}</span>
-                        </div>
-                    </div>
+                    <ng-container *ngFor="let y of x.level3List">
+                        <ng-container *ngIf="isContainsOther(y.name); else otherCondition">
+                            <div (click)="toggleToFilter($event, {id: y.id, name: y.name, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})"
+                                class="wrapper__panel__wrapper__level3-item">
+                                <div [ngClass]="{ 'activated': isCategoryTagSelected(y.id, x.level2CategoryId) }"
+                                    class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
+                                    <span>Khác</span>
+                                </div>
+                            </div>
+                        </ng-container>
+
+                        <ng-template #otherCondition>
+                            <div (click)="toggleToFilter($event, {id: y.id, name: y.name, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})"
+                                class="wrapper__panel__wrapper__level3-item">
+                                <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                                    alt="" class="wrapper__panel__wrapper__level3-item__img">
+                                <div [ngClass]="{ 'activated': isCategoryTagSelected(y.id, x.level2CategoryId) }"
+                                    class="hover-effect-yellow-bright wrapper__panel__wrapper__level3-item__content">
+                                    <span>{{y.name}}</span>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
                 </div>
             </div>
         </ng-container>
@@ -21,30 +37,50 @@
         <ng-template #specialWrapper>
             <div class="wrapper__accordion-group-special">
                 <div class="wrapper__accordion-group-special__classify-group">
-                    <div class="wrapper__accordion-group-special__classify-group__accordion toggle">
+                    <div id="level2{{x.level2CategoryId}}" class="wrapper__accordion-group-special__classify-group__accordion">
                         <span class="hover-effect-yellow-bright">{{x.level2CategoryName}}</span>
                         <i class="hover-effect-yellow-bright wrapper__accordion__icon__special fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="wrapper__accordion-group-special__classify-group__panel">
                         <ng-container *ngFor="let z of extractUniqueDescs(x.level3List)">
-                            <div class="hover-effect-silver-border wrapper__accordion-group-special__classify-group__panel__slash-group">
-                                <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__slash"></span>
-                                <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__text">
+                            <div
+                                class="hover-effect-silver-border wrapper__accordion-group-special__classify-group__panel__slash-group">
+                                <span
+                                    class="wrapper__accordion-group-special__classify-group__panel__slash-group__slash"></span>
+                                <span
+                                    class="wrapper__accordion-group-special__classify-group__panel__slash-group__text">
                                     {{z | capitalize}}
                                 </span>
-                                <span class="wrapper__accordion-group-special__classify-group__panel__slash-group__slash"></span>
+                                <span
+                                    class="wrapper__accordion-group-special__classify-group__panel__slash-group__slash"></span>
                             </div>
 
-                            <div  class="wrapper__accordion-group-special__classify-group__panel__level3-group">
+                            <div class="wrapper__accordion-group-special__classify-group__panel__level3-group">
                                 <ng-container *ngFor="let j of x.level3List">
-                                    <div class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
-                                        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-                                            alt=""
-                                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
-                                        <p class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
-                                            {{ j.name }}
-                                        </p>
-                                    </div>
+                                    <ng-container *ngIf="isContainsOther(j.name); else otherConditionLevel3">
+                                        <div id="level3{{j.id}}" *ngIf="j.categoryDesc == z"
+                                            (click)="toggleToFilter($event, {id: j.id, name: j.name, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})"
+                                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                                            <p  [ngClass]="{ 'activated': isCategoryTagSelected(j.id, x.level2CategoryId) }" 
+                                                class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                                                Khác
+                                            </p>
+                                        </div>
+                                    </ng-container>
+
+                                    <ng-template #otherConditionLevel3>
+                                        <div id="level3{{j.id}}" *ngIf="j.categoryDesc == z"
+                                            (click)="toggleToFilter($event, {id: j.id, name: j.name, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})"
+                                            class="wrapper__accordion-group-special__classify-group__panel__level3-group__item">
+                                            <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                                                alt=""
+                                                class="wrapper__accordion-group-special__classify-group__panel__level3-group__item__image">
+                                            <p [ngClass]="{ 'activated': isCategoryTagSelected(j.id, x.level2CategoryId) }" 
+                                                class="hover-effect-yellow-bright wrapper__accordion-group-special__classify-group__panel__level3-group__item__overlay">
+                                                {{ j.name }}
+                                            </p>
+                                        </div>
+                                    </ng-template>
                                 </ng-container>
                             </div>
                         </ng-container>
@@ -53,7 +89,7 @@
             </div>
         </ng-template>
     </ng-container>
-    
+
     <div *ngIf="!isViewLoaded" class="father-wrapper">
         <app-spinner [spinnerSize]="'md'"></app-spinner>
     </div>

@@ -17,13 +17,11 @@ export class OverlayComponent implements OnInit, AfterViewInit {
       const overlay = document.getElementById('overlay');
       if (overlay) {
         overlay.style.zIndex = this.z_index;
-        console.log(overlay.style.zIndex);
       }
     }
   }
 
   toggleModal() {
-    console.log("vô 1");
     this.notifyToggleModal.emit();
   }
 }

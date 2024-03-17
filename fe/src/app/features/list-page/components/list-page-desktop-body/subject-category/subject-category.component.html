@@ -7,7 +7,7 @@
         <div class="wrapper__panel">
             <div class="wrapper__panel__wrapper">
                 <div [ngClass]="{ 'activated': isCategoryTagSelected(0, x.level2CategoryId) }"
-                    (click)="toggleToFilter($event ,{id: 0, name: 'Tất cả' + ' - ' + x.level2CategoryName, level2CategoryId: x.level2CategoryId})"
+                    (click)="toggleToFilter($event ,{id: 0, name: 'Tất cả' + ' - ' + x.level2CategoryName, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})"
                     class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter all">
                     <span class="wrapper__panel__wrapper__tag-filter__content">Tất cả</span>
                 </div>
@@ -15,14 +15,14 @@
                     <div *ngFor="let y of x.level3List">
                         <div *ngIf="isContainsOther(y.name); else otherCondition">
                             <div [ngClass]="{ 'activated': isCategoryTagSelected(y.id, x.level2CategoryId) }"
-                                (click)="toggleToFilter($event, {id: y.id, name: x.level2CategoryName + ' - ' + y.name, level2CategoryId: x.level2CategoryId})"
+                                (click)="toggleToFilter($event, {id: y.id, name: x.level2CategoryName + ' - Khác', level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})"
                                 class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
                                 <span class="wrapper__panel__wrapper__tag-filter__content">Khác</span>
                             </div>
                         </div>
                         <ng-template #otherCondition>
                             <div [ngClass]="{ 'activated': isCategoryTagSelected(y.id, x.level2CategoryId) }"
-                                (click)="toggleToFilter($event, {id: y.id, name: y.name, level2CategoryId: x.level2CategoryId})"
+                                (click)="toggleToFilter($event, {id: y.id, name: y.name, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})"
                                 class="hover-effect-yellow-bright wrapper__panel__wrapper__tag-filter">
                                 <span class="wrapper__panel__wrapper__tag-filter__content">{{ y.name }}</span>
                             </div>

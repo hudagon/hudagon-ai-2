@@ -1,6 +1,7 @@
 <div id="topic-wrapper" class="wrapper">
     <div class="wrapper__accordion-group">
-        <div (click)="toggleToFilter($event, { id: 0, name: 'Tất cả - ' + categoryTopicList[0].level2CategoryName, level2CategoryId: categoryTopicList[0].level2CategoryId })"
+        <div 
+        (click)="toggleToFilter($event, { id: 0, name: 'Tất cả - ' + categoryTopicList[0].level2CategoryName, level2CategoryId: categoryTopicList[0].level2CategoryId, level1CategoryId: categoryTopicList[0].level1CategoryId })"
             [ngClass]="{ 'activated': isCategoryTagSelected(0, categoryTopicList[0].level2CategoryId) }"
             class="hover-effect-yellow-bright wrapper__accordion">
             Tất cả
@@ -9,7 +10,8 @@
 
     <div *ngFor="let x of categoryTopicList[0].level3List" class="wrapper__accordion-group">
         <ng-container *ngIf="isContainsOther(x.name); else otherCondition">
-            <div (click)="toggleToFilter($event, { id: x.id, name: categoryTopicList[0].level2CategoryName + ' - Khác', level2CategoryId: categoryTopicList[0].level2CategoryId })"
+            <div 
+            (click)="toggleToFilter($event, { id: x.id, name: categoryTopicList[0].level2CategoryName + ' - Khác', level2CategoryId: categoryTopicList[0].level2CategoryId, level1CategoryId: x.level1CategoryId })"
                 [ngClass]="{ 'activated': isCategoryTagSelected(x.id, categoryTopicList[0].level2CategoryId) }"
                 class="hover-effect-yellow-bright wrapper__accordion">
                 Khác
@@ -19,7 +21,8 @@
         <ng-template #otherCondition>
             <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
                 alt="religion-picture" class="wrapper__accordion-group__img">
-            <div (click)="toggleToFilter($event, { id: x.id, name: x.name, level2CategoryId: categoryTopicList[0].level2CategoryId })"
+            <div 
+            (click)="toggleToFilter($event, { id: x.id, name: x.name, level2CategoryId: categoryTopicList[0].level2CategoryId, level1CategoryId: x.level1CategoryId })"
                 [ngClass]="{ 'activated': isCategoryTagSelected(x.id, categoryTopicList[0].level2CategoryId) }"
                 class="hover-effect-yellow-bright wrapper__accordion">
                 {{ x.name }}
