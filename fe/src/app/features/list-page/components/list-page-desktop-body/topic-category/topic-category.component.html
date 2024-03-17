@@ -1,25 +1,30 @@
 <div id="topic-wrapper" class="wrapper">
-    <div class="wrapper__accordion-group different">
-        <div [ngClass]="{ 'activated': isCategoryTagSelected(0, -3) }"
-            (click)="toggleToFilter($event, { id: 0, name: 'Tất cả - Chủ đề', level2CategoryId: -3 })"
-            class="hover-effect-yellow-bright wrapper__accordion-group__item-all">
-            Tất cả
-        </div>
-        <div [ngClass]="{ 'activated': isCategoryTagSelected(1, -3) }"
-            (click)="toggleToFilter($event, { id: 1, name: 'Chủ đề - Khác', level2CategoryId: -3 })"
-            class="hover-effect-yellow-bright wrapper__accordion-group__item-else">
-            Khác
+    <div class="wrapper__accordion-group">
+        <div (click)="toggleToFilter($event, { id: 0, name: 'Tất cả - ' + categoryTopicList[0].level2CategoryName, level2CategoryId: categoryTopicList[0].level2CategoryId })"
+            [ngClass]="{ 'activated': isCategoryTagSelected(0, categoryTopicList[0].level2CategoryId) }"
+            class="hover-effect-yellow-bright wrapper__accordion">
+            Tất cả
         </div>
     </div>
 
-    <div *ngFor="let x of categoryTopicList" class="wrapper__accordion-group">
-        <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
-            alt="religion-picture" class="wrapper__accordion-group__img">
-        <div (click)="toggleToFilter($event, { id: x.id, name: x.name, level2CategoryId: -3 })"
-            [ngClass]="{ 'activated': isCategoryTagSelected(x.id, -3) }"
-            class="hover-effect-yellow-bright wrapper__accordion">
-            {{ x.name }}
-        </div>
+    <div *ngFor="let x of categoryTopicList[0].level3List" class="wrapper__accordion-group">
+        <ng-container *ngIf="isContainsOther(x.name); else otherCondition">
+            <div (click)="toggleToFilter($event, { id: x.id, name: categoryTopicList[0].level2CategoryName + ' - Khác', level2CategoryId: categoryTopicList[0].level2CategoryId })"
+                [ngClass]="{ 'activated': isCategoryTagSelected(x.id, categoryTopicList[0].level2CategoryId) }"
+                class="hover-effect-yellow-bright wrapper__accordion">
+                Khác
+            </div>
+        </ng-container>
+
+        <ng-template #otherCondition>
+            <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                alt="religion-picture" class="wrapper__accordion-group__img">
+            <div (click)="toggleToFilter($event, { id: x.id, name: x.name, level2CategoryId: categoryTopicList[0].level2CategoryId })"
+                [ngClass]="{ 'activated': isCategoryTagSelected(x.id, categoryTopicList[0].level2CategoryId) }"
+                class="hover-effect-yellow-bright wrapper__accordion">
+                {{ x.name }}
+            </div>
+        </ng-template>
     </div>
 
     <div *ngIf="!isViewLoaded" class="father-wrapper">

@@ -30,6 +30,7 @@
     display: flex;
     position: relative;
     z-index: 2;
+    justify-content: center;
     align-items: center;
     gap: 9px;
     background-color: var(--level3-color);
@@ -81,23 +82,4 @@
     height: 100%;
     width: 100%;
     background-color: var(--level2-color);
-}
-
-.wrapper__accordion-group.different {
-    display: flex;
-    gap: 6px;
-}
-
-.wrapper__accordion-group__item-all, .wrapper__accordion-group__item-else {
-    flex: 1;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid var(--dark-level2-border-color);
-    border-radius: var(--border-radius-1);
-}
-
-.wrapper__accordion-group__item-all.activated, .wrapper__accordion-group__item-else.activated {
-    color: var(--secondary-color);
 }

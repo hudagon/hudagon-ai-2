@@ -10,50 +10,100 @@ import { ListPageMainService } from '../../../services/list-page-main.service';
 export class TopicCategoryComponent implements OnInit {
   @Output() notifyToastCall = new EventEmitter();
   isViewLoaded: boolean = true;
+  categoryTopicListRaw: any[] = [];
   categoryTopicList: any[] = [];
 
   constructor(
-    private listPageMainService: ListPageMainService,
+    private listPageMainService: ListPageMainService  
   ) {
   }
 
   ngOnInit(): void {
-    this.categoryTopicList = [
+    this.categoryTopicListRaw = [
       {
-        id: 2,
-        name: "Phong thủy"
+        'id': 91,
+        'name': 'topic_1',
+        'level2CategoryId': 10,
+        'level2CategoryName': 'topic',
+        'categoryDesc': ''
       },
       {
-        id: 3,
-        name: "Tôn giáo"
+        'id': 92,
+        'name': 'topic_2',
+        'level2CategoryId': 10,
+        'level2CategoryName': 'topic',
+        'categoryDesc': ''
       },
       {
-        id: 4,
-        name: "Chiến tranh"
+        'id': 93,
+        'name': 'topic_3',
+        'level2CategoryId': 10,
+        'level2CategoryName': 'topic',
+        'categoryDesc': ''
       },
       {
-        id: 5,
-        name: "Thể thao"
+        'id': 94,
+        'name': 'topic_4',
+        'level2CategoryId': 10,
+        'level2CategoryName': 'topic',
+        'categoryDesc': ''
       },
       {
-        id: 6,
-        name: "Cổ trang"
+        'id': 95,
+        'name': 'topic_5',
+        'level2CategoryId': 10,
+        'level2CategoryName': 'topic',
+        'categoryDesc': ''
       },
       {
-        id: 7,
-        name: "Thần thoại"
+        'id': 96,
+        'name': 'topic_6',
+        'level2CategoryId': 10,
+        'level2CategoryName': 'topic',
+        'categoryDesc': ''
+      },
+      {
+        'id': 97,
+        'name': 'topic_7',
+        'level2CategoryId': 10,
+        'level2CategoryName': 'topic',
+        'categoryDesc': ''
+      },
+      {
+        'id': 98,
+        'name': 'topic_8',
+        'level2CategoryId': 10,
+        'level2CategoryName': 'topic',
+        'categoryDesc': ''
+      },
+      {
+        'id': 99,
+        'name': 'topic_9',
+        'level2CategoryId': 10,
+        'level2CategoryName': 'topic',
+        'categoryDesc': ''
+      },
+      {
+        'id': 100,
+        'name': 'topic_other',
+        'level2CategoryId': 10,
+        'level2CategoryName': 'topic',
+        'categoryDesc': ''
       }
     ];
+
+    this.categoryTopicList = this.listPageMainService.transformCategoryListWithLoop(this.categoryTopicListRaw);
   }
 
   toggleToFilter($event: any, category: CategoryTagListPage) {
     const currentTags = this.getCurrentSearchCategoryTag();
-    const index = currentTags.findIndex(tag => tag.id === category.id && tag.level2CategoryId == -3);
+    const index = currentTags.findIndex(tag => tag.id === category.id && tag.level2CategoryId == category.level2CategoryId);
     if (index !== -1) {
       currentTags.splice(index, 1);
       $event.currentTarget.classList.toggle('activated');
     } else {
 
+      console.log(category);
       this.listPageMainService.clearCurrentSearchCategoryTag(category.level2CategoryId + "");
       this.removeActivatedCSS();
 
@@ -63,7 +113,7 @@ export class TopicCategoryComponent implements OnInit {
       } else {
         $event.currentTarget.classList.toggle('activated');
       }
-    } 
+    }
   }
 
   getCurrentSearchCategoryTag() {
@@ -75,11 +125,15 @@ export class TopicCategoryComponent implements OnInit {
   }
 
   removeActivatedCSS() {
-    const activatedTag = document.getElementById("topic-wrapper")!.getElementsByClassName("activated"); 
+    const activatedTag = document.getElementById("topic-wrapper")!.getElementsByClassName("activated");
     for (let i = 0; i < activatedTag.length; i++) {
       if (activatedTag[i].classList.contains("activated")) {
         activatedTag[i].classList.remove("activated");
       }
     }
+  }
+
+  isContainsOther(level3ItemName: string) {
+    return level3ItemName.includes("other");
   }
 }

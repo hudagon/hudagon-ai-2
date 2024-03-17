@@ -10,7 +10,7 @@ import { CategoryTagListPage } from '../../../models/category-tag-list-page';
 export class SubjectCategoryComponent implements OnInit, AfterViewInit {
   @Output() notifyToastCall = new EventEmitter();
   categorySubjectListRaw: any[] = [];
-  categorySubjectList: any [] = [];
+  categorySubjectList: any[] = [];
   isViewLoaded: boolean = true;
 
   constructor(
@@ -440,9 +440,7 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
       'categoryDesc': ''
     }];
 
-    this.categorySubjectList = this.transformCategoryListWithLoop(this.categorySubjectListRaw);
-
-    console.log(this.categorySubjectList);
+    this.categorySubjectList = this.listPageMainService.transformCategoryListWithLoop(this.categorySubjectListRaw);
   }
 
   ngAfterViewInit(): void {
@@ -468,8 +466,8 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
       for (let i = 0; i < this.categorySubjectList.length; i++) {
         const level3List = this.categorySubjectList[i].level3List;
         for (let j = 0; j < level3List.length; j++) {
-          if (this.isCategoryTagSelected(level3List[j].id, this.categorySubjectList[i].level2Id)) {
-            document.getElementById("level2" + this.categorySubjectList[i].level2Id)?.click();
+          if (this.isCategoryTagSelected(level3List[j].id, this.categorySubjectList[i].level2CategoryId)) {
+            document.getElementById("level2" + this.categorySubjectList[i].level2CategoryId)?.click();
             break;
           } else {
           }
@@ -490,7 +488,7 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
 
   toggleToFilter($event: any, category: CategoryTagListPage) {
     const currentTags = this.getCurrentSearchCategoryTag();
-    const index = currentTags.findIndex(tag => tag.id === category.id);
+    const index = currentTags.findIndex(tag => tag.id === category.id && tag.level2CategoryId == category.level2CategoryId);
     if (index !== -1) {
       currentTags.splice(index, 1);
     } else {
@@ -507,6 +505,7 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
       if (!addSuccessFully) {
         this.notifyToastCall.emit({ type: "warning", title: "Giới hạn tìm kiếm", desc: "Chỉ có thể tìm kiếm tối đa theo 5 thẻ" });
       } else {
+        console.log("vô 3");
         this.listPageMainService.categorySubjectLevel2Current = category.level2CategoryId;
         $event.currentTarget.classList.toggle('activated');
       }
@@ -519,28 +518,6 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
 
   isCategoryTagSelected(categoryTagId: number, level2CategoryId: number) {
     return this.getCurrentSearchCategoryTag().some(tag => tag.id === categoryTagId && tag.level2CategoryId === level2CategoryId);
-  }
-
-  transformCategoryListWithLoop(categorySubjectListRaw: any[]) {
-    const result = [];
-    
-    for (let i = 0; i < categorySubjectListRaw.length; i++) {
-      const curr = categorySubjectListRaw[i];
-      const level3Item = { id: curr.id, name: curr.name, categoryDesc: curr.categoryDesc };
-      const index = result.findIndex(item => item.level2CategoryId === curr.level2CategoryId);
-  
-      if (index === -1) {
-        result.push({
-          level2CategoryId: curr.level2CategoryId,
-          level2CategoryName: curr.level2CategoryName,
-          level3List: [level3Item]
-        });
-      } else {
-        result[index].level3List.push(level3Item);
-      }
-    }
-  
-    return result;
   }
 
   isContainsOther(level3ItemName: string) {
