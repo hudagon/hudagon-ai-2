@@ -46,6 +46,10 @@
     align-items: center;
 }
 
+.upper__color-group__overlay.dark-text {
+    color: var(--light-text-color);
+}
+
 .upper__color-group__overlay.activated > * {
     opacity: 1;
 }

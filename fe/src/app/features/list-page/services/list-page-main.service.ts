@@ -32,7 +32,7 @@ export class ListPageMainService {
       }
       
       for (let i = 0; i < this.currentSearchCategoryTag.length; i++) {
-        if (this.currentSearchCategoryTag[i].id == 0 || this.currentSearchCategoryTag[i].name.includes("other")) {
+        if (this.currentSearchCategoryTag[i].id == 0 || this.currentSearchCategoryTag[i].name.includes("Khác")) {
           if (this.currentSearchCategoryTag[i].level2CategoryId == category.level2CategoryId) {
             this.clearCurrentSearchCategoryTag(this.currentSearchCategoryTag[i].level2CategoryId + "", null);
             break;
