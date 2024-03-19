@@ -5,11 +5,23 @@
     }
 }
 
+@keyframes shine-loading-image {
+    0% {
+        background-position: -32px;
+    }
+    40%,
+    100% {
+        background-position: 300px;
+    }
+}
+
 @keyframes displayOpacity {
     from {
         transform: scale(0.96);
         opacity: 0;
-    } to {
+    }
+
+    to {
         transform: scale(1);
         opacity: 1;
     }

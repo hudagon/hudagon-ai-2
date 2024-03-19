@@ -23,38 +23,3 @@ app-login-modal {
     inset: 0 !important;
     z-index: 999 !important;
 }
-
-/* Height responsive */
-@media (min-height: 1365px) and (max-width: 1025px) {
-
-}
-
-/* Extra Large screens and TV */
-@media (min-width: 1603px) {
-
-}
-
-/* Below Large screens and desktops [NORMAL SCREEN] */
-@media (max-width: 1602px) {
-
-}
-
-/* Below Average screen [SMALL SCREEN] */
-@media (max-width: 1333px) {
-
-}
-
-/* Below small screen [TABLET] */
-@media (max-width: 1023px) {
-   
-}
-
-/* Below Tablets [LARGE PHONE] */
-@media (max-width: 739px) {
-    
-}
-
-/* Mobile normal to high resolution [SMALL PHONE] */
-@media (max-width: 480px) {
-
-}

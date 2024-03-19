@@ -1,1 +1,31 @@
-<p>list-page-tablet-side-bar works!</p>
+<div class="left-side__inside">
+    <div class="left-side__inside__upper">
+        <div class="left-side__inside__upper__content">
+            <app-overlay [z_index]="'3'"></app-overlay>
+            <h1 class="hover-effect-yellow-bright left-side__inside__upper__content__title">
+                <a routerLink="/"
+                    class="nothing left-side__inside__upper__content__title__responsive-screen">H</a>
+            </h1>
+        </div>
+    </div>
+
+    <div class="left-side__inside__lower">
+        <span class="left-side__inside__lower__title">
+            Bộ lọc
+        </span>
+
+        <ul class="left-side__inside__lower__level1-list">
+            <li *ngFor="let x of categoryLevel1List" id="{{x.name}}-category" (click)="toggleCategoryContent(x.name)" class="left-side__inside__lower__level1-list__item">
+                <i class="fa-solid fa-icons"></i>
+                <span class="left-side__inside__lower__level1-list__item__text">
+                    {{x.vietnameseName}}
+                </span>
+            </li>
+        </ul>
+
+        <div (click)="toggleTermAndServicePopUp()" class="left-side__inside__lower__term-and-service">
+            <i class="fa-solid fa-info"></i>
+            <i class="fa-solid fa-question"></i>
+        </div>
+    </div>
+</div>

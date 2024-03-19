@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MediaQueriesService } from 'src/app/core/services/media-queries.service';
 import { ListPageDesktopBodyComponent } from '../list-page-desktop-body/list-page-desktop-body.component';
 import { ListPageDesktopSideBarComponent } from '../list-page-desktop-side-bar/list-page-desktop-side-bar.component';
@@ -22,6 +22,12 @@ export class LayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  handleToggleTermAndServicePopUp() {
+    if (this.listPageDesktopBody) {
+      this.listPageDesktopBody.toggleTermAndServicePopUp();
+    }
   }
 
   handleResetAsideCategory($event: any) {

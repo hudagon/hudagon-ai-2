@@ -6,6 +6,7 @@
     justify-content: space-between;
     max-height: 1200px !important;
     max-width: 2100px;
+    min-height: 720px;
 }
 
 .left-side, .right-side {
@@ -23,4 +24,21 @@
     height: 100%;
 }
 
+/* Below small screen [TABLET] */
+@media (max-width: 1023px) {
+    .wrapper {
+        --left-side-width: 12%;
+    }
+
+    .left-side {
+        width: var(--left-side-width);
+        min-width: 99px;
+        height: 100%;
+    }
+    
+    .right-side {
+        width: calc(100% - var(--left-side-width));
+        height: 100%;
+    }
+}
 

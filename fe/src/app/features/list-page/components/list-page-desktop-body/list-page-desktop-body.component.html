@@ -9,15 +9,25 @@
         </div>
 
         <div class="right-side__inside__header__user-group">
-            <div (mouseover)="loadDesktopCartDropDown()" class="right-side__inside__header__user-group__cart-group">
+            <div *ngIf="(getViewportWidth() > getBreakpointValues('TABLET')!)"
+            (mouseover)="loadDesktopCartDropDown()" class="right-side__inside__header__user-group__cart-group desktop">
                 <i class="hover-effect-yellow-bright fa-solid fa-cart-shopping"></i>
                 <span class="right-side__inside__header__user-group__cart-group__amount">
                     0
                 </span>
 
-                <div id="cart_dropdown" class="right-side__inside__header__user-group__cart-group__dropdown">
+                <div class="right-side__inside__header__user-group__cart-group__dropdown">
                     <ng-template #desktopCartDropDown></ng-template>
                 </div>
+            </div>
+
+            <div *ngIf="(getViewportWidth() <= getBreakpointValues('TABLET')!) && (getViewportWidth() > getBreakpointValues('LARGE_PHONE')!)"
+            (click)="loadTabletCartDropDown()"
+            class="right-side__inside__header__user-group__cart-group">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="right-side__inside__header__user-group__cart-group__amount">
+                    0
+                </span>
             </div>
 
             <div (click)="toggleLoginModal()" *ngIf="!isLogged()"
@@ -30,6 +40,11 @@
     </header>
 
     <section id="right-side-body" (scroll)="checkScroll()" class="right-side__inside__body">
+        <div class="right-side__inside__body__tablet-cart">
+            <app-tablet-cart-dropdown></app-tablet-cart-dropdown>
+            <!-- <ng-template #tabletCartDropdown></ng-template> -->
+        </div>
+
         <div [ngClass]="{ 'pushed' : isCategoryContentShow }" class="right-side__inside__body__search-utilities">
             <div class="right-side__inside__body__search-utilities__summary">
                 <ul class="right-side__inside__body__search-utilities__summary__category-tag-group">
@@ -93,7 +108,8 @@
                 </div>
 
             </div>
-            <div class="right-side__inside__body__gallery__exhibition">
+
+            <div *ngIf="!isExhibitionLoading" class="right-side__inside__body__gallery__exhibition">
                 <div class="right-side__inside__body__gallery__exhibition__item">
                     <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
                     class="right-side__inside__body__gallery__exhibition__item__img">
@@ -101,6 +117,26 @@
                         Xem trước
                     </div>
                 </div>
+            </div>
+
+            <div *ngIf="isExhibitionLoading" class="right-side__inside__body__gallery__exhibition__skeleton">
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 180px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 660px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 210px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 660px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 180px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 450px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 300px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 300px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 180px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 450px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 600px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 180px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 660px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 210px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 660px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 450px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 300px"></div>
             </div>
 
             <div id="scroll-to-top" (click)="scrollToTop()" class="hover-effect-yellow-bright right-side__inside__body__gallery__scroll-to-top">
@@ -126,6 +162,21 @@
             <app-color-category (notifyToastCall)="handleToastCall($event)" style="display: contents" *ngIf="displayedCategory == 'color'" ></app-color-category>
         </div>
     </aside>
+
+    <div id="termAndService" class="right-side__inside__term-and-service">
+        <div class="right-side__inside__term-and-service__item">
+            <i class="fa-solid fa-file-contract"></i>
+            Chính sách
+        </div>
+        <div class="right-side__inside__term-and-service__item">
+            <i class="fa-solid fa-spell-check"></i>
+            Điều khoản
+        </div>
+        <div class="right-side__inside__term-and-service__item">
+            <i class="fa-solid fa-address-book"></i>
+            Liên hệ
+        </div>
+    </div>
 </div>
 
 <app-modal (notifyToggleModal)="togglePreviewModal()" *ngIf="isPreviewModalShow" style="display: contents;" >

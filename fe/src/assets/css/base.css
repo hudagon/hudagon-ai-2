@@ -51,7 +51,9 @@ body {
     white-space: nowrap;
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    min-height: 450px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -130,6 +132,7 @@ body {
     --dark-background-color: #09060a;
     --light-background-color: whitesmoke;
 
+    --dark-skeleton-color: #170f1a;
     --dark-panel-color: #080508;
 
     --dark-text-color: #dfdfdf;

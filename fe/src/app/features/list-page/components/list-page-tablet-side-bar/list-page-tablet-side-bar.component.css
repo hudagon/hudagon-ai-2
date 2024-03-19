@@ -1,0 +1,101 @@
+.left-side__inside {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 9px;
+}
+
+.left-side__inside__upper {
+    border-radius: var(--border-radius-2);
+    border: 1px solid var(--dark-border-color);
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(--dark-panel-color);
+    background: rgb(62, 0, 138);
+    background: radial-gradient(circle, rgba(62, 0, 138, 1) 0%, rgba(197, 179, 88, 1) 100%);
+    animation: list-page-left-upper-glowing-background 90s linear infinite;
+    overflow: hidden;
+    background-size: 360%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.left-side__inside__upper__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-2);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-side__inside__upper__content__title {
+    position: relative;
+    z-index: 4;
+    font-family: var(--font-secondary);
+}
+
+.left-side__inside__lower {
+    flex: 1;
+    border: 1px solid var(--dark-border-color);
+    border-radius: var(--border-radius-2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.left-side__inside__lower__title {
+    width: 100%;
+    border-bottom: 1px solid var(--dark-border-color);
+    padding: 6px;
+    font-size: var(--fs-less-1);
+    text-align: center;
+    background-color: var(--level1-color);
+}
+
+.left-side__inside__lower__level1-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.left-side__inside__lower__level1-list__item {
+    width: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-direction: column;
+}
+
+.left-side__inside__lower__level1-list__item.chosen {
+    background-color: var(--level2-color);
+    color: var(--secondary-color);
+}
+
+.left-side__inside__lower__level1-list__item__text {
+    font-size: var(--fs-less-1);
+}
+
+.left-side__inside__lower__term-and-service {
+    margin-top: auto;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border-top: 1px solid var(--dark-border-color);
+    position: relative;
+}
+

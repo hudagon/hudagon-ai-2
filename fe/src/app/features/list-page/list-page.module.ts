@@ -15,6 +15,7 @@ import { StyleCategoryComponent } from './components/list-page-desktop-body/styl
 import { RatioCategoryComponent } from './components/list-page-desktop-body/ratio-category/ratio-category.component';
 import { ColorCategoryComponent } from './components/list-page-desktop-body/color-category/color-category.component';
 import { TopicCategoryComponent } from './components/list-page-desktop-body/topic-category/topic-category.component';
+import { TabletCartDropdownComponent } from './components/list-page-desktop-body/tablet-cart-dropdown/tablet-cart-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { TopicCategoryComponent } from './components/list-page-desktop-body/topi
     RatioCategoryComponent,
     ColorCategoryComponent,
     TopicCategoryComponent,
+    TabletCartDropdownComponent,
   ],
   imports: [
     CommonModule,
