@@ -26,7 +26,10 @@
                 kết quả cho
             </p>
             <ul class="body__search-info-group__tag-group">
-                
+                <li *ngFor="let x of getCurrentSearchCategoryTag()"
+                class="body__search-info-group__tag-group__item">
+                <app-category-tag [categoryTagName]="x.name" style="display: contents"></app-category-tag>
+            </li>
             </ul>
         </div>
     </div>

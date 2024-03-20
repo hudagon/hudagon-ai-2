@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ListPageMainService } from '../../services/list-page-main.service';
 
 @Component({
   selector: 'app-list-page-mobile',
@@ -6,9 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-page-mobile.component.css']
 })
 export class ListPageMobileComponent {
-
   mobileSearchInput: string = "";
 
+  constructor(
+    private listPageMainService: ListPageMainService
+  ) {
+  }
 
   /*#region Search Input */
   toggleMobileSearchInput($event: any) {
@@ -19,6 +23,12 @@ export class ListPageMobileComponent {
 
   clearSearchInput() {
     this.mobileSearchInput = "";
+  }
+  /*#endregion*/
+
+  /*#region Search Tag */
+  getCurrentSearchCategoryTag() {
+    return this.listPageMainService.currentSearchCategoryTag;
   }
   /*#endregion*/
 }
