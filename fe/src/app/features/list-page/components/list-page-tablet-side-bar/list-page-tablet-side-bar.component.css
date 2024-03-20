@@ -71,7 +71,7 @@
 
 .left-side__inside__lower__level1-list__item {
     width: 100%;
-    aspect-ratio: 1/1;
+    height: 15%;
     display: flex;
     justify-content: center;
     align-items: center;

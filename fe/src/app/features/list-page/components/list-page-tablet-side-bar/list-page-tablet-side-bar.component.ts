@@ -23,27 +23,32 @@ export class ListPageTabletSideBarComponent {
       {
         id: 1,
         name: 'subject',
-        vietnameseName: 'Chủ thể'
+        vietnameseName: 'Chủ thể',
+        faIcon: "fa-solid fa-icons"
       },
       {
         id: 2,
         name: 'topic',
-        vietnameseName: 'Chủ đề'
+        vietnameseName: 'Chủ đề',
+        faIcon: "fa-solid fa-expand"
       },
       {
         id: 3,
         name: 'style',
-        vietnameseName: 'Phong cách'
+        vietnameseName: 'Phong cách',
+        faIcon: "fa-solid fa-paintbrush"
       },
       {
         id: 4,
         name: 'ratio',
-        vietnameseName: 'Tỉ lệ'
+        vietnameseName: 'Tỉ lệ',
+        faIcon: "fa-solid fa-palette"
       },
       {
         id: 5,
         name: 'color',
-        vietnameseName: 'Màu sắc'
+        vietnameseName: 'Màu sắc',
+        faIcon: "fa-solid fa-image"
       }
     ];
   }

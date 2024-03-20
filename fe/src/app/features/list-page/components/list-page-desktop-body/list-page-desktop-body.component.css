@@ -29,7 +29,7 @@
 
 .right-side__inside__header__search-group i {
     position: absolute;
-    top: 30%;
+    top: 15px;
     right: 15px;
     opacity: 0.6;
 }
@@ -131,7 +131,6 @@
     position: sticky;
     top: 0;
     padding-top: 9px;
-    background-color: var(--dark-panel-color);
     z-index: 1;
     display: flex;
     justify-content: space-between;
@@ -526,10 +525,20 @@
 .right-side__inside__term-and-service__item {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 6px;
     padding: 15px 18px;
+    width: 100%;
+}
+
+.right-side__inside__term-and-service__item i {
+    width: 34%;
+}
+
+.right-side__inside__term-and-service__item span {
+    width: 66%;
+    text-align: start;
 }
 /*#endregion*/
 
@@ -539,10 +548,19 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 120px;
+    height: 0px;
     background-color: var(--level2-color);
-    border-bottom: 1px solid var(--dark-border-color);
     z-index: 2;
+    transition: 0.3s ease-in-out;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+.right-side__inside__body__tablet-cart.activated {
+    opacity: 1;
+    pointer-events: all;
+    height: 120px;
 }
 /*#endregion*/
 

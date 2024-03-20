@@ -42,3 +42,19 @@
     }
 }
 
+/* Below Tablets [LARGE PHONE] */
+@media (max-width: 739px) {
+    .left-side {
+        display: none;
+    }
+    
+    .right-side {
+        width: 100%;
+        padding: 0;
+    }
+
+    .wrapper {
+        padding: 0;
+    }
+}
+

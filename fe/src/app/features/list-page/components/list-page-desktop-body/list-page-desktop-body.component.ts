@@ -1,11 +1,10 @@
-import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
 import { DesktopCartDropdownComponent } from './desktop-cart-dropdown/desktop-cart-dropdown.component';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { CategoryTagListPage } from '../../models/category-tag-list-page';
 import { ListPageMainService } from '../../services/list-page-main.service';
 import { ToastService } from 'src/app/shareds/main-shared/services/toast.service';
 import { MediaQueriesService } from 'src/app/core/services/media-queries.service';
-import { TabletCartDropdownComponent } from './tablet-cart-dropdown/tablet-cart-dropdown.component';
 
 @Component({
   selector: 'app-list-page-desktop-body',
@@ -16,7 +15,6 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
   @Output() notifyToggleLoginModal: EventEmitter<string> = new EventEmitter();
   @Output() notifyResetAsideCategory = new EventEmitter();
   @ViewChild('desktopCartDropDown', { read: ViewContainerRef }) desktopCartDropDowncontainer: ViewContainerRef | undefined;
-  @ViewChild('tabletCartDropdown', { read: ViewContainerRef }) tabletCartDropDownContainer: ViewContainerRef | undefined;
   cartFirsTimehover: boolean = false;
   cartFirstTimeClick: boolean = false;
   isExhibitionLoading: boolean = true;
@@ -70,7 +68,12 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
   }
 
   changeSearchInput() {
-    this.listPageMainService.updateCurrentSearchCategoryTag({ id: -2, name: '"' + this.searchInput + '"', level2CategoryId: -2, level1CategoryId: -2 });
+    if (this.searchInput == "") {
+      this.listPageMainService.clearCurrentSearchCategoryTag("-2", null);
+    } else {
+      this.listPageMainService.updateCurrentSearchCategoryTag({ id: -2, name: '"' + this.searchInput + '"', level2CategoryId: -2, level1CategoryId: -2 });
+    }
+
     this.searchPanting();
     this.searchInputDOM?.focus();
   }
@@ -143,11 +146,7 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
   }
 
   loadTabletCartDropDown() {
-    if (!this.cartFirstTimeClick) {
-      console.log("vô 1");
-      this.tabletCartDropDownContainer?.createComponent(TabletCartDropdownComponent);
-      this.cartFirstTimeClick = true;
-    }
+    document.getElementById("rightSideInsideBodyTabletCart")?.classList.toggle("activated");
   }
 
   toggleTermAndServicePopUp() {

@@ -1,0 +1,33 @@
+<div class="wrapper">
+    <header class="header">
+        <div class="header__title">
+            <div class="header__title__gradient-container">
+                <h1 routerLink="/" class="header__title__gradient-container__background">
+                    Logo
+                </h1>
+            </div>
+        </div>
+
+        <div class="header__search-group">
+            <input [(ngModel)]="mobileSearchInput" (blur)="toggleMobileSearchInput($event)" (focus)="toggleMobileSearchInput($event)" id="mobileSearchInput" tabindex="1" type="text" placeholder="Tìm tranh..."
+                class="round header__search-group__search-bar">
+            <i (click)="clearSearchInput()" *ngIf="mobileSearchInput != ''" class="fa-solid fa-xmark"></i>
+            <i tabindex="2" class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="header__hamburger-group">
+            <app-hamburger></app-hamburger>
+        </div>
+    </header>
+
+    <div class="body">
+        <div class="body__search-info-group">
+            <p class="body__search-info-group__text-group">
+                <span>12345</span>
+                kết quả cho
+            </p>
+            <ul class="body__search-info-group__tag-group">
+                
+            </ul>
+        </div>
+    </div>
+</div>

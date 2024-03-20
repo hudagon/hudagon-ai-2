@@ -1,16 +1,18 @@
 <div class="right-side__inside">
     <header class="right-side__inside__header">
         <div class="right-side__inside__header__search-group">
-            <input (keyup.enter)="changeSearchInput()" [(ngModel)]="searchInput" id="searchInput" tabindex="1" type="text" placeholder="Tìm tranh..."
+            <input (keyup.enter)="changeSearchInput()" [(ngModel)]="searchInput" id="searchInput" tabindex="1"
+                type="text" placeholder="Tìm tranh..."
                 class="round right-side__inside__header__search-group__search-bar">
-            <i tabindex="2" *ngIf="searchInput.length !== 0" (click)="resetInput()" (keyup.enter)="resetInput()" class="hover-effect-yellow-bright fa-solid fa-xmark"></i>
+            <i tabindex="2" *ngIf="searchInput.length !== 0" (click)="resetInput()" (keyup.enter)="resetInput()"
+                class="hover-effect-yellow-bright fa-solid fa-xmark"></i>
             <i (keyup.enter)="changeSearchInput()" tabindex="3"
                 class="hover-effect-yellow-bright fa-solid fa-magnifying-glass"></i>
         </div>
 
         <div class="right-side__inside__header__user-group">
-            <div *ngIf="(getViewportWidth() > getBreakpointValues('TABLET')!)"
-            (mouseover)="loadDesktopCartDropDown()" class="right-side__inside__header__user-group__cart-group desktop">
+            <div *ngIf="(getViewportWidth() > getBreakpointValues('TABLET')!)" (mouseover)="loadDesktopCartDropDown()"
+                class="right-side__inside__header__user-group__cart-group desktop">
                 <i class="hover-effect-yellow-bright fa-solid fa-cart-shopping"></i>
                 <span class="right-side__inside__header__user-group__cart-group__amount">
                     0
@@ -22,8 +24,7 @@
             </div>
 
             <div *ngIf="(getViewportWidth() <= getBreakpointValues('TABLET')!) && (getViewportWidth() > getBreakpointValues('LARGE_PHONE')!)"
-            (click)="loadTabletCartDropDown()"
-            class="right-side__inside__header__user-group__cart-group">
+                (click)="loadTabletCartDropDown()" class="right-side__inside__header__user-group__cart-group">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="right-side__inside__header__user-group__cart-group__amount">
                     0
@@ -40,9 +41,9 @@
     </header>
 
     <section id="right-side-body" (scroll)="checkScroll()" class="right-side__inside__body">
-        <div class="right-side__inside__body__tablet-cart">
-            <app-tablet-cart-dropdown></app-tablet-cart-dropdown>
-            <!-- <ng-template #tabletCartDropdown></ng-template> -->
+        <div id="rightSideInsideBodyTabletCart" class="right-side__inside__body__tablet-cart">
+            <app-tablet-cart-dropdown
+                (notifyToggleTabletDropDown)="loadTabletCartDropDown()"></app-tablet-cart-dropdown>
         </div>
 
         <div [ngClass]="{ 'pushed' : isCategoryContentShow }" class="right-side__inside__body__search-utilities">
@@ -52,16 +53,18 @@
                         <span>12345</span> kết quả cho
                     </span>
                     <li *ngIf="getCurrentSearchCategoryTag().length == 0"
-                        class="right-side__inside__body__search-utilities__summary__category-tag-group__item" style="opacity: 0.81;">
+                        class="right-side__inside__body__search-utilities__summary__category-tag-group__item"
+                        style="opacity: 0.81;">
                         <app-category-tag [disableDelete]="true" [categoryTagName]="'Tất cả tranh'"
                             style="display: contents"></app-category-tag>
                     </li>
-                    <li *ngFor="let x of getCurrentSearchCategoryTag()" (click)="toggleToFilter({ id: x.id, name: x.name, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})" 
+                    <li *ngFor="let x of getCurrentSearchCategoryTag()"
+                        (click)="toggleToFilter({ id: x.id, name: x.name, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})"
                         class="hover-effect-danger right-side__inside__body__search-utilities__summary__category-tag-group__item">
-                        <app-category-tag [categoryTagName]="x.name"
-                            style="display: contents"></app-category-tag>
+                        <app-category-tag [categoryTagName]="x.name" style="display: contents"></app-category-tag>
                     </li>
-                    <button (click)="resetSearchSortInfo()" *ngIf="getCurrentSearchCategoryTag().length != 0" type="button" class="hover-effect-yellow-bright btn right-side__inside__body__utilities__reset">
+                    <button (click)="resetSearchSortInfo()" *ngIf="getCurrentSearchCategoryTag().length != 0"
+                        type="button" class="hover-effect-yellow-bright btn right-side__inside__body__utilities__reset">
                         <i class="fa-solid fa-rotate"></i> Đặt lại
                     </button>
                 </ul>
@@ -70,7 +73,8 @@
 
         <div class="right-side__inside__body__gallery">
             <div class="right-side__inside__body__gallery__utilities">
-                <div [ngClass]="{ 'pushed' : isCategoryContentShow }" class="right-side__inside__body__search-utilities__sort">
+                <div [ngClass]="{ 'pushed' : isCategoryContentShow }"
+                    class="right-side__inside__body__search-utilities__sort">
                     <div tabindex="0" (blur)="toggleSortOptionBlur()" (click)="toggleSortOptions()"
                         class="right-side__inside__body__search-utilities__sort__select select">
                         <span
@@ -111,35 +115,54 @@
 
             <div *ngIf="!isExhibitionLoading" class="right-side__inside__body__gallery__exhibition">
                 <div class="right-side__inside__body__gallery__exhibition__item">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt=""
-                    class="right-side__inside__body__gallery__exhibition__item__img">
-                    <div (click)="togglePreviewModal()" class="hover-effect-yellow-bright right-side__inside__body__gallery__exhibition__preview">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="right-side__inside__body__gallery__exhibition__item__img">
+                    <div (click)="togglePreviewModal()"
+                        class="hover-effect-yellow-bright right-side__inside__body__gallery__exhibition__preview">
                         Xem trước
                     </div>
                 </div>
             </div>
 
             <div *ngIf="isExhibitionLoading" class="right-side__inside__body__gallery__exhibition__skeleton">
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 180px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 660px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 210px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 660px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 180px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 450px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 300px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 300px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 180px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 450px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 600px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 180px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 660px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 210px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 660px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 450px"></div>
-                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading" style="height: 300px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 180px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 660px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 210px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 660px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 180px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 450px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 300px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 300px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 180px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 450px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 600px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 180px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 660px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 210px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 660px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 450px"></div>
+                <div class="right-side__inside__body__gallery__exhibition__skeleton__item is-loading"
+                    style="height: 300px"></div>
             </div>
 
-            <div id="scroll-to-top" (click)="scrollToTop()" class="hover-effect-yellow-bright right-side__inside__body__gallery__scroll-to-top">
+            <div id="scroll-to-top" (click)="scrollToTop()"
+                class="hover-effect-yellow-bright right-side__inside__body__gallery__scroll-to-top">
                 <i class="fa-solid fa-angle-up"></i>
             </div>
         </div>
@@ -155,31 +178,42 @@
         </div>
 
         <div class="right-side__inside__category__body">
-            <app-subject-category (notifyToastCall)="handleToastCall($event)" style="display: contents" *ngIf="displayedCategory == 'subject'" ></app-subject-category>
-            <app-style-category (notifyToastCall)="handleToastCall($event)" style="display: contents" *ngIf="displayedCategory == 'style'" ></app-style-category>
-            <app-topic-category (notifyToastCall)="handleToastCall($event)" style="display: contents" *ngIf="displayedCategory == 'topic'" ></app-topic-category>
-            <app-ratio-category (notifyToastCall)="handleToastCall($event)" style="display: contents" *ngIf="displayedCategory == 'ratio'" ></app-ratio-category>
-            <app-color-category (notifyToastCall)="handleToastCall($event)" style="display: contents" *ngIf="displayedCategory == 'color'" ></app-color-category>
+            <app-subject-category (notifyToastCall)="handleToastCall($event)" style="display: contents"
+                *ngIf="displayedCategory == 'subject'"></app-subject-category>
+            <app-style-category (notifyToastCall)="handleToastCall($event)" style="display: contents"
+                *ngIf="displayedCategory == 'style'"></app-style-category>
+            <app-topic-category (notifyToastCall)="handleToastCall($event)" style="display: contents"
+                *ngIf="displayedCategory == 'topic'"></app-topic-category>
+            <app-ratio-category (notifyToastCall)="handleToastCall($event)" style="display: contents"
+                *ngIf="displayedCategory == 'ratio'"></app-ratio-category>
+            <app-color-category (notifyToastCall)="handleToastCall($event)" style="display: contents"
+                *ngIf="displayedCategory == 'color'"></app-color-category>
         </div>
     </aside>
 
     <div id="termAndService" class="right-side__inside__term-and-service">
         <div class="right-side__inside__term-and-service__item">
             <i class="fa-solid fa-file-contract"></i>
-            Chính sách
+            <span>
+                Chính sách
+            </span>
         </div>
         <div class="right-side__inside__term-and-service__item">
             <i class="fa-solid fa-spell-check"></i>
-            Điều khoản
+            <span>
+                Điều khoản
+            </span>
         </div>
         <div class="right-side__inside__term-and-service__item">
             <i class="fa-solid fa-address-book"></i>
-            Liên hệ
+            <span>
+                Liên hệ
+            </span>
         </div>
     </div>
 </div>
 
-<app-modal (notifyToggleModal)="togglePreviewModal()" *ngIf="isPreviewModalShow" style="display: contents;" >
+<app-modal (notifyToggleModal)="togglePreviewModal()" *ngIf="isPreviewModalShow" style="display: contents;">
     <div class="preview-drawing-container">
         <h1 class="preview-drawing-container__title">
             Con mèo mà trèo cây cau

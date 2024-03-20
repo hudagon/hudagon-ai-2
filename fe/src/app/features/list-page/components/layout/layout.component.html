@@ -3,7 +3,8 @@
         <app-list-page-desktop-side-bar #listPageDesktopSideBar style="display: contents" 
         (notifyToggleCategoryContent)="handleToggleCategoryContent($event)"
             *ngIf="(getViewportWidth() > getBreakpointValues('TABLET')!)"></app-list-page-desktop-side-bar>
-        <app-list-page-tablet-side-bar style="display: contents" 
+
+        <app-list-page-tablet-side-bar #listPageTabletSideBar style="display: contents" 
         (notifyToggleCategoryContent)="handleToggleCategoryContent($event)"
         (notifyToggleTermAndServicePopUp)="handleToggleTermAndServicePopUp()"
             *ngIf="(getViewportWidth() <= getBreakpointValues('TABLET')!) && (getViewportWidth() > getBreakpointValues('LARGE_PHONE')!)"></app-list-page-tablet-side-bar>
@@ -12,6 +13,8 @@
     <div class="right-side">
         <app-list-page-desktop-body (notifyResetAsideCategory)="handleResetAsideCategory($event)"  #listPageDesktopBody (notifyToggleLoginModal)="handleToggleLoginModal()" style="display: contents"
             *ngIf="(getViewportWidth() > getBreakpointValues('LARGE_PHONE')!)"></app-list-page-desktop-body>
+
+        <app-list-page-mobile *ngIf="(getViewportWidth() <= getBreakpointValues('LARGE_PHONE')!)"></app-list-page-mobile>
     </div>
 
     <app-login-modal [z_index]="'9'" style="display: contents" *ngIf="isLoginModalOpen" (notifyToggleLoginModal)="handleToggleLoginModal()"></app-login-modal>

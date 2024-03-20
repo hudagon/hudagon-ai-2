@@ -1,33 +1,33 @@
 .wrapper {
-    width: 100%;
     height: 100%;
 }
 
 .list {
     padding: 12px;
-    width: 100%;
     height: 100%;
     display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
     gap: 15px;
 }
 
 .list__item {
     gap: 6px;
-    width: 45%;
+    min-width: 300px;
     display: flex;
     align-items: center;
     height: 100%;
 }
 
 .list__item__image {
-    width: 45%;
+    width: 42%;
+    max-height: 100%;
     aspect-ratio: 1/1;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .list__item__info {
-    width: 55%;
+    width: 58%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -42,4 +42,22 @@
 
 .list__item__info__view-detail {
     font-size: var(--fs-less-1);
+}
+
+.link-group {
+    width: 100%;
+    background-color: var(--level2-color);
+    padding: 9px;
+    border-bottom: 1px solid var(--dark-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link-group a {
+    width: max-content;
+}
+
+.link-group i {
+    padding: 0 9px;
 }
