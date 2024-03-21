@@ -9,7 +9,6 @@ export class ModalComponent {
   @Output() notifyToggleModal = new EventEmitter();
 
   handleToggleModal() {
-    console.log("vô 2");
     this.notifyToggleModal.emit();
   }
 }

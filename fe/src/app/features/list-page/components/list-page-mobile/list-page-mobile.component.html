@@ -9,28 +9,85 @@
         </div>
 
         <div class="header__search-group">
-            <input [(ngModel)]="mobileSearchInput" (blur)="toggleMobileSearchInput($event)" (focus)="toggleMobileSearchInput($event)" id="mobileSearchInput" tabindex="1" type="text" placeholder="Tìm tranh..."
-                class="round header__search-group__search-bar">
+            <input [(ngModel)]="mobileSearchInput" (blur)="toggleMobileSearchInput($event)"
+                (keyup.enter)="changeSearchInput()"
+                (focus)="toggleMobileSearchInput($event)" id="searchMobileInputDOM" type="text"
+                placeholder="Tìm tranh..." class="round header__search-group__search-bar">
             <i (click)="clearSearchInput()" *ngIf="mobileSearchInput != ''" class="fa-solid fa-xmark"></i>
-            <i tabindex="2" class="fa-solid fa-magnifying-glass"></i>
+            <i (click)="changeSearchInput()" class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div class="header__hamburger-group">
-            <app-hamburger></app-hamburger>
+            <app-hamburger (notifyToggleHamburger)="handleToggleHamburger()" ></app-hamburger>
         </div>
     </header>
 
     <div class="body">
         <div class="body__search-info-group">
-            <p class="body__search-info-group__text-group">
-                <span>12345</span>
-                kết quả cho
-            </p>
             <ul class="body__search-info-group__tag-group">
-                <li *ngFor="let x of getCurrentSearchCategoryTag()"
-                class="body__search-info-group__tag-group__item">
-                <app-category-tag [categoryTagName]="x.name" style="display: contents"></app-category-tag>
-            </li>
+                <p class="body__search-info-group__text-group">
+                    <span>12345</span>
+                    kết quả cho
+                </p>
+                <li *ngIf="getCurrentSearchCategoryTag().length == 0" class="body__search-info-group__tag-group__item"
+                    style="opacity: 0.81;">
+                    <app-category-tag [disableDelete]="true" [categoryTagName]="'Tất cả tranh'"
+                        style="display: contents"></app-category-tag>
+                </li>
+                <li *ngFor="let x of getCurrentSearchCategoryTag()" class="body__search-info-group__tag-group__item">
+                    <app-category-tag [categoryTagName]="x.name" style="display: contents"></app-category-tag>
+                </li>
+                <button (click)="resetSearchSortInfo()" *ngIf="getCurrentSearchCategoryTag().length != 0" type="button"
+                    class="btn body__search-info-group__reset">
+                    <i class="fa-solid fa-rotate"></i> Đặt lại
+                </button>
             </ul>
+        </div>
+
+        <div class="body__gallery-group">
+            <ul *ngIf="!isExhibitionLoading" class="body__gallery-group__list">
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+            </ul>
+
+            <ul *ngIf="isExhibitionLoading" class="body__gallery-group__list-skeleton">
+                <div class="body__gallery-group__list-skeleton__item is-loading" style="height: 180px"></div>
+                <div class="body__gallery-group__list-skeleton__item is-loading" style="height: 360px"></div>
+                <div class="body__gallery-group__list-skeleton__item is-loading" style="height: 180px"></div>
+                <div class="body__gallery-group__list-skeleton__item is-loading" style="height: 360px"></div>
+                <div class="body__gallery-group__list-skeleton__item is-loading" style="height: 660px"></div>
+                <div class="body__gallery-group__list-skeleton__item is-loading" style="height: 180px"></div>
+            </ul>
+        </div>
+
+        <div id="hamburgerContentDOM" class="hamburger-content">
+        
         </div>
     </div>
 </div>
+
+<app-modal (notifyToggleModal)="togglePreviewPaintingModal()" style="display: contents" *ngIf="isPreviewModalShow">
+    <div class="preview-drawing-container">
+        <h1 class="preview-drawing-container__title">
+            Con mèo mà trèo cây cau
+        </h1>
+        <figure class="preview-drawing-container__img-group">
+            <img class="preview-drawing-container__img-group__img"
+                src="https://www.aandmedu.in/wp-content/uploads/2021/11/9-16-Aspect-Ratio-576x1024.jpg"
+                alt="">
+        </figure>
+        <div class="preview-drawing-container__button-group">
+            <button class="btn outline">
+                <i class="fa-solid fa-cart-shopping"></i> <span>Thêm vào giỏ hàng</span>
+            </button>
+            <button class="btn outline">
+                <span>Xem chi tiết</span>
+            </button>
+            <button (click)="togglePreviewPaintingModal()" class="btn outline">
+                <i class="fa-solid fa-xmark close-button"></i>
+                <span>Thoát</span>
+            </button>
+        </div>
+    </div>
+</app-modal>

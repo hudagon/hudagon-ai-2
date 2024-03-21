@@ -7,7 +7,7 @@ import { MediaQueriesService } from 'src/app/core/services/media-queries.service
   styleUrls: ['./top-info.component.css']
 })
 export class TopInfoComponent implements OnInit {
-  @Output() notifyToggleTabletHamburger = new EventEmitter();
+  @Output() notifyToggleHamburger = new EventEmitter();
 
   constructor(
     private mediaQueriesService: MediaQueriesService
@@ -25,7 +25,7 @@ export class TopInfoComponent implements OnInit {
     return this.mediaQueriesService.breakPointMap.get(screen);
   }
 
-  handleToggleTabletHamurber() {
-    this.notifyToggleTabletHamburger.emit();
+  handleToggleHamurber() {
+    this.notifyToggleHamburger.emit();
   }
 }

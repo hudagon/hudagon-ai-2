@@ -6,7 +6,7 @@
                 class="round right-side__inside__header__search-group__search-bar">
             <i tabindex="2" *ngIf="searchInput.length !== 0" (click)="resetInput()" (keyup.enter)="resetInput()"
                 class="hover-effect-yellow-bright fa-solid fa-xmark"></i>
-            <i (keyup.enter)="changeSearchInput()" tabindex="3"
+            <i (click)="changeSearchInput()" tabindex="3"
                 class="hover-effect-yellow-bright fa-solid fa-magnifying-glass"></i>
         </div>
 

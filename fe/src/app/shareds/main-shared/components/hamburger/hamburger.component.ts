@@ -7,7 +7,7 @@ import { MainSharedService } from '../../services/main-shared.service';
   styleUrls: ['./hamburger.component.css']
 })
 export class HamburgerComponent implements OnInit {
-  @Output() notifyToggleTabletHamburger = new EventEmitter();
+  @Output() notifyToggleHamburger = new EventEmitter();
 
   constructor(
     private mainSharedService: MainSharedService
@@ -23,6 +23,6 @@ export class HamburgerComponent implements OnInit {
   
   toggleHamburger() {
     this.mainSharedService.isHamburgerToggled = !this.mainSharedService.isHamburgerToggled;
-    this.notifyToggleTabletHamburger.emit();
+    this.notifyToggleHamburger.emit();
   }
 }

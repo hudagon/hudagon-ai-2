@@ -82,7 +82,7 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
     this.isExhibitionLoading = true;
     setTimeout(() => {
       this.isExhibitionLoading = false;
-    }, 600);
+    }, 3000);
   }
   /*#endregion*/
 

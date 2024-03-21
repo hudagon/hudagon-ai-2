@@ -34,7 +34,7 @@ export class LayoutComponent implements OnInit {
     return this.mediaQueriesService.viewportWidth;
   }
 
-  handleToggleTabletHamburber() {
+  handleToggleHamburber() {
     this.isTabletHamburgerOpen = !this.isTabletHamburgerOpen;
     this.changeDectector.markForCheck();
   }

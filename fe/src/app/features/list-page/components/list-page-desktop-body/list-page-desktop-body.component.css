@@ -412,7 +412,6 @@
     font-size: var(--fs-larger-5);
     font-weight: 300;
     opacity: 0.81;
-    text-wrap: wrap;
     font-family: var(--font-secondary);
     height: 12%;
     min-height: 60px;
@@ -492,8 +491,8 @@
     background-image: -o-linear-gradient(left, var(--dark-panel-color) 0px, var(--dark-skeleton-color) 40px, var(--dark-panel-color) 80px);
     background-image: linear-gradient(90deg, var(--dark-panel-color) 0px, var(--dark-skeleton-color) 40px, var(--dark-panel-color) 80px);
     background-size: 350px;
-    -webkit-animation: shine-loading-image 1.5s infinite ease-out;
-            animation: shine-loading-image 1.5s infinite ease-out;
+    -webkit-animation: shine-loading-image 0.81s infinite ease-in-out;
+            animation: shine-loading-image 0.81s infinite ease-in-out;
 }
 /*#endregion*/
 
