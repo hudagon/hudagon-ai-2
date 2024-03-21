@@ -1,5 +1,6 @@
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
@@ -7,9 +8,10 @@ import { AuthService } from 'src/app/auth/services/auth.service';
   templateUrl: './landing-page-tablet-hamburger-content.component.html',
   styleUrls: ['./landing-page-tablet-hamburger-content.component.css']
 })
-export class LandingPageTabletHamburgerContentComponent implements OnInit {
+export class LandingPageTabletHamburgerContentComponent implements OnInit, OnDestroy {
   @Output() notifyToggleHamburgerContent = new EventEmitter();
   user: SocialUser | undefined;
+  private subscription: Subscription | undefined;
 
   constructor(
     private authService: AuthService,
@@ -17,12 +19,18 @@ export class LandingPageTabletHamburgerContentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.socialAuthService.authState.subscribe((user) => {
+    this.subscription = this.socialAuthService.authState.subscribe((user) => {
       this.user = user;
       if (user) {
         this.authService.login(user);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   isLogged() {

@@ -1,34 +1,81 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ListPageMainService } from '../../services/list-page-main.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { Subscription } from 'rxjs';
+import { HamburgerComponent } from 'src/app/shareds/main-shared/components/hamburger/hamburger.component';
 
 @Component({
   selector: 'app-list-page-mobile',
   templateUrl: './list-page-mobile.component.html',
   styleUrls: ['./list-page-mobile.component.css']
 })
-export class ListPageMobileComponent implements OnInit, AfterViewInit {
+export class ListPageMobileComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild('mobileHamburger', { static: false }) mobileHamburger: HamburgerComponent | undefined;
   mobileSearchInput: string = "";
   isExhibitionLoading: boolean = true;
   isPreviewModalShow: boolean = false;
+  isHamburgerShow: boolean = false;
+  isMobileCartShow: boolean = false;
+  isMobileCategoryTagShow: boolean = true;
+  user: SocialUser | undefined;
+  private subscription: Subscription | undefined;
 
   // DOM Element
   mobileSearchInputDOM: any;
 
   constructor(
-    private listPageMainService: ListPageMainService
+    private listPageMainService: ListPageMainService,
+    private authService: AuthService,
+    private socialAuthService: SocialAuthService
   ) {
   }
 
   ngOnInit(): void {
+    this.subscription = this.socialAuthService.authState.subscribe((user) => {
+      this.user = user;
+      if (user) {
+        this.authService.login(user);
+      }
+    });
+
     this.isExhibitionLoading = true;
     setTimeout(() => {
       this.isExhibitionLoading = false;
     }, 600);
   }
 
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+
   ngAfterViewInit(): void {
     this.mobileSearchInputDOM = document.getElementById("searchMobileInputDOM");
   }
+
+  /*#region Auth */
+  isLogged() {
+    return this.authService.isLogged;
+  }
+
+  googleSignIn(googleWrapper: any) {
+    googleWrapper.click();
+  }
+
+  logOut() {
+    this.authService.logOut();
+  }
+
+  getUserFullName() {
+    return this.authService.getUserFullName();
+  }
+
+  getUserAvatar() {
+    return this.authService.getUserAvatar();
+  }
+  /*#endregion*/
 
   /*#region Search Input */
   toggleMobileSearchInput($event: any) {
@@ -64,9 +111,14 @@ export class ListPageMobileComponent implements OnInit, AfterViewInit {
   resetSearchSortInfo() {
     this.listPageMainService.currentSearchCategoryTag = [];
     this.resetInput();
+    this.searchPanting();
   }
 
   searchPanting() {
+    if (this.isHamburgerShow) {
+      this.mobileHamburger?.toggleHamburger();
+    }
+
     this.isExhibitionLoading = true;
     setTimeout(() => {
       this.isExhibitionLoading = false;
@@ -83,6 +135,25 @@ export class ListPageMobileComponent implements OnInit, AfterViewInit {
   /*#region UTILITIES */
   handleToggleHamburger() {
     document.getElementById("hamburgerContentDOM")?.classList.toggle("activated");
+    this.isHamburgerShow = !this.isHamburgerShow;
+  }
+
+  toggelMobileCart() {
+    if (this.isMobileCategoryTagShow) {
+      this.togglMobileCategoryTag();
+    }
+
+    this.isMobileCartShow = !this.isMobileCartShow;
+    document.getElementById("mobileCartIcon")?.classList.toggle("activated");
+  }
+
+  togglMobileCategoryTag() {
+    if (this.isMobileCartShow) {
+      this.toggelMobileCart();
+    }
+
+    this.isMobileCategoryTagShow = !this.isMobileCategoryTagShow;
+    document.getElementById("mobileCategoryTagIcon")?.classList.toggle("activated");
   }
   /*#endregion*/
 

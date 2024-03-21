@@ -114,11 +114,10 @@
             </div>
 
             <div *ngIf="!isExhibitionLoading" class="right-side__inside__body__gallery__exhibition">
-                <div class="right-side__inside__body__gallery__exhibition__item">
+                <div (click)="togglePreviewModal()" class="right-side__inside__body__gallery__exhibition__item">
                     <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
                         alt="" class="right-side__inside__body__gallery__exhibition__item__img">
-                    <div (click)="togglePreviewModal()"
-                        class="hover-effect-yellow-bright right-side__inside__body__gallery__exhibition__preview">
+                    <div *ngIf="(getViewportWidth() > getBreakpointValues('TABLET')!)" class="hover-effect-yellow-bright right-side__inside__body__gallery__exhibition__preview">
                         Xem trước
                     </div>
                 </div>

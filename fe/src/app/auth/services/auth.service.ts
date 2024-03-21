@@ -21,7 +21,6 @@ export class AuthService {
   }
 
   login(user: any) {
-    this.toastService.showToast("success", "Đăng nhập thành công", "Xin chào " + user.name);
     this.userFullName = user.name;
     this.userAvatar = user.photoUrl;
     this.userSocialType = user.PROVIDER;

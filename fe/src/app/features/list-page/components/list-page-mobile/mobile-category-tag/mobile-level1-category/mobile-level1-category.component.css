@@ -1,0 +1,22 @@
+.wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.level1-category-list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 12px;
+    flex-wrap: wrap;
+    gap: 9px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.level1-category-list__item {
+    width: 49%;
+    height: 90px;
+    border: 1px solid var(--dark-border-color);
+    border-radius: var(--border-radius-2);
+}

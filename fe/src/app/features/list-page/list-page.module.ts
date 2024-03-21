@@ -17,6 +17,9 @@ import { ColorCategoryComponent } from './components/list-page-desktop-body/colo
 import { TopicCategoryComponent } from './components/list-page-desktop-body/topic-category/topic-category.component';
 import { TabletCartDropdownComponent } from './components/list-page-desktop-body/tablet-cart-dropdown/tablet-cart-dropdown.component';
 import { ListPageMobileComponent } from './components/list-page-mobile/list-page-mobile.component';
+import { MobileCartComponent } from './components/list-page-mobile/mobile-cart/mobile-cart.component';
+import { MobileCategoryTagComponent } from './components/list-page-mobile/mobile-category-tag/mobile-category-tag.component';
+import { MobileLevel1CategoryComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level1-category/mobile-level1-category.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { ListPageMobileComponent } from './components/list-page-mobile/list-page
     TopicCategoryComponent,
     TabletCartDropdownComponent,
     ListPageMobileComponent,
+    MobileCartComponent,
+    MobileCategoryTagComponent,
+    MobileLevel1CategoryComponent,
   ],
   imports: [
     CommonModule,

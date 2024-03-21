@@ -10,14 +10,13 @@
 
         <div class="header__search-group">
             <input [(ngModel)]="mobileSearchInput" (blur)="toggleMobileSearchInput($event)"
-                (keyup.enter)="changeSearchInput()"
-                (focus)="toggleMobileSearchInput($event)" id="searchMobileInputDOM" type="text"
-                placeholder="Tìm tranh..." class="round header__search-group__search-bar">
+                (keyup.enter)="changeSearchInput()" (focus)="toggleMobileSearchInput($event)" id="searchMobileInputDOM"
+                type="text" placeholder="Tìm tranh..." class="round header__search-group__search-bar">
             <i (click)="clearSearchInput()" *ngIf="mobileSearchInput != ''" class="fa-solid fa-xmark"></i>
             <i (click)="changeSearchInput()" class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div class="header__hamburger-group">
-            <app-hamburger (notifyToggleHamburger)="handleToggleHamburger()" ></app-hamburger>
+            <app-hamburger #mobileHamburger (notifyToggleHamburger)="handleToggleHamburger()"></app-hamburger>
         </div>
     </header>
 
@@ -49,6 +48,82 @@
                     <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
                         alt="" class="body__gallery-group__list__item__img">
                 </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
+                <li (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2"
+                        alt="" class="body__gallery-group__list__item__img">
+                </li>
             </ul>
 
             <ul *ngIf="isExhibitionLoading" class="body__gallery-group__list-skeleton">
@@ -62,9 +137,75 @@
         </div>
 
         <div id="hamburgerContentDOM" class="hamburger-content">
-        
+            <app-google-login *ngIf="!isLogged()" [template]="'LOGIN_MOBILE'" 
+            style="display: contents" (notifyLoginWithGoogle)="googleSignIn($event)"></app-google-login>
+
+            <section *ngIf="isLogged()" class="hamburger-content__user-info">
+                <img [src]="getUserAvatar()" alt="user-avatar" class="hamburger-content__user-info__avatar">
+                <span class="hamburger-content__user-info__user-fullname">
+                    {{ getUserFullName() }}
+                </span>
+            </section>
+
+            <ul *ngIf="isLogged()" class="hamburger-content__user-functionalities">
+                <li class="hamburger-content__user-functionalities__item">
+                    <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+                </li>
+                <li class="hamburger-content__user-functionalities__item">
+                    <i class="fa-solid fa-user"></i> Trang cá nhân
+                </li>
+                <li (click)="logOut()" class="hamburger-content__user-functionalities__item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất
+                </li>
+            </ul>
+    
+            <section class="hamburger-content__contact">
+                <div class="hamburger-content__contact__top">
+                    <div class="hamburger-content__contact__top__item">
+                        <i class="fa-solid fa-envelope"></i>
+                        amthanhloama&#64;gmail.com
+                    </div>
+                    <div class="hamburger-content__contact__top__item">
+                        <i class="fa-solid fa-phone"></i>
+                        0766011120
+                    </div>
+                </div>
+                <div class="hamburger-content__contact__bottom">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-tiktok"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </section>
+    
+            <section class="hamburger-content__footer">
+                <span class="hamburger-content__footer__text">Điều
+                    khoản</span>
+                <i class="fa-solid fa-diamond"></i>
+                <span class="hamburger-content__footer__text">Chính
+                    sách</span>
+            </section>
         </div>
     </div>
+
+    <nav class="navbar">
+        <ul class="navbar__list">
+            <li id="mobileCategoryTagIcon" (click)="togglMobileCategoryTag()" class="navbar__list__item">
+                <i class="fa-solid fa-filter"></i>
+                <p class="navbar__list__item__text">Bộ lọc tranh</p>
+            </li>
+            <li id="mobileCartIcon" (click)="toggelMobileCart()" class="navbar__list__item">
+                <i class="fa-solid fa-cart-shopping">
+                    <span>99</span>
+                </i>
+                <p class="navbar__list__item__text">
+                    Giỏ hàng
+                </p>
+            </li>
+        </ul>
+
+        <app-mobile-cart (notifyToggleMobileCart)="toggelMobileCart()" *ngIf="isMobileCartShow" ></app-mobile-cart>
+        <app-mobile-category-tag (notifyToggleMobileCategoryTag)="togglMobileCategoryTag()" *ngIf="isMobileCategoryTagShow"></app-mobile-category-tag>
+    </nav>
 </div>
 
 <app-modal (notifyToggleModal)="togglePreviewPaintingModal()" style="display: contents" *ngIf="isPreviewModalShow">
@@ -74,8 +215,7 @@
         </h1>
         <figure class="preview-drawing-container__img-group">
             <img class="preview-drawing-container__img-group__img"
-                src="https://www.aandmedu.in/wp-content/uploads/2021/11/9-16-Aspect-Ratio-576x1024.jpg"
-                alt="">
+                src="https://www.aandmedu.in/wp-content/uploads/2021/11/9-16-Aspect-Ratio-576x1024.jpg" alt="">
         </figure>
         <div class="preview-drawing-container__button-group">
             <button class="btn outline">
