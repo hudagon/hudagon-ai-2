@@ -1,23 +1,22 @@
 .wrapper {
     width: 100%;
     height: 100%;
-    padding: 12px;
+    overflow: auto;
+    padding-bottom: 9px;
 }
 
-.level1-category-list {
+.level2-category-list {
     display: grid;
     width: 100%;
     height: 100%;
     grid-gap: 9px; 
     grid-template-rows: repeat(2, 1fr); 
     align-items: center;
-    grid-auto-flow: column;
     justify-content: start;
-    overflow: auto;
-    padding-bottom: 9px;
+    grid-auto-flow: column;
 }
 
-.level1-category-list__item {
+.level2-category-list__item {
     border: 1px solid var(--dark-border-color);
     border-radius: var(--border-radius-2);
     width: 210px;

@@ -13,6 +13,7 @@ export class ListPageMainService {
   categorySubjectLevel1CurrentName: string = "";
   categorySubjectLevel2CurrentName: string = "";
   categorySubjectLevel3CurrentName: string = "";
+  mobileCategoryCurrentLevel: number = 1;
   categoryBreadCrump: string[] = [
     this.categorySubjectLevel1CurrentName, 
     this.categorySubjectLevel2CurrentName, 
@@ -122,8 +123,12 @@ export class ListPageMainService {
   }
 
   /*#region MOBILE CATEGORY TAG */
-  updateBreadcrump(category: string) {
-    this.categoryBreadCrump.push(category);
+  updateBreadcrump() {
+    this.categoryBreadCrump = [
+      this.categorySubjectLevel1CurrentName, 
+      this.categorySubjectLevel2CurrentName, 
+      this.categorySubjectLevel3CurrentName
+    ];
   }
 
   getBreadcrump() {
@@ -140,5 +145,4 @@ export class ListPageMainService {
     return breadcrumbWithSlashes;
   }
   /*#endregion*/
-
 }

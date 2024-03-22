@@ -10,12 +10,13 @@
         </ul>
 
         <div class="header__icon-group">
-            <i class="fa-solid fa-arrow-left"></i>
+            <i *ngIf="getCurrentCategoryLevel() != 1" (click)="mobileBackCategory()" class="fa-solid fa-arrow-left"></i>
             <i class="fa-solid fa-xmark"></i>
         </div>
     </header>
 
     <div class="body">
-       <app-mobile-level1-category style="display: contents"></app-mobile-level1-category> 
+       <app-mobile-level1-category *ngIf="getCurrentCategoryLevel() == 1" style="display: contents"></app-mobile-level1-category> 
+       <app-mobile-level2-category *ngIf="getCurrentCategoryLevel() == 2"></app-mobile-level2-category>
     </div>
 </div>

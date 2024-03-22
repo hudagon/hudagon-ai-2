@@ -20,4 +20,28 @@ export class MobileCategoryTagComponent {
   getBreadcumpWithSlashes() {
     return this.listPageMainService.getBreadcrump();
   }
+
+  getCurrentCategoryLevel() {
+    return this.listPageMainService.mobileCategoryCurrentLevel;
+  }
+
+  mobileBackCategory() {
+    const mobileCurrentCategoryLevel = this.listPageMainService.mobileCategoryCurrentLevel;
+
+    if (mobileCurrentCategoryLevel > 1) {
+      if (mobileCurrentCategoryLevel == 2) {
+        this.listPageMainService.categorySubjectLevel1CurrentName = "";
+        this.listPageMainService.categorySubjectLevel2CurrentName = "";
+        this.listPageMainService.categorySubjectLevel3CurrentName = "";
+      } 
+
+      if (mobileCurrentCategoryLevel == 3) {
+        this.listPageMainService.categorySubjectLevel2CurrentName = "";
+        this.listPageMainService.categorySubjectLevel3CurrentName = "";
+      }
+
+      this.listPageMainService.updateBreadcrump();
+      this.listPageMainService.mobileCategoryCurrentLevel = this.listPageMainService.mobileCategoryCurrentLevel - 1;
+    }
+  }
 }

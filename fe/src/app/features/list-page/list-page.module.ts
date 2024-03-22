@@ -20,6 +20,12 @@ import { ListPageMobileComponent } from './components/list-page-mobile/list-page
 import { MobileCartComponent } from './components/list-page-mobile/mobile-cart/mobile-cart.component';
 import { MobileCategoryTagComponent } from './components/list-page-mobile/mobile-category-tag/mobile-category-tag.component';
 import { MobileLevel1CategoryComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level1-category/mobile-level1-category.component';
+import { MobileLevel2CategoryComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level2-category/mobile-level2-category.component';
+import { MobileLevel2CategorySubjectComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level2-category/mobile-level2-category-subject/mobile-level2-category-subject.component';
+import { MobileLevel2CategoryTopicComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level2-category/mobile-level2-category-topic/mobile-level2-category-topic.component';
+import { MobileLevel2CategoryStyleComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level2-category/mobile-level2-category-style/mobile-level2-category-style.component';
+import { MobileLevel2CategoryRatioComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level2-category/mobile-level2-category-ratio/mobile-level2-category-ratio.component';
+import { MobileLevel2CategoryColorComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level2-category/mobile-level2-category-color/mobile-level2-category-color.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +44,12 @@ import { MobileLevel1CategoryComponent } from './components/list-page-mobile/mob
     MobileCartComponent,
     MobileCategoryTagComponent,
     MobileLevel1CategoryComponent,
+    MobileLevel2CategoryComponent,
+    MobileLevel2CategorySubjectComponent,
+    MobileLevel2CategoryTopicComponent,
+    MobileLevel2CategoryStyleComponent,
+    MobileLevel2CategoryRatioComponent,
+    MobileLevel2CategoryColorComponent,
   ],
   imports: [
     CommonModule,

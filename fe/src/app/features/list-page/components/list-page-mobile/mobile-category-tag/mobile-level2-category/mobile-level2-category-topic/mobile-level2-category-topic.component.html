@@ -1,0 +1,21 @@
+<div class="wrapper">
+    <ul class="level2-category-list">
+        <ng-container *ngFor="let x of level3CategoryTopicList[0].level3List">
+            <ng-container *ngIf="isContainsOther(x.name); else otherCondition">
+                <li class="level2-category-list__item">
+                    Khác
+                </li>
+            </ng-container>
+
+            <ng-template #otherCondition>
+                <li class="level2-category-list__item">
+                    <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                        alt="religion-picture" class="level2-category-list__item__img">
+                    <span>
+                        {{ x.name }}
+                    </span>
+                </li>
+            </ng-template>
+        </ng-container>
+    </ul>
+</div>

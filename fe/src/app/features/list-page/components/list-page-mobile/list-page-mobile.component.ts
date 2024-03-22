@@ -17,7 +17,7 @@ export class ListPageMobileComponent implements OnInit, AfterViewInit, OnDestroy
   isPreviewModalShow: boolean = false;
   isHamburgerShow: boolean = false;
   isMobileCartShow: boolean = false;
-  isMobileCategoryTagShow: boolean = true;
+  isMobileCategoryTagShow: boolean = false;
   user: SocialUser | undefined;
   private subscription: Subscription | undefined;
 
@@ -144,6 +144,7 @@ export class ListPageMobileComponent implements OnInit, AfterViewInit, OnDestroy
     }
 
     this.isMobileCartShow = !this.isMobileCartShow;
+    this.listPageMainService.mobileCategoryCurrentLevel = 1;
     document.getElementById("mobileCartIcon")?.classList.toggle("activated");
   }
 
