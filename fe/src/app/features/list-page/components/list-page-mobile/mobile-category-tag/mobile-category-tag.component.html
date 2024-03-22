@@ -4,17 +4,8 @@
             <li class="header__breadcrumb__item">
                 Bộ lọc tranh
             </li>
-            <li class="header__breadcrumb__item slash">
-                /
-            </li>
-            <li class="header__breadcrumb__item">
-                Chủ thể
-            </li>
-            <li class="header__breadcrumb__item slash">
-                /
-            </li>
-            <li class="header__breadcrumb__item">
-                Con người
+            <li *ngFor="let x of getBreadcumpWithSlashes()" [ngClass]="{ 'slash' : x == '/' }" class="header__breadcrumb__item">
+                {{x}}
             </li>
         </ul>
 

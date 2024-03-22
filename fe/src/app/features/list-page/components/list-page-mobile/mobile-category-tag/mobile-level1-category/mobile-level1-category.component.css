@@ -1,22 +1,28 @@
 .wrapper {
     width: 100%;
     height: 100%;
+    overflow: auto;
+    padding-bottom: 3px;
 }
 
 .level1-category-list {
+    display: grid;
     width: 100%;
     height: 100%;
-    display: flex;
-    padding: 12px;
-    flex-wrap: wrap;
-    gap: 9px;
+    grid-gap: 9px; 
+    grid-template-rows: repeat(2, 1fr); 
     align-items: center;
-    justify-content: space-between;
+    grid-auto-flow: column;
 }
 
+
 .level1-category-list__item {
-    width: 49%;
-    height: 90px;
     border: 1px solid var(--dark-border-color);
     border-radius: var(--border-radius-2);
+    width: 210px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--fs-larger-1);
 }

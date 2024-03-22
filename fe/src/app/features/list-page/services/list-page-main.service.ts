@@ -9,10 +9,20 @@ export class ListPageMainService {
   categorySubjectLevel2Current: number = 0;
   categorySubjectLevel1Current: number = 0;
 
+  // MOBILE CATEGORY USAGE
+  categorySubjectLevel1CurrentName: string = "";
+  categorySubjectLevel2CurrentName: string = "";
+  categorySubjectLevel3CurrentName: string = "";
+  categoryBreadCrump: string[] = [
+    this.categorySubjectLevel1CurrentName, 
+    this.categorySubjectLevel2CurrentName, 
+    this.categorySubjectLevel3CurrentName
+  ];
+
   constructor() { }
 
   updateCurrentSearchCategoryTag(category: CategoryTagListPage) {
-    if (category.id == -2) {      
+    if (category.id == -2) {
       const existingSearchIndex = this.currentSearchCategoryTag.findIndex(t => t.id === -2);
       if (existingSearchIndex !== -1) {
         this.currentSearchCategoryTag.shift();
@@ -30,7 +40,7 @@ export class ListPageMainService {
           }
         }
       }
-      
+
       for (let i = 0; i < this.currentSearchCategoryTag.length; i++) {
         if (this.currentSearchCategoryTag[i].id == 0 || this.currentSearchCategoryTag[i].name.includes("Khác")) {
           if (this.currentSearchCategoryTag[i].level2CategoryId == category.level2CategoryId) {
@@ -110,4 +120,25 @@ export class ListPageMainService {
 
     return result;
   }
+
+  /*#region MOBILE CATEGORY TAG */
+  updateBreadcrump(category: string) {
+    this.categoryBreadCrump.push(category);
+  }
+
+  getBreadcrump() {
+    let breadcrumbWithSlashes: (string | null)[] = [];
+
+    for (let i = 0; i < this.categoryBreadCrump.length; i++) {
+      if (this.categoryBreadCrump[i] == "") {
+        continue;
+      }
+      breadcrumbWithSlashes.push("/");
+      breadcrumbWithSlashes.push(this.categoryBreadCrump[i]);
+    }
+
+    return breadcrumbWithSlashes;
+  }
+  /*#endregion*/
+
 }

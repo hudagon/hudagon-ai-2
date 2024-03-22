@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ListPageMainService } from '../../../services/list-page-main.service';
 
 @Component({
   selector: 'app-mobile-category-tag',
@@ -8,8 +9,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class MobileCategoryTagComponent {
   @Output() notifyToggleMobileCategoryTag = new EventEmitter;
 
+  constructor(
+    private listPageMainService: ListPageMainService
+  ) {}
 
   toggleMobileCategoryTag() {
     this.notifyToggleMobileCategoryTag.emit();
+  }
+
+  getBreadcumpWithSlashes() {
+    return this.listPageMainService.getBreadcrump();
   }
 }
