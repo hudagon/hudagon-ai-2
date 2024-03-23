@@ -1,1 +1,29 @@
-<p>mobile-level2-category-color works!</p>
+<div class="wrapper">
+    <ul class="level2-category-list">
+
+        <ng-container *ngFor="let x of categoryColorList[0].level3List">
+
+            <ng-container *ngIf="!isSpecialGroup(x.categoryDesc); else otherCondition">
+                <li [attr.data-color]="x.categoryDesc" class="level2-category-list__item color-item">
+                    <span [ngClass]="{'dark-text': x.categoryDesc == '#ffd966' || x.categoryDesc == 'whitesmoke'}"
+                        class="level2-category-list__item__text">
+                        {{x.name}}
+                    </span>
+                </li>
+            </ng-container>
+
+            <ng-template #otherCondition>
+                <li class="level2-category-list__item">
+                    <img src="{{x.categoryDesc}}" alt="" class="level2-category-list__item__img">
+                    <span [ngClass]="{'dark-text': x.categoryDesc == '#ffd966' || x.categoryDesc == 'whitesmoke'}"
+                        class="level2-category-list__item__text darker-overlay">
+                        {{x.name}}
+                    </span>
+                </li>
+            </ng-template>
+
+        </ng-container>
+
+
+    </ul>
+</div>

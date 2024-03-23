@@ -12,9 +12,9 @@ export class ColorCategoryComponent implements OnInit, AfterViewInit {
   categoryColorListRaw: any[] = [];
   categoryColorList: any[] = [];
 
-  constructor(
-    private listPageMainService: ListPageMainService
-  ) { }
+    constructor(
+      private listPageMainService: ListPageMainService
+    ) { }
 
   ngOnInit(): void {
     this.categoryColorListRaw = [{

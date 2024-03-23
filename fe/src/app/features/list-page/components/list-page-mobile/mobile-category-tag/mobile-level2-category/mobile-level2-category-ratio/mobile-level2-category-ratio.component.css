@@ -6,22 +6,42 @@
 }
 
 .level2-category-list {
-    display: grid;
-    width: 100%;
     height: 100%;
-    grid-gap: 9px; 
-    grid-template-rows: repeat(2, 1fr); 
+    width: 100%;
+    display: flex;
     align-items: center;
-    grid-auto-flow: column;
+    gap: 12px;
 }
 
 .level2-category-list__item {
+    height: 100%;
     border: 1px solid var(--dark-border-color);
     border-radius: var(--border-radius-2);
-    width: 210px;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: var(--fs-larger-1);
+}
+
+
+.ar-11 {
+    aspect-ratio: 1/1;
+    width: 180px;
+}
+
+.ar-34 {
+    aspect-ratio: 3/4;
+    width: 120px;
+}
+
+.ar-916 {
+    aspect-ratio: 9/16;
+}
+
+.ar-169 {
+    aspect-ratio: 16/9;
+    width: 450px;
+}
+
+.ar-43 {
+    aspect-ratio: 4/3;
 }

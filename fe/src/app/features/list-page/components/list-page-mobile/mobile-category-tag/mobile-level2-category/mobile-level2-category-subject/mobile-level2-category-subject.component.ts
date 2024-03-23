@@ -49,4 +49,11 @@ export class MobileLevel2CategorySubjectComponent implements OnInit {
       }
     ];
   }
+
+  moveTolevel3(category: string) {
+    this.listPageMainService.categorySubjectLevel3CurrentName = category;
+    this.listPageMainService.mobileCategoryCurrentLevel = 3;
+    this.listPageMainService.categoryMobileLevel1CurrentId = this.level1CategoryId;
+    this.listPageMainService.updateBreadcrump();
+  }
 }

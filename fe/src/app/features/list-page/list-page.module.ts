@@ -26,6 +26,9 @@ import { MobileLevel2CategoryTopicComponent } from './components/list-page-mobil
 import { MobileLevel2CategoryStyleComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level2-category/mobile-level2-category-style/mobile-level2-category-style.component';
 import { MobileLevel2CategoryRatioComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level2-category/mobile-level2-category-ratio/mobile-level2-category-ratio.component';
 import { MobileLevel2CategoryColorComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level2-category/mobile-level2-category-color/mobile-level2-category-color.component';
+import { MobileLevel3CategoryComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level3-category/mobile-level3-category.component';
+import { MobileLevel3CategorySubjectComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level3-category/mobile-level3-category-subject/mobile-level3-category-subject.component';
+import { MobileLevel3CategoryStyleComponent } from './components/list-page-mobile/mobile-category-tag/mobile-level3-category/mobile-level3-category-style/mobile-level3-category-style.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,9 @@ import { MobileLevel2CategoryColorComponent } from './components/list-page-mobil
     MobileLevel2CategoryStyleComponent,
     MobileLevel2CategoryRatioComponent,
     MobileLevel2CategoryColorComponent,
+    MobileLevel3CategoryComponent,
+    MobileLevel3CategorySubjectComponent,
+    MobileLevel3CategoryStyleComponent,
   ],
   imports: [
     CommonModule,

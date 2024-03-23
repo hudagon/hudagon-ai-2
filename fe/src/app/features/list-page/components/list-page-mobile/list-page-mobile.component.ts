@@ -17,7 +17,7 @@ export class ListPageMobileComponent implements OnInit, AfterViewInit, OnDestroy
   isPreviewModalShow: boolean = false;
   isHamburgerShow: boolean = false;
   isMobileCartShow: boolean = false;
-  isMobileCategoryTagShow: boolean = false;
+  isMobileCategoryTagShow: boolean = true;
   user: SocialUser | undefined;
   private subscription: Subscription | undefined;
 

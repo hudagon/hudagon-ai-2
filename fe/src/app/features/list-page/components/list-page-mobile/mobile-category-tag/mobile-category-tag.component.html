@@ -1,7 +1,7 @@
 <div class="wrapper">
     <header class="header">
         <ul class="header__breadcrumb">
-            <li class="header__breadcrumb__item">
+            <li (click)="moveToFirst()" class="header__breadcrumb__item">
                 Bộ lọc tranh
             </li>
             <li *ngFor="let x of getBreadcumpWithSlashes()" [ngClass]="{ 'slash' : x == '/' }" class="header__breadcrumb__item">
@@ -17,6 +17,7 @@
 
     <div class="body">
        <app-mobile-level1-category *ngIf="getCurrentCategoryLevel() == 1" style="display: contents"></app-mobile-level1-category> 
-       <app-mobile-level2-category *ngIf="getCurrentCategoryLevel() == 2"></app-mobile-level2-category>
+       <app-mobile-level2-category *ngIf="getCurrentCategoryLevel() == 2" style="display: contents"></app-mobile-level2-category>
+       <app-mobile-level3-category *ngIf="getCurrentCategoryLevel() == 3" style="display: contents"></app-mobile-level3-category>
     </div>
 </div>

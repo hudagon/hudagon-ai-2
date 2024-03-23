@@ -1,6 +1,7 @@
 <div class="wrapper">
     <ul class="level2-category-list">
-        <li class="level2-category-list__item">
+        <li *ngFor="let x of level3CategoryRatioList[0].level3List" class="level2-category-list__item ar-{{removeColon(x.name)}}">
+            {{x.name}}
         </li>
     </ul>
 </div>

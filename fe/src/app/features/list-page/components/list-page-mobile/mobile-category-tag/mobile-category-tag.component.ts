@@ -44,4 +44,14 @@ export class MobileCategoryTagComponent {
       this.listPageMainService.mobileCategoryCurrentLevel = this.listPageMainService.mobileCategoryCurrentLevel - 1;
     }
   }
+
+  moveToFirst() {
+    const mobileCurrentCategoryLevel = this.listPageMainService.mobileCategoryCurrentLevel;
+    if (mobileCurrentCategoryLevel == 1) {
+      return;
+    }
+
+    this.mobileBackCategory();
+    this.moveToFirst();
+  }
 }

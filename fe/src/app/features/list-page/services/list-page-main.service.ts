@@ -13,6 +13,7 @@ export class ListPageMainService {
   categorySubjectLevel1CurrentName: string = "";
   categorySubjectLevel2CurrentName: string = "";
   categorySubjectLevel3CurrentName: string = "";
+  categoryMobileLevel1CurrentId: number = 0;
   mobileCategoryCurrentLevel: number = 1;
   categoryBreadCrump: string[] = [
     this.categorySubjectLevel1CurrentName, 

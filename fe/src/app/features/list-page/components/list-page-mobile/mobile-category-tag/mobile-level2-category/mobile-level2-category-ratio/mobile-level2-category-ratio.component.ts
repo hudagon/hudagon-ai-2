@@ -62,4 +62,7 @@ export class MobileLevel2CategoryRatioComponent {
     this.level3CategoryRatioList = this.listPageMainService.transformCategoryListWithLevels(this.level3CategoryRatioListRaw);
   }
 
+  removeColon(inputString: string): string {
+    return inputString.replace(':', '');
+  }
 }
