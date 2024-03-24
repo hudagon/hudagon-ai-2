@@ -22,6 +22,10 @@
     align-items: center;
 }
 
+.level2-category-list__item.activated {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
 
 .ar-11 {
     aspect-ratio: 1/1;

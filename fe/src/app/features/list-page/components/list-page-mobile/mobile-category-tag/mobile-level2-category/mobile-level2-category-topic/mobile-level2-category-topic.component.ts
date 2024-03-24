@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CategoryTagListPage } from 'src/app/features/list-page/models/category-tag-list-page';
 import { ListPageMainService } from 'src/app/features/list-page/services/list-page-main.service';
+import { ToastService } from 'src/app/shareds/main-shared/services/toast.service';
 
 @Component({
   selector: 'app-mobile-level2-category-topic',
@@ -7,12 +9,14 @@ import { ListPageMainService } from 'src/app/features/list-page/services/list-pa
   styleUrls: ['./mobile-level2-category-topic.component.css']
 })
 export class MobileLevel2CategoryTopicComponent implements OnInit {
+  @Output() notifyToastCall = new EventEmitter();
   @Input() level1CategoryId: any;
   level3CategoryTopicListRaw: any[] = [];
   level3CategoryTopicList: any[] = [];
 
   constructor(
-    private listPageMainService: ListPageMainService
+    private listPageMainService: ListPageMainService,
+    private toastService: ToastService
   ) {
   }
 
@@ -91,6 +95,45 @@ export class MobileLevel2CategoryTopicComponent implements OnInit {
     ];
 
     this.level3CategoryTopicList = this.listPageMainService.transformCategoryListWithLevels(this.level3CategoryTopicListRaw);
+  }
+
+  toggleToFilter($event: any, category: CategoryTagListPage) {
+    const currentTags = this.getCurrentSearchCategoryTag();
+    const index = currentTags.findIndex(tag => tag.id === category.id && tag.level2CategoryId == category.level2CategoryId);
+    if (index !== -1) {
+      currentTags.splice(index, 1);
+      $event.currentTarget.classList.toggle('activated');
+      this.listPageMainService.searchPainting();
+    } else {
+
+      this.listPageMainService.clearCurrentSearchCategoryTag(category.level2CategoryId + "", null);
+      this.removeActivatedCSS();
+
+      const addSuccessFully = this.listPageMainService.updateCurrentSearchCategoryTag(category);
+      if (!addSuccessFully) {
+        this.toastService.showToast("warning", "Giới hạn tìm kiếm", "Chỉ có thể tìm kiếm tối đa theo 5 thẻ");
+      } else {
+        this.listPageMainService.searchPainting();
+        $event.currentTarget.classList.toggle('activated');
+      }
+    }
+  }
+
+  removeActivatedCSS() {
+    const activatedTag = document.getElementById("mobile-topic-wrapper")!.getElementsByClassName("activated");
+    for (let i = 0; i < activatedTag.length; i++) {
+      if (activatedTag[i].classList.contains("activated")) {
+        activatedTag[i].classList.remove("activated");
+      }
+    }
+  }
+
+  getCurrentSearchCategoryTag() {
+    return this.listPageMainService.currentSearchCategoryTag;
+  }
+
+  isCategoryTagSelected(categoryTagId: number, level2CategoryId: number) {
+    return this.getCurrentSearchCategoryTag().some(tag => tag.id === categoryTagId && tag.level2CategoryId === level2CategoryId);
   }
 
   isContainsOther(level3ItemName: string) {

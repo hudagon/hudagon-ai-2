@@ -14,6 +14,11 @@ const routes: Routes = [
     loadChildren: () => import("../features/list-page/list-page.module").then(m => m.ListPageModule)
   },
   {
+    path: "detail",
+    title: "Hudagon - Trang chi tiết",
+    loadChildren: () => import("../features/detail-page/detail-page.module").then(m => m.DetailPageModule)
+  },
+  {
     path: "error",
     title: "Hudagon - Trang lỗi",
     loadChildren: () => import("../features/error-page/error-page.module").then(m => m.ErrorPageModule)

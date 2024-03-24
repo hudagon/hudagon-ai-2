@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CategoryTagListPage } from '../models/category-tag-list-page';
+import { ListPageMobileComponent } from '../components/list-page-mobile/list-page-mobile.component';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +10,20 @@ export class ListPageMainService {
   currentSearchCategoryTag: CategoryTagListPage[] = [];
   categorySubjectLevel2Current: number = 0;
   categorySubjectLevel1Current: number = 0;
+  private triggerSearchPainting = new Subject<void>()
+  triggerSearchPainting$ = this.triggerSearchPainting.asObservable();
+
+  searchPainting() {
+    this.triggerSearchPainting.next();
+  }
 
   // MOBILE CATEGORY USAGE
+  listPageMobileComponent: any = ListPageMobileComponent;
   categorySubjectLevel1CurrentName: string = "";
   categorySubjectLevel2CurrentName: string = "";
   categorySubjectLevel3CurrentName: string = "";
   categoryMobileLevel1CurrentId: number = 0;
+  categoryMobileLevel2CurrentId: number = 0;
   mobileCategoryCurrentLevel: number = 1;
   categoryBreadCrump: string[] = [
     this.categorySubjectLevel1CurrentName, 
@@ -144,6 +154,15 @@ export class ListPageMainService {
     }
 
     return breadcrumbWithSlashes;
+  }
+
+  moveToSpecific(destination: any) {
+    const level = this.categoryBreadCrump.indexOf(destination);
+    if (level == 0) {
+      this.mobileCategoryCurrentLevel = 2;
+      this.categorySubjectLevel2CurrentName = "";
+      this.updateBreadcrump();
+    }
   }
   /*#endregion*/
 }

@@ -1,9 +1,9 @@
 <div class="wrapper">
-    <app-mobile-level2-category-subject style="display: contents;" [level1CategoryId]="1" *ngIf="getCurrentLevel1SubjectCategoryName() == 'Chủ thể'" ></app-mobile-level2-category-subject>
-    <app-mobile-level2-category-topic style="display: contents;" [level1CategoryId]="2" *ngIf="getCurrentLevel1SubjectCategoryName() == 'Chủ đề'" ></app-mobile-level2-category-topic>
-    <app-mobile-level2-category-style style="display: contents;" [level1CategoryId]="3" *ngIf="getCurrentLevel1SubjectCategoryName() == 'Phong cách'" ></app-mobile-level2-category-style>
-    <app-mobile-level2-category-ratio style="display: contents;" [level1CategoryId]="4" *ngIf="getCurrentLevel1SubjectCategoryName() == 'Tỉ lệ'" ></app-mobile-level2-category-ratio>
-    <app-mobile-level2-category-color style="display: contents;" [level1CategoryId]="5" *ngIf="getCurrentLevel1SubjectCategoryName() == 'Màu sắc'" ></app-mobile-level2-category-color>
+    <app-mobile-level2-category-subject style="display: contents;" *ngIf="getCurrentLevel1CategoryId() == 1" ></app-mobile-level2-category-subject>
+    <app-mobile-level2-category-topic style="display: contents;" *ngIf="getCurrentLevel1CategoryId() == 2" ></app-mobile-level2-category-topic>
+    <app-mobile-level2-category-style style="display: contents;" *ngIf="getCurrentLevel1CategoryId() == 3" ></app-mobile-level2-category-style>
+    <app-mobile-level2-category-ratio style="display: contents;" *ngIf="getCurrentLevel1CategoryId() == 4" ></app-mobile-level2-category-ratio>
+    <app-mobile-level2-category-color style="display: contents;" *ngIf="getCurrentLevel1CategoryId() == 5" ></app-mobile-level2-category-color>
 </div>
 
 

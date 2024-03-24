@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Subscription } from 'rxjs';
 import { HamburgerComponent } from 'src/app/shareds/main-shared/components/hamburger/hamburger.component';
+import { CategoryTagListPage } from '../../models/category-tag-list-page';
 
 @Component({
   selector: 'app-list-page-mobile',
@@ -17,9 +18,10 @@ export class ListPageMobileComponent implements OnInit, AfterViewInit, OnDestroy
   isPreviewModalShow: boolean = false;
   isHamburgerShow: boolean = false;
   isMobileCartShow: boolean = false;
-  isMobileCategoryTagShow: boolean = true;
+  isMobileCategoryTagShow: boolean = false;
   user: SocialUser | undefined;
   private subscription: Subscription | undefined;
+  private searchSubscription: Subscription = new Subscription();
 
   // DOM Element
   mobileSearchInputDOM: any;
@@ -39,6 +41,10 @@ export class ListPageMobileComponent implements OnInit, AfterViewInit, OnDestroy
       }
     });
 
+    this.searchSubscription.add(this.listPageMainService.triggerSearchPainting$.subscribe(() => {
+      this.searchPanting();
+    }));
+
     this.isExhibitionLoading = true;
     setTimeout(() => {
       this.isExhibitionLoading = false;
@@ -48,6 +54,10 @@ export class ListPageMobileComponent implements OnInit, AfterViewInit, OnDestroy
   ngOnDestroy(): void {
     if (this.subscription) {
       this.subscription.unsubscribe();
+    }
+
+    if (this.searchSubscription) {
+      this.searchSubscription.unsubscribe();
     }
   }
 
@@ -88,10 +98,6 @@ export class ListPageMobileComponent implements OnInit, AfterViewInit, OnDestroy
     this.mobileSearchInput = "";
   }
 
-  resetInput() {
-    this.mobileSearchInput = "";
-  }
-
   changeSearchInput() {
     if (this.mobileSearchInput == "") {
       this.listPageMainService.clearCurrentSearchCategoryTag("-2", null);
@@ -110,7 +116,7 @@ export class ListPageMobileComponent implements OnInit, AfterViewInit, OnDestroy
 
   resetSearchSortInfo() {
     this.listPageMainService.currentSearchCategoryTag = [];
-    this.resetInput();
+    this.clearSearchInput();
     this.searchPanting();
   }
 
@@ -123,6 +129,17 @@ export class ListPageMobileComponent implements OnInit, AfterViewInit, OnDestroy
     setTimeout(() => {
       this.isExhibitionLoading = false;
     }, 600);
+  }
+
+  toggleToFilter(category: CategoryTagListPage) {
+    const currentTags = this.getCurrentSearchCategoryTag();
+    const index = currentTags.findIndex(tag => tag.id === category.id);
+    if (index !== -1) {
+      currentTags.splice(index, 1);
+      this.listPageMainService.searchPainting();
+    } else {
+      this.listPageMainService.updateCurrentSearchCategoryTag(category);
+    }
   }
   /*#endregion*/
 

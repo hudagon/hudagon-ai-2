@@ -7,7 +7,6 @@ import { ListPageMainService } from 'src/app/features/list-page/services/list-pa
   styleUrls: ['./mobile-level2-category-subject.component.css']
 })
 export class MobileLevel2CategorySubjectComponent implements OnInit {
-  @Input() level1CategoryId: any;
   level2CategorySubjectList: any[] = [];
 
   constructor(
@@ -50,10 +49,10 @@ export class MobileLevel2CategorySubjectComponent implements OnInit {
     ];
   }
 
-  moveTolevel3(category: string) {
-    this.listPageMainService.categorySubjectLevel3CurrentName = category;
+  moveTolevel3(categoryName: string, categoryId: any) {
+    this.listPageMainService.categorySubjectLevel2CurrentName = categoryName;
+    this.listPageMainService.categoryMobileLevel2CurrentId = categoryId;
     this.listPageMainService.mobileCategoryCurrentLevel = 3;
-    this.listPageMainService.categoryMobileLevel1CurrentId = this.level1CategoryId;
     this.listPageMainService.updateBreadcrump();
   }
 }

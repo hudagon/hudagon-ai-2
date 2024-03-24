@@ -4,14 +4,14 @@
             <li (click)="moveToFirst()" class="header__breadcrumb__item">
                 Bộ lọc tranh
             </li>
-            <li *ngFor="let x of getBreadcumpWithSlashes()" [ngClass]="{ 'slash' : x == '/' }" class="header__breadcrumb__item">
+            <li (click)="moveToSpecific(x)" *ngFor="let x of getBreadcumpWithSlashes()" [ngClass]="{ 'slash' : x == '/' }" class="header__breadcrumb__item">
                 {{x}}
             </li>
         </ul>
 
         <div class="header__icon-group">
             <i *ngIf="getCurrentCategoryLevel() != 1" (click)="mobileBackCategory()" class="fa-solid fa-arrow-left"></i>
-            <i class="fa-solid fa-xmark"></i>
+            <i (click)="toggleMobileCategoryTag()" class="fa-solid fa-xmark"></i>
         </div>
     </header>
 

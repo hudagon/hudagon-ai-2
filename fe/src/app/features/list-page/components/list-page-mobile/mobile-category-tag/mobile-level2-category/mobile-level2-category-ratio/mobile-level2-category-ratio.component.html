@@ -1,6 +1,9 @@
-<div class="wrapper">
+<div class="wrapper" id="mobile-ratio-wrapper">
     <ul class="level2-category-list">
-        <li *ngFor="let x of level3CategoryRatioList[0].level3List" class="level2-category-list__item ar-{{removeColon(x.name)}}">
+        <li
+        [ngClass]="{ 'activated': isCategoryTagSelected(x.id, level3CategoryRatioList[0].level2CategoryId) }"
+        (click)="toggleToFilter($event, { id: x.id, name: x.name, level2CategoryId: level3CategoryRatioList[0].level2CategoryId, level1CategoryId: x.level1CategoryId })"
+        *ngFor="let x of level3CategoryRatioList[0].level3List" class="level2-category-list__item ar-{{removeColon(x.name)}}">
             {{x.name}}
         </li>
     </ul>

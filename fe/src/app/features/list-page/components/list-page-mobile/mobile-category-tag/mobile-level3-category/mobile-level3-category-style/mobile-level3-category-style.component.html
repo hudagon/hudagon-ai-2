@@ -1,1 +1,43 @@
-<p>mobile-level3-category-style works!</p>
+<div class="wrapper" id="mobile-style-wrapper">
+    <ng-container *ngFor="let x of categoryStyleList">
+        <ng-container *ngIf="x.level2CategoryId == categoryMobileLevel2CurrentId">
+            <ul class="category-level3-list">
+                <ng-container *ngFor="let y of x.level3List">
+                    <ng-container *ngIf="isContainsOther(y.name); else otherCondition">
+
+                        <ng-container *ngIf="translateWord(y.categoryDesc) != ''; else otherCondition2">
+                            <li (click)="toggleToFilter($event, {id: y.id, name: x.level2CategoryName + ' - Khác', level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})"
+                                [ngClass]="{ 'activated': isCategoryTagSelected(y.id, x.level2CategoryId) }"
+                                class="category-level3-list__item">
+                                <span class="category-level3-list__item__content">
+                                    {{ translateWord(y.categoryDesc) }} khác
+                                </span>
+                            </li>
+                        </ng-container>
+
+                        <ng-template #otherCondition2>
+                            <li (click)="toggleToFilter($event, {id: y.id, name: x.level2CategoryName + ' - Khác', level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})"
+                                [ngClass]="{ 'activated': isCategoryTagSelected(y.id, x.level2CategoryId) }"
+                                class="category-level3-list__item">
+                                <span class="category-level3-list__item__content">
+                                    Khác
+                                </span>
+                            </li>
+                        </ng-template>
+                    </ng-container>
+
+                    <ng-template #otherCondition>
+                        <li (click)="toggleToFilter($event, {id: y.id, name: y.name, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})"
+                            [ngClass]="{ 'activated': isCategoryTagSelected(y.id, x.level2CategoryId) }"
+                            class="category-level3-list__item">
+                            <img src="https://natusan.co.uk/cdn/shop/articles/natusan-blog-how-cat-years-work-header.jpg?v=1674474680"
+                                alt="religion-picture" class="category-level3-list__item__img">
+                            <span class="category-level3-list__item__content">{{y.name}}
+                            </span>
+                        </li>
+                    </ng-template>
+                </ng-container>
+            </ul>
+        </ng-container>
+    </ng-container>
+</div>

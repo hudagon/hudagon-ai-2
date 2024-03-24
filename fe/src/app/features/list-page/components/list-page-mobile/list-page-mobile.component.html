@@ -32,9 +32,12 @@
                     <app-category-tag [disableDelete]="true" [categoryTagName]="'Tất cả tranh'"
                         style="display: contents"></app-category-tag>
                 </li>
-                <li *ngFor="let x of getCurrentSearchCategoryTag()" class="body__search-info-group__tag-group__item">
+                <li *ngFor="let x of getCurrentSearchCategoryTag()" 
+                (click)="toggleToFilter({ id: x.id, name: x.name, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId})"
+                class="body__search-info-group__tag-group__item">
                     <app-category-tag [categoryTagName]="x.name" style="display: contents"></app-category-tag>
                 </li>
+
                 <button (click)="resetSearchSortInfo()" *ngIf="getCurrentSearchCategoryTag().length != 0" type="button"
                     class="btn body__search-info-group__reset">
                     <i class="fa-solid fa-rotate"></i> Đặt lại
@@ -137,8 +140,8 @@
         </div>
 
         <div id="hamburgerContentDOM" class="hamburger-content">
-            <app-google-login *ngIf="!isLogged()" [template]="'LOGIN_MOBILE'" 
-            style="display: contents" (notifyLoginWithGoogle)="googleSignIn($event)"></app-google-login>
+            <app-google-login *ngIf="!isLogged()" [template]="'LOGIN_MOBILE'" style="display: contents"
+                (notifyLoginWithGoogle)="googleSignIn($event)"></app-google-login>
 
             <section *ngIf="isLogged()" class="hamburger-content__user-info">
                 <img [src]="getUserAvatar()" alt="user-avatar" class="hamburger-content__user-info__avatar">
@@ -158,7 +161,7 @@
                     <i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất
                 </li>
             </ul>
-    
+
             <section class="hamburger-content__contact">
                 <div class="hamburger-content__contact__top">
                     <div class="hamburger-content__contact__top__item">
@@ -176,7 +179,7 @@
                     <i class="fa-brands fa-youtube"></i>
                 </div>
             </section>
-    
+
             <section class="hamburger-content__footer">
                 <span class="hamburger-content__footer__text">Điều
                     khoản</span>
@@ -203,8 +206,9 @@
             </li>
         </ul>
 
-        <app-mobile-cart (notifyToggleMobileCart)="toggelMobileCart()" *ngIf="isMobileCartShow" ></app-mobile-cart>
-        <app-mobile-category-tag (notifyToggleMobileCategoryTag)="togglMobileCategoryTag()" *ngIf="isMobileCategoryTagShow"></app-mobile-category-tag>
+        <app-mobile-cart (notifyToggleMobileCart)="toggelMobileCart()" *ngIf="isMobileCartShow"></app-mobile-cart>
+        <app-mobile-category-tag (notifyToggleMobileCategoryTag)="togglMobileCategoryTag()"
+            *ngIf="isMobileCategoryTagShow"></app-mobile-category-tag>
     </nav>
 </div>
 

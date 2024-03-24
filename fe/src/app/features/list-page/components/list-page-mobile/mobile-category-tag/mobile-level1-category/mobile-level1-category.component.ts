@@ -48,8 +48,9 @@ export class MobileLevel1CategoryComponent implements OnInit {
     ];
   }
 
-  moveTolevel2(category: any) {
-    this.listPageMainService.categorySubjectLevel1CurrentName = category;
+  moveTolevel2(categoryName: any, categoryId: any) {
+    this.listPageMainService.categorySubjectLevel1CurrentName = categoryName;
+    this.listPageMainService.categoryMobileLevel1CurrentId = categoryId;
     this.listPageMainService.mobileCategoryCurrentLevel = 2;
     this.listPageMainService.updateBreadcrump();
   }

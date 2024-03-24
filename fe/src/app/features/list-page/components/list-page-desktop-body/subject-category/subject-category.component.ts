@@ -550,6 +550,7 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
     const index = currentTags.findIndex(tag => tag.id === category.id && tag.level2CategoryId == category.level2CategoryId);
     if (index !== -1) {
       currentTags.splice(index, 1);
+      this.listPageMainService.searchPainting();
     } else {
 
       if (category.id == 0 || category.name.includes("Khác")) {
@@ -565,6 +566,7 @@ export class SubjectCategoryComponent implements OnInit, AfterViewInit {
       if (!addSuccessFully) {
         this.notifyToastCall.emit({ type: "warning", title: "Giới hạn tìm kiếm", desc: "Chỉ có thể tìm kiếm tối đa theo 5 thẻ" });
       } else {
+        this.listPageMainService.searchPainting();
         this.listPageMainService.categorySubjectLevel2Current = category.level2CategoryId;
         this.listPageMainService.categorySubjectLevel1Current = category.level1CategoryId;
         $event.currentTarget.classList.toggle('activated');

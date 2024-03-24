@@ -54,4 +54,8 @@ export class MobileCategoryTagComponent {
     this.mobileBackCategory();
     this.moveToFirst();
   }
+
+  moveToSpecific(destination: any) {
+    this.listPageMainService.moveToSpecific(destination);
+  }
 }

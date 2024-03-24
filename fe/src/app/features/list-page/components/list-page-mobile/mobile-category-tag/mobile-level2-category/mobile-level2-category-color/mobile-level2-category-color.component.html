@@ -1,10 +1,10 @@
-<div class="wrapper">
+<div class="wrapper" id="mobile-color-wrapper">
     <ul class="level2-category-list">
-
         <ng-container *ngFor="let x of categoryColorList[0].level3List">
-
             <ng-container *ngIf="!isSpecialGroup(x.categoryDesc); else otherCondition">
-                <li [attr.data-color]="x.categoryDesc" class="level2-category-list__item color-item">
+                <li (click)="toggleToFilter($event, { id: x.id, name: x.name, level2CategoryId: categoryColorList[0].level2CategoryId, level1CategoryId: x.level1CategoryId })"
+                    [ngClass]="{'activated': isCategoryTagSelected(x.id, categoryColorList[0].level2CategoryId)}"
+                    [attr.data-color]="x.categoryDesc" class="level2-category-list__item activated color-item">
                     <span [ngClass]="{'dark-text': x.categoryDesc == '#ffd966' || x.categoryDesc == 'whitesmoke'}"
                         class="level2-category-list__item__text">
                         {{x.name}}
@@ -13,17 +13,15 @@
             </ng-container>
 
             <ng-template #otherCondition>
-                <li class="level2-category-list__item">
+                <li (click)="toggleToFilter($event, { id: x.id, name: x.name, level2CategoryId: categoryColorList[0].level2CategoryId, level1CategoryId: x.level1CategoryId })"
+                    [ngClass]="{'activated': isCategoryTagSelected(x.id, categoryColorList[0].level2CategoryId)}"
+                    class="level2-category-list__item">
                     <img src="{{x.categoryDesc}}" alt="" class="level2-category-list__item__img">
-                    <span [ngClass]="{'dark-text': x.categoryDesc == '#ffd966' || x.categoryDesc == 'whitesmoke'}"
-                        class="level2-category-list__item__text darker-overlay">
+                    <span class="level2-category-list__item__text darker-overlay">
                         {{x.name}}
                     </span>
                 </li>
             </ng-template>
-
         </ng-container>
-
-
     </ul>
 </div>

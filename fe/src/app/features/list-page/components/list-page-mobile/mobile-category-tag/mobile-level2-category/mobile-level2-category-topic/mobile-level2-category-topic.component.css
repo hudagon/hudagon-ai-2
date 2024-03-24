@@ -28,6 +28,11 @@
     position: relative;
 }
 
+.level2-category-list__item.activated {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
 .level2-category-list__item span {
     border-radius: var(--border-radius-2);
     width: 100%;

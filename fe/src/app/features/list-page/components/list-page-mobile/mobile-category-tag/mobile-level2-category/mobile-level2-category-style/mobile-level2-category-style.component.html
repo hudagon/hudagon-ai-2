@@ -1,6 +1,6 @@
 <div class="wrapper">
     <ul class="level2-category-list">
-        <li (click)="moveTolevel3(x.name)" *ngFor="let x of level2CategorySubjectList" class="level2-category-list__item">
+        <li (click)="moveTolevel3(x.name, x.id)" *ngFor="let x of level2CategorySubjectList" class="level2-category-list__item">
             {{ x.name }}
         </li>
     </ul>

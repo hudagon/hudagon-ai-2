@@ -179,7 +179,7 @@
     align-items: center;
     height: 90%;
     gap: 12px;
-    animation: landing-page-banner-right-side-bannermove 180s linear infinite;
+    animation: landing-page-banner-right-side-bannermove 30s linear infinite;
 }
 
 .gallery__inside__frame-container.no-animation {

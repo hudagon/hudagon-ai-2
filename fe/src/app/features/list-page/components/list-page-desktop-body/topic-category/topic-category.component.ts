@@ -101,6 +101,7 @@ export class TopicCategoryComponent implements OnInit {
     if (index !== -1) {
       currentTags.splice(index, 1);
       $event.currentTarget.classList.toggle('activated');
+      this.listPageMainService.searchPainting();
     } else {
 
       this.listPageMainService.clearCurrentSearchCategoryTag(category.level2CategoryId + "", null);
@@ -110,6 +111,7 @@ export class TopicCategoryComponent implements OnInit {
       if (!addSuccessFully) {
         this.notifyToastCall.emit({ type: "warning", title: "Giới hạn tìm kiếm", desc: "Chỉ có thể tìm kiếm tối đa theo 5 thẻ" });
       } else {
+        this.listPageMainService.searchPainting();
         $event.currentTarget.classList.toggle('activated');
       }
     }

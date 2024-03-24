@@ -1,17 +1,18 @@
-import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
 import { DesktopCartDropdownComponent } from './desktop-cart-dropdown/desktop-cart-dropdown.component';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { CategoryTagListPage } from '../../models/category-tag-list-page';
 import { ListPageMainService } from '../../services/list-page-main.service';
 import { ToastService } from 'src/app/shareds/main-shared/services/toast.service';
 import { MediaQueriesService } from 'src/app/core/services/media-queries.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-list-page-desktop-body',
   templateUrl: './list-page-desktop-body.component.html',
   styleUrls: ['./list-page-desktop-body.component.css']
 })
-export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
+export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output() notifyToggleLoginModal: EventEmitter<string> = new EventEmitter();
   @Output() notifyResetAsideCategory = new EventEmitter();
   @ViewChild('desktopCartDropDown', { read: ViewContainerRef }) desktopCartDropDowncontainer: ViewContainerRef | undefined;
@@ -30,6 +31,7 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
   isSortOptionShow: boolean = false;
   isSortPristine: boolean = true;
   currentSearchCategoryTag: CategoryTagListPage[] = [];
+  private searchSubscription: Subscription = new Subscription();
 
   // SOMETHING ELSE
   displayedCategory: string = "";
@@ -49,12 +51,20 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
     this.rightSideBody = document.getElementById("right-side-body");
     this.scrollToTopButton = document.getElementById("scroll-to-top");
     this.searchInputDOM = document.getElementById("searchInput");
-
-    this.searchInputDOM?.focus();
   }
 
   ngOnInit(): void {
     this.searchPanting();
+
+    this.searchSubscription.add(this.listPageMainService.triggerSearchPainting$.subscribe(() => {
+      this.searchPanting();
+    }));
+  }
+
+  ngOnDestroy(): void {
+    if (this.searchSubscription) {
+      this.searchSubscription.unsubscribe();
+    }
   }
 
   /*#region Search Group */
@@ -82,7 +92,7 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
     this.isExhibitionLoading = true;
     setTimeout(() => {
       this.isExhibitionLoading = false;
-    }, 3000);
+    }, 1200);
   }
   /*#endregion*/
 
@@ -98,6 +108,7 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit {
   }
 
   resetInput() {
+    this.listPageMainService.searchPainting();
     this.searchInput = "";
     this.searchInputDOM?.focus();
   }

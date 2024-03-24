@@ -17,11 +17,13 @@
     width: 15%;
     min-width: 291px;
     height: 100%;
+    animation: slide-left-right-fade ease-in-out 0.3s;
 }
 
 .right-side {
     width: 85%;
     height: 100%;
+    animation: slide-right-left-fade ease-in-out 0.3s;
 }
 
 /* Below small screen [TABLET] */
