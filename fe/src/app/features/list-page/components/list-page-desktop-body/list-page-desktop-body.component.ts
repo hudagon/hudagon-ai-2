@@ -6,6 +6,7 @@ import { ListPageMainService } from '../../services/list-page-main.service';
 import { ToastService } from 'src/app/shareds/main-shared/services/toast.service';
 import { MediaQueriesService } from 'src/app/core/services/media-queries.service';
 import { Subscription } from 'rxjs';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-page-desktop-body',
@@ -39,11 +40,15 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit, OnDe
   isCategoryContentShow: boolean = false;
   isPreviewModalShow: boolean = false;
 
+  // MODAL PREVIEW PAINTING ID
+  previewPaintingId: number = 0;
+
   constructor(
     private authService: AuthService,
     private listPageMainService: ListPageMainService,
     private toastService: ToastService,
     private mediaQueriesService: MediaQueriesService,
+    private router: Router
   ) {
   }
 
@@ -115,7 +120,10 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit, OnDe
   /*#endregion*/
 
   /*#region Modal Group */
-  togglePreviewModal() {
+  togglePreviewModal(paintingId: any) {
+    if (paintingId) {
+      this.previewPaintingId = paintingId;
+    }
     this.isPreviewModalShow = !this.isPreviewModalShow;
   }
 
@@ -125,6 +133,15 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit, OnDe
   /*#endregion*/
 
   /*#region Utilities Group */
+  moveToDetail() {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        previewPaintingId: this.previewPaintingId,
+      }
+    };
+    this.router.navigate(['/detail'], navigationExtras);
+  }
+
   handleToastCall($event: any) {
     this.toastService.showToast($event.type, $event.title, $event.desc);
   }

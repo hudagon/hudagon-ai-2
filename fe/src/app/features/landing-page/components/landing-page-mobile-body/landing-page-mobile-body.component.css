@@ -2,6 +2,7 @@
     width: 100%;
     height: calc(100dvh - var(--top-info-height) - 1.5dvh - var(--header-height));
     padding: 0 9px;
+    padding-bottom: 9px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -18,13 +19,13 @@
 .gallery {
     padding: 6px 12px;
     width: 100%;
-    height: 40%;
+    flex: 1;
 }
 
 .service {
     padding: 6px 12px;
     width: 100%;
-    height: 40%;
+    height: 45%;
 }
 
 
@@ -119,14 +120,14 @@
 
 .landing-page-clickbate {
     position: relative;
-    padding: 9px 12px;
     width: 120px;
+    padding: 0;
+    height: 66%;
     color: var(--dark-text-color);
     background: linear-gradient(90deg, #3e008a, #3c0084, #7300ff, #3e008a);
     background-size: 400%;
     border-radius: 30px;
     z-index: 1;
-    line-height: 1.2;
     animation: landing-page-clickbate-banner-animate 18s linear infinite reverse;
 }
 
