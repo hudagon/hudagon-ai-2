@@ -3,7 +3,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
     border-radius: var(--border-radius-2);
     position: relative;
 }
@@ -11,7 +11,7 @@
 .right-side__inside__header {
     width: 100%;
     padding: 7.2px 9px;
-    border-bottom: 1px solid var(--dark-border-color);
+    border-bottom: 1px solid var(--current-border-color);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
@@ -92,8 +92,8 @@
     right: -5px;
     min-width: 210px;
     min-height: 90px;
-    border: 1px solid var(--dark-border-color);
-    background-color: var(--dark-panel-color);
+    border: 1px solid var(--current-border-color);
+    background-color: var(--current-panel-color);
     z-index: 4;
     border-radius: var(--border-radius-2);
     display: none;
@@ -137,7 +137,7 @@
     align-items: center;
     flex-direction: column;
     transition: 0.3s ease-in-out;
-    background-color: var(--dark-background-color);
+    background-color: var(--current-background-color);
 }
 
 .right-side__inside__body__search-utilities.pushed {
@@ -209,7 +209,7 @@
 }
 
 .right-side__inside__body__utilities__reset {
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
     font-size: var(--fs-less-2);
     background-color: var(--level3-color);
     display: flex;
@@ -319,7 +319,7 @@
     width: 45px;
     height: 45px;
     border-radius: 100%;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
     background-color: var(--level1-color);
     display: flex;
     justify-content: center;
@@ -337,7 +337,7 @@
     top: 0;
     left: 0;
     width: 195px;
-    border-right: 1px solid var(--dark-level2-border-color);
+    border-right: 1px solid var(--current-level2-border-color);
     border-top-left-radius: var(--border-radius-2);
     border-bottom-left-radius: var(--border-radius-2);
     background-color: var(--level2-color);
@@ -367,7 +367,7 @@
     padding: 0 15px;
     padding-right: 21px;
     min-height: 60px;
-    border-bottom: 1px solid var(--dark-border-color);
+    border-bottom: 1px solid var(--current-border-color);
 }
 
 .right-side__inside__category__header i {
@@ -480,13 +480,13 @@
     margin-bottom: var(--masonry-gap);
     position: relative;
     transition: 0.3s ease-in-out;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
 }
 
 .right-side__inside__body__gallery__exhibition__skeleton__item.is-loading {
-    background-image: -webkit-linear-gradient(left, var(--dark-panel-color) 0px, var(--dark-skeleton-color) 40px, var(--dark-panel-color) 80px);
-    background-image: -o-linear-gradient(left, var(--dark-panel-color) 0px, var(--dark-skeleton-color) 40px, var(--dark-panel-color) 80px);
-    background-image: linear-gradient(90deg, var(--dark-panel-color) 0px, var(--dark-skeleton-color) 40px, var(--dark-panel-color) 80px);
+    background-image: -webkit-linear-gradient(left, var(--current-panel-color) 0px, var(--current-skeleton-color) 40px, var(--current-panel-color) 80px);
+    background-image: -o-linear-gradient(left, var(--current-panel-color) 0px, var(--current-skeleton-color) 40px, var(--current-panel-color) 80px);
+    background-image: linear-gradient(90deg, var(--current-panel-color) 0px, var(--current-skeleton-color) 40px, var(--current-panel-color) 80px);
     background-size: 350px;
     -webkit-animation: shine-loading-image 0.81s infinite ease-in-out;
             animation: shine-loading-image 0.81s infinite ease-in-out;
@@ -502,8 +502,8 @@
     opacity: 0;
     transition: 0.3s ease-in-out;
     pointer-events: none;
-    border-top: 1px solid var(--dark-border-color);
-    border-right: 1px solid var(--dark-border-color);
+    border-top: 1px solid var(--current-border-color);
+    border-right: 1px solid var(--current-border-color);
     border-top-right-radius: var(--border-radius-1);
     border-bottom-left-radius: var(--border-radius-2);
     background-color: var(--level2-color);

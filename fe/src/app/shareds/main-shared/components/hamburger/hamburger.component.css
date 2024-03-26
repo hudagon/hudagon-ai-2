@@ -12,7 +12,7 @@
     height: 2px;
     width: 21px;
     display: block;
-    background-color: var(--dark-text-color);
+    background-color: var(--current-text-color);
     border-radius: 5px;
     transition: 0.3s ease;
 }

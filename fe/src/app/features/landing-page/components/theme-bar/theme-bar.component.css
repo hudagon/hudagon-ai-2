@@ -45,7 +45,7 @@
 }
 
 .landing-page__theme-bar__wrapper__switch-theme-group__checkbox-label.dark-mode {
-    border-color: var(--dark-border-color);
+    border-color: var(--current-border-color);
     background-color: black;
 }
 
@@ -78,7 +78,7 @@
 
 .landing-page__theme-bar__wrapper__switch-theme-group__ball.dark-mode {
     background-color: black;
-    border-color: var(--dark-border-color);
+    border-color: var(--current-border-color);
 }
 
 /* Below small screen [TABLET] */

@@ -7,8 +7,8 @@
 .header {
     width: 100%;
     height: 60px;
-    border-bottom: 1px solid var(--dark-border-color);
-    background-color: var(--dark-panel-color);
+    border-bottom: 1px solid var(--current-border-color);
+    background-color: var(--current-panel-color);
     display: flex;
     align-items: center;
     position: fixed;
@@ -109,7 +109,7 @@
     position: fixed;
     width: 100%;
     top: 60px;
-    background-color: var(--dark-background-color);
+    background-color: var(--current-background-color);
     z-index: 2;
     margin-left: -2px;
 }
@@ -147,7 +147,7 @@
     background-color: var(--level3-color);
     width: 75px;
     height: 30px;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
 }
 
 /*#region GALLERY */
@@ -194,13 +194,13 @@
     margin-bottom: var(--masonry-gap);
     position: relative;
     transition: 0.3s ease-in-out;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
 }
 
 .body__gallery-group__list-skeleton__item.is-loading {
-    background-image: -webkit-linear-gradient(left, var(--dark-panel-color) 0px, var(--dark-skeleton-color) 40px, var(--dark-panel-color) 80px);
-    background-image: -o-linear-gradient(left, var(--dark-panel-color) 0px, var(--dark-skeleton-color) 40px, var(--dark-panel-color) 80px);
-    background-image: linear-gradient(90deg, var(--dark-panel-color) 0px, var(--dark-skeleton-color) 40px, var(--dark-panel-color) 80px);
+    background-image: -webkit-linear-gradient(left, var(--current-panel-color) 0px, var(--current-skeleton-color) 40px, var(--current-panel-color) 80px);
+    background-image: -o-linear-gradient(left, var(--current-panel-color) 0px, var(--current-skeleton-color) 40px, var(--current-panel-color) 80px);
+    background-image: linear-gradient(90deg, var(--current-panel-color) 0px, var(--current-skeleton-color) 40px, var(--current-panel-color) 80px);
     background-size: 350px;
     -webkit-animation: shine-loading-image 0.81s infinite ease-in-out;
     animation: shine-loading-image 0.81s infinite ease-in-out;
@@ -289,14 +289,14 @@
     height: 0px;
     right: 0;
     width: 100%;
-    background-color: var(--dark-background-color);
+    background-color: var(--current-background-color);
     transition: 0.3s ease-in-out;
     z-index: 2;
     padding: 12px;
     
     opacity: 0;
     pointer-events: none;
-    border-bottom: 1px solid var(--dark-border-color);
+    border-bottom: 1px solid var(--current-border-color);
 }
 
 .hamburger-content.activated {
@@ -306,12 +306,12 @@
 }
 
 .hamburger-content__user-info {
-    background-color: var(--dark-background-color);
+    background-color: var(--current-background-color);
     display: flex;
     align-items: center;
     width: 100%;
     padding: 9px 18px;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
     border-radius: var(--border-radius-2);
 }
 
@@ -330,12 +330,12 @@
 
 .hamburger-content__user-functionalities {
     margin-top: 12px;
-    background-color: var(--dark-background-color);
+    background-color: var(--current-background-color);
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 100%;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
     border-radius: var(--border-radius-2);
 }
 
@@ -353,13 +353,13 @@
 }
 
 .hamburger-content__user-functionalities__item + .hamburger-content__user-functionalities__item {
-    border-top: 1px solid var(--dark-border-color);
+    border-top: 1px solid var(--current-border-color);
 }
 
 .hamburger-content__contact {
     width: 100%;
-    background-color: var(--dark-background-color);
-    border: 1px solid var(--dark-border-color);
+    background-color: var(--current-background-color);
+    border: 1px solid var(--current-border-color);
     border-radius: var(--border-radius-2);
     margin-top: 12px;
 }
@@ -370,7 +370,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 9px;
-    border-bottom: 1px solid var(--dark-border-color);
+    border-bottom: 1px solid var(--current-border-color);
 }
 
 .hamburger-content__contact__top__item {
@@ -400,7 +400,7 @@
     padding-right: 4.2px;
     margin-top: 12px;
     border-radius: var(--border-radius-2);
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
 }
 
 .hamburger-content__footer i {
@@ -416,7 +416,7 @@
     left: 0;
     width: 100vw;
     height: 51px;
-    border-top: 1px solid var(--dark-border-color);
+    border-top: 1px solid var(--current-border-color);
     background: var(--level2-color);
     backdrop-filter: blur(6px);
     animation: slide-bottom-top-fade 0.3s ease-in-out;

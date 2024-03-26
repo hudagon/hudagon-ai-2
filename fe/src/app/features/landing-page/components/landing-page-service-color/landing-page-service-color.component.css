@@ -1,6 +1,6 @@
 .service__body__category {
     width: 24%;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
     border-radius: var(--border-radius-1);
     height: 100%;
     position: relative;
@@ -59,7 +59,7 @@
 .service__body__category__text-group__content {
     flex: 1;
     padding: 0 6px;
-    color: var(--dark-text-color);
+    color: var(--current-text-color);
     display: flex;
     justify-content: center;
     align-items: center;

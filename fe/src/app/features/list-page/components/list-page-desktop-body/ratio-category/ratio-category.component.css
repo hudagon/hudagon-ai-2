@@ -24,7 +24,7 @@
 }
 
 .portrait-group__content, .landscape-group__content {
-    border: 1px solid var(--dark-level2-border-color);
+    border: 1px solid var(--current-level2-border-color);
     border-radius: var(--border-radius-1);
     width: 100%;
     display: flex;

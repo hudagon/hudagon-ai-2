@@ -48,7 +48,7 @@
     width: 100%;
     background-color: var(--level2-color);
     padding: 9px;
-    border-bottom: 1px solid var(--dark-border-color);
+    border-bottom: 1px solid var(--current-border-color);
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -1,6 +1,6 @@
 .login-modal-container__right-side__body__choice {
     width: 100%;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
     border-radius: var(--border-radius-1);
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: baseline;
-    border-right: 1px solid var(--dark-border-color);
+    border-right: 1px solid var(--current-border-color);
 }
 
 .login-modal-container__right-side__body__choice__icon-group.google i {
@@ -38,7 +38,7 @@
 .wrapper__containter__login__text {
     padding: 12px;
     flex: 1;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
     border-bottom-right-radius: var(--border-radius-2);
     border-top-right-radius: var(--border-radius-2);
 }
@@ -51,7 +51,7 @@
     width: 45px;
     height: 100%;
     background-color: var(--google-color);
-    color: var(--dark-text-color);
+    color: var(--current-text-color);
     display: flex;
     justify-content: center;
     align-items: center;

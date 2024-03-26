@@ -55,7 +55,7 @@
 }
 
 .toast-wrapper .toast i:nth-child(3) {
-    color: var(--dark-text-color);
+    color: var(--current-text-color);
     font-size: var(--fs-less-1);
     margin-left: 12px;
 }

@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     min-height: 120px;
-    border-top: 1px solid var(--dark-border-color);
+    border-top: 1px solid var(--current-border-color);
     background-color: var(--level1-color);
     transition: 0.3s ease-in-out;
     animation: slide-left-right-fade 0.3s ease-in-out;
@@ -14,7 +14,7 @@
     width: 100%;
     background-color: var(--level2-color);
     padding: 9px;
-    border-bottom: 1px solid var(--dark-border-color);
+    border-bottom: 1px solid var(--current-border-color);
     display: flex;
     align-items: center;
     justify-content: space-between;

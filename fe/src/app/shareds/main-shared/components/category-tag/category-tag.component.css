@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: baseline;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
     border-radius: 21px;
     font-size: var(--fs-less-2);
     gap: 9px;

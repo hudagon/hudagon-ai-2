@@ -13,7 +13,7 @@
 }
 
 .btn.outline {
-    border: 1px solid var(--dark-border-color)
+    border: 1px solid var(--current-border-color)
 }
 
 .btn.pr {
@@ -32,5 +32,5 @@
 
 .btn.sc {
     background-color: transparent;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
 }

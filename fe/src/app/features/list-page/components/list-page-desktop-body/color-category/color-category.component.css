@@ -26,7 +26,7 @@
 
 .upper__color-group input {
     position: absolute;
-    background-color: var(--dark-background-color);
+    background-color: var(--current-background-color);
     top: 6px;
     left: 6px;
     z-index: 3;
@@ -60,7 +60,7 @@
 
 .upper__color-group__overlay.else {
     background-color: transparent;
-    border: 1px solid var(--dark-level2-border-color);
+    border: 1px solid var(--current-level2-border-color);
 }
 
 .upper__color-group__overlay.else span {

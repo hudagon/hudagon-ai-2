@@ -1,10 +1,10 @@
 /*#region TEXT*/
 input[type="text"],
 input[type="password"] {
-    color: var(--dark-text-color);
+    color: var(--current-text-color);
     width: 100%;
     padding: 12px 18px;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
     border-radius: var(--border-radius-1);
     transition: 0.3s ease-in-out;
 }
@@ -19,7 +19,7 @@ input:focus {
 }
 
 ::placeholder {
-    color: var(--dark-text-color);
+    color: var(--current-text-color);
     opacity: 0.81;
 }
 
@@ -62,7 +62,7 @@ input[type="checkbox"]:focus {
 }
 
 input[type="checkbox"]:disabled {
-    color: var(--dark-scrollbar-thumb);
+    color: var(--current-scrollbar-thumb);
     cursor: not-allowed;
 }
 
@@ -71,7 +71,7 @@ input[type="checkbox"]:disabled {
 /*#region SELECT-OPTION */
 .select {
     height: 100%;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -89,7 +89,7 @@ input[type="checkbox"]:disabled {
 
 .select .icon {
     height: 100%;
-    border-left: 1px solid var(--dark-border-color);
+    border-left: 1px solid var(--current-border-color);
     padding: 6px 9px;
     background-color: var(--level1-color);
     display: flex;
@@ -106,7 +106,7 @@ input[type="checkbox"]:disabled {
     top: 111%;
     left: -0.5%;
     width: 101.4%;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid var(--current-border-color);
     border-radius: var(--border-radius-1);
     background-color: var(--level1-color);
     display: flex;

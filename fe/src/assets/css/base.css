@@ -12,7 +12,7 @@ html {
     user-select: none;
 }
 
-button > * {
+button>* {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -34,20 +34,20 @@ a:hover {
 }
 
 a.nothing {
-    color: var(--dark-text-color);
+    color: var(--current-text-color);
     text-align: center;
 }
 
 a.nothing:hover {
-    color: var(--dark-text-color);
+    color: var(--current-text-color);
 }
 
 body {
     font-family: var(--font-primary);
-    background-color: var(--dark-background-color);
-    color: var(--dark-text-color);
+    background-color: var(--current-background-color);
+    color: var(--current-text-color);
     font-size: var(--fs-normal);
-    font-weight: 300;
+    font-weight: var(--current-font-weight);
     white-space: nowrap;
     display: flex;
     justify-content: center;
@@ -62,23 +62,23 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--dark-scrollbar-track);
+    background-color: var(--current-scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--dark-scrollbar-thumb);
+    background-color: var(--current-scrollbar-thumb);
     border-radius: 3px;
 }
 
-::-moz-selection { 
+::-moz-selection {
     color: var(--light-text-color);
     background: var(--secondary-color-lighter);
-  }
-  
-  ::selection {
+}
+
+::selection {
     color: var(--light-text-color);
     background: var(--secondary-color-lighter);
-  }
+}
 
 .fw {
     height: inherit;
@@ -107,8 +107,7 @@ body {
     /* Scrollbar */
     --vertical-width: 3px;
     --horizontal-height: 3px;
-    --dark-scrollbar-track: #242424;
-    --dark-scrollbar-thumb: #727272;
+
 
     /* SOCIAL MEDIA */
     --facebook-color: #1974EC;
@@ -123,25 +122,49 @@ body {
     --danger-color: #a73131;
     --red-color: #d0312d;
 
-    --dark-border-color: #282b28;
-    --light-border-color: #c2c2c261;
-    --dark-level2-border-color: #393b39;
-
-    --dark-glass-blur: hsla(0, 0%, 7%, 0.695);
-
-    --dark-background-color: #09060a;
+    /*#region Light Mode*/
+    --light-border-color: #686868;
     --light-background-color: whitesmoke;
-
-    --dark-skeleton-color: #170f1a;
-    --dark-panel-color: #080508;
-
-    --dark-text-color: #dfdfdf;
     --light-text-color: #333;
 
-    /* Painting filter Menu color */
-    --level3-color: rgba(21, 21, 21, 0.918);
-    --level2-color: rgba(15, 15, 15, 0.952);
-    --level1-color: rgba(6, 6, 6, 0.925);
+    --light-font-weight: 400;
+    --light-level3-color: rgba(195, 195, 195, 0.9);
+    --light-level2-color: rgba(210, 210, 210, 0.9);
+    --light-level1-color: rgba(225, 225, 225, 0.9);
+    /*#endregion*/
+
+    /*#region Dark Mode */
+    --dark-border-color: #282b28;
+    --dark-background-color: #09060a;
+    --dark-text-color: #dfdfdf;
+    --dark-level2-border-color: #393b39;
+    --dark-glass-blur: hsla(0, 0%, 7%, 0.695);
+    --dark-skeleton-color: #170f1a;
+    --dark-panel-color: #080508;
+    --dark-scrollbar-track: #242424;
+    --dark-scrollbar-thumb: #727272;
+
+    --dark-font-weight: 300;
+    --dark-level3-color: rgba(21, 21, 21, 0.918);
+    --dark-level2-color: rgba(15, 15, 15, 0.952);
+    --dark-level1-color: rgba(6, 6, 6, 0.925);
+    /*#endregion*/
+
+    /*#region CURRENT MODE */
+    --current-border-color: var(--light-border-color);
+    --current-background-color: var(--light-background-color);
+    --current-text-color: var(--light-text-color);
+    --current-level2-border-color: var(--dark-level2-border-color);
+    --current-glass-blur: var(--dark-glass-blur);
+    --current-skeleton-color: var(--dark-skeleton-color);
+    --current-panel-color: var(--dark-panel-color);
+    --current-scrollbar-track: var(--dark-scrollbar-track);
+    --current-scrollbar-thumb: var(--dark-scrollbar-thumb);
+
+    --level3-color: var(--light-level3-color);
+    --level2-color: var(--light-level2-color);
+    --level1-color: var(--light-level1-color);
+    /*#endregion*/
 
     /* Overlay color */
     --overlay-color: rgba(0, 0, 0, 0.72);
@@ -178,6 +201,7 @@ body {
     /* Masonry gap */
     --masonry-gap: 7.2px;
 }
+
 /*#endregion*/
 
 /*#region HOVER EFFECT*/
@@ -223,5 +247,5 @@ body {
     filter: brightness(1.2);
     transform: translateX(3px);
 }
+
 /*#endregion*/
-    

@@ -46,12 +46,12 @@
         </div>
 
         <div class="body__gallery-group">
-            <ul *ngIf="!isExhibitionLoading" class="body__gallery-group__list">
+            <!-- <ul *ngIf="!isExhibitionLoading" class="body__gallery-group__list">
                 <li *ngFor="let x of paintingList" (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
                     <img src="{{x.imgUrl}}"
                         alt="" class="body__gallery-group__list__item__img">
                 </li>
-            </ul>
+            </ul> -->
 
             <ul *ngIf="isExhibitionLoading" class="body__gallery-group__list-skeleton">
                 <div class="body__gallery-group__list-skeleton__item is-loading" style="height: 180px"></div>
