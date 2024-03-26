@@ -1,10 +1,80 @@
 <div class="wrapper">
+    <div class="return-group hover-effect-yellow-bright">
+        <i class="fa-solid fa-chevron-left"></i>
+        <a routerLink="/list" class="nothing return-group__text">
+            Trở về
+        </a>
+    </div>
+
     <div class="logo-group">
         <div class="logo-group__content">
-            <app-overlay [z_index]="'3'"></app-overlay>
-            <h1 class="hover-effect-yellow-bright logo-group__content__title">
-                <a routerLink="/" class="nothing logo-group__content__title__responsive-screen">H</a>
-            </h1>
+            <app-overlay></app-overlay>
+            <a routerLink="/" class="nothing logo-group__content__title">
+                H
+            </a>
         </div>
     </div>
+    
+    <div class="contact-service-group">
+        <i class="fa-solid fa-exclamation"></i>
+        <i class="fa-solid fa-question"></i>
+
+        <ul class="contact-service-group__panel-list">
+            <li class="contact-service-group__panel-list__item">
+                Liên hệ
+            </li>
+            <li class="contact-service-group__panel-list__item">
+                Điều khoản
+            </li>
+            <li class="contact-service-group__panel-list__item">
+                Chính sách
+            </li>
+        </ul>
+    </div>
+
+    <section class="function-group-wrapper">
+        <div class="function-group">
+            <div class="function-group__user-group">
+                <div class="function-group__user-group__cart-group">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="function-group__user-group__cart-group__notify">
+                        0
+                    </span>
+                </div>
+
+                <div class="function-group__user-group__user-group">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                </div>
+            </div>
+
+            <header class="function-group__header">
+                <ul class="function-group__header__tab-list">
+                    <li class="function-group__header__tab-list__item">
+                        Tùy chọn
+                    </li>
+                    <li class="function-group__header__tab-list__item">
+                        Chi tiết
+                    </li>
+                    <li class="function-group__header__tab-list__item">
+                        Phản hồi
+                    </li>
+                </ul>
+            </header>
+        </div>
+
+        <div class="checkout-group">
+
+        </div>
+
+        <div class="preview-gallery-group">
+            <ul class="preview-gallery-group__list">
+                <li class="preview-gallery-group__list__item"></li>
+                <li class="preview-gallery-group__list__item"></li>
+                <li class="preview-gallery-group__list__item"></li>
+                <li class="preview-gallery-group__list__item"></li>
+                <li class="preview-gallery-group__list__item"></li>
+                <li class="preview-gallery-group__list__item"></li>
+            </ul>
+        </div>
+    </section>
 </div>

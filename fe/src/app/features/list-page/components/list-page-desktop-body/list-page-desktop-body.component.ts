@@ -21,6 +21,9 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit, OnDe
   cartFirstTimeClick: boolean = false;
   isExhibitionLoading: boolean = true;
 
+  // Painting Gallery
+  paintingList: any[] = [];
+
   // DOM ELEMENT
   rightSideBody: any;
   scrollToTopButton: any;
@@ -64,6 +67,93 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit, OnDe
     this.searchSubscription.add(this.listPageMainService.triggerSearchPainting$.subscribe(() => {
       this.searchPanting();
     }));
+
+    this.paintingList = [
+      {
+        id: 1,
+        imgUrl: "../../../../assets/images/11_test_1.png"        
+      },
+      {
+        id: 2,
+        imgUrl: "../../../../assets/images/11_test_2.png"        
+      },
+      {
+        id: 3,
+        imgUrl: "../../../../assets/images/11_test_3.png"        
+      },
+      {
+        id: 4,
+        imgUrl: "../../../../assets/images/43_test_1.png"        
+      },
+      {
+        id: 5,
+        imgUrl: "../../../../assets/images/43_test_2.png"        
+      },
+      {
+        id: 6,
+        imgUrl: "../../../../assets/images/916_test_1.png"        
+      },
+      {
+        id: 7,
+        imgUrl: "../../../../assets/images/916_test_2.png"        
+      },
+      {
+        id: 8,
+        imgUrl: "../../../../assets/images/an_tuong.png"        
+      },
+      {
+        id: 9,
+        imgUrl: "../../../../assets/images/bieu_hien.png"        
+      },
+      {
+        id: 10,
+        imgUrl: "../../../../assets/images/can_canh.png"        
+      },
+      {
+        id: 11,
+        imgUrl: "../../../../assets/images/chi.png"        
+      },
+      {
+        id: 12,
+        imgUrl: "../../../../assets/images/con_nguoi.png"        
+      },
+      {
+        id: 13,
+        imgUrl: "../../../../assets/images/da_thu.png"        
+      },
+      {
+        id: 14,
+        imgUrl: "../../../../assets/images/doi_thuong.png"        
+      },
+      {
+        id: 15,
+        imgUrl: "../../../../assets/images/hanh_dong.png"        
+      },
+      {
+        id: 16,
+        imgUrl: "../../../../assets/images/hau_an_tuong.png"        
+      },
+      {
+        id: 17,
+        imgUrl: "../../../../assets/images/hien_thuc.png"        
+      },
+      {
+        id: 18,
+        imgUrl: "../../../../assets/images/kham_mau.png"        
+      },
+      {
+        id: 19,
+        imgUrl: "../../../../assets/images/kien_truc.png"        
+      },
+      {
+        id: 20,
+        imgUrl: "../../../../assets/images/lang_man.png"        
+      },
+      {
+        id: 21,
+        imgUrl: "../../../../assets/images/lap_the.png"        
+      }
+    ];
   }
 
   ngOnDestroy(): void {
@@ -97,7 +187,7 @@ export class ListPageDesktopBodyComponent implements OnInit, AfterViewInit, OnDe
     this.isExhibitionLoading = true;
     setTimeout(() => {
       this.isExhibitionLoading = false;
-    }, 1200);
+    }, 600);
   }
   /*#endregion*/
 
