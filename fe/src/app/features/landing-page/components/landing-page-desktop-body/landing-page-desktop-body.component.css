@@ -19,7 +19,7 @@
     min-height: 90px;
     border: 1px solid var(--current-border-color);
     border-radius: var(--border-radius-2);
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2");
+    background-image: url("../../../../../assets/images/van-gogh-test.png");
 }
 
 .banner__left-side {
@@ -55,11 +55,13 @@
     line-height: 1.2;
     margin-bottom: 12px;
     margin-top: -12px;
+    color: var(--dark-text-color);
 }
 
 .banner__left-side__container__desc {
     font-size: var(--fs-larger-1);
     white-space: nowrap;
+    color: var(--dark-text-color);
 }
 
 .landing-page-clickbate {
@@ -67,7 +69,7 @@
     padding: 9px 18px;
     width: 210px;
     margin-top: 18px;
-    color: var(--current-text-color);
+    color: var(--dark-text-color);
     font-size: var(--fs-larger-1);
     background: linear-gradient(90deg, #3e008a, #3c0084, #7300ff, #3e008a);
     background-size: 400%;
@@ -110,10 +112,6 @@
     clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
     position: relative;
     transition: 0.3s ease;
-}
-
-.banner__right-side.dark-mode {
-    background-color: #151515;
 }
 
 .banner__right-side__frame-container {

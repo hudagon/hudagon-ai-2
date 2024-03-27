@@ -7,6 +7,7 @@ import { CategoryTagComponent } from './components/category-tag/category-tag.com
 import { ToastComponent } from './components/toast/toast.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { ThemeBarComponent } from './components/theme-bar/theme-bar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
     CategoryTagComponent,
     ToastComponent,
     ModalComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    ThemeBarComponent
   ],
   imports: [
     CommonModule
@@ -28,7 +30,8 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
     CategoryTagComponent,
     ToastComponent,
     ModalComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    ThemeBarComponent
   ]
 })
 export class MainSharedModule { }

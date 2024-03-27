@@ -1,0 +1,10 @@
+<div class="landing-page__theme-bar__wrapper">
+    <div class="landing-page__theme-bar__wrapper__switch-theme-group">
+        <input id="checkbox-landing-page-theme-change" type="checkbox" class="landing-page__theme-bar__wrapper__switch-theme-group__checkbox" >
+        <label (click)="toggleTheme()" [ngClass]="{'dark-mode' : getThemeMode()}" for="checkbox-landing-page-theme-change" class="landing-page__theme-bar__wrapper__switch-theme-group__checkbox-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <span [ngClass]="{'dark-mode' : getThemeMode()}" class="landing-page__theme-bar__wrapper__switch-theme-group__ball"></span>
+        </label>
+    </div>
+</div>

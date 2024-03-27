@@ -8,7 +8,6 @@ import { LandingPageDesktopBodyComponent } from './components/landing-page-deskt
 import { LandingPageTabletBodyComponent } from './components/landing-page-tablet-body/landing-page-tablet-body.component';
 import { LandingPageMobileBodyComponent } from './components/landing-page-mobile-body/landing-page-mobile-body.component';
 import { LandingPageFrameComponent } from './components/landing-page-frame/landing-page-frame.component';
-import { ThemeBarComponent } from './components/theme-bar/theme-bar.component';
 import { MainSharedModule } from "../../shareds/main-shared/main-shared.module";
 import { LandingPageServiceSubjectComponent } from './components/landing-page-service-subject/landing-page-service-subject.component';
 import { LandingPageServiceTopicComponent } from './components/landing-page-service-topic/landing-page-service-topic.component';
@@ -26,7 +25,6 @@ import { LandingPageTabletHamburgerContentComponent } from './components/layout/
         LandingPageTabletBodyComponent,
         LandingPageMobileBodyComponent,
         LandingPageFrameComponent,
-        ThemeBarComponent,
         LandingPageServiceSubjectComponent,
         LandingPageServiceTopicComponent,
         LandingPageServiceStyleComponent,

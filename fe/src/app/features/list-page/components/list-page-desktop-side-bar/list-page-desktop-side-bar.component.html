@@ -1,8 +1,9 @@
 <div class="left-side__inside">
     <div class="left-side__inside__upper">
         <div class="left-side__inside__upper__content">
-            <app-overlay [z_index]="'3'"></app-overlay>
-            <h1 class="hover-effect-yellow-bright left-side__inside__upper__content__title">
+            <app-overlay *ngIf="getThemeMode()" [z_index]="'3'"></app-overlay>
+            <app-overlay *ngIf="!getThemeMode()" [overlayType]="'--light-overlay-color-light'" [z_index]="'3'"></app-overlay>
+            <h1 class="left-side__inside__upper__content__title">
                 <a routerLink="/"
                     class="nothing left-side__inside__upper__content__title__responsive-screen">Hudagon
                     AI</a>

@@ -1,5 +1,9 @@
 <div class="top-info">
     <div *ngIf="(getViewportWidth() > getBreakpointValues('TABLET')!)" class="top-info__term-and-policies">
+        <div class="mode-change-group">
+            <app-theme-bar></app-theme-bar>
+        </div>
+
         <span class="hover-effect-yellow-bright top-info__term-and-policies__text">
             Điều khoản
         </span>

@@ -1,8 +1,7 @@
 .wrapper {
     width: 100%;
-    height: calc(100dvh - var(--top-info-height) - 1.5dvh - var(--header-height));
-    padding: 0 9px;
-    padding-bottom: 9px;
+    height: calc(100dvh - var(--top-info-height) - 1.5dvh);
+    padding: 6px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -14,6 +13,7 @@
     padding: 6px 12px;
     width: 100%;
     height: 15%;
+    min-height: 81px;
 }
 
 .gallery {
@@ -61,6 +61,7 @@
     font-family: var(--font-secondary);
     margin-left: 21%;
     margin-bottom: 12px;
+    color: var(--dark-text-color);
 }
 
 .banner__inside__right-side {
@@ -91,6 +92,7 @@
     font-size: clamp(0.75rem, 0.3938rem + 1.5831vw, 1.125rem);
     text-align: center;
     margin-left: 15%;
+    color: var(--current-text-color);
 }
 
 .banner__inside__right-side__slash {
@@ -105,6 +107,7 @@
     justify-content: center;
     width: 100%;
     gap: 12px;
+    padding-right: 12px;
 }
 
 .banner__inside__right-side__bottom button {
@@ -122,11 +125,11 @@
     position: relative;
     width: 120px;
     padding: 0;
-    height: 66%;
-    color: var(--current-text-color);
+    height: 81%;
     background: linear-gradient(90deg, #3e008a, #3c0084, #7300ff, #3e008a);
     background-size: 400%;
     border-radius: 30px;
+    color: var(--dark-text-color);
     z-index: 1;
     animation: landing-page-clickbate-banner-animate 18s linear infinite reverse;
 }
@@ -152,7 +155,9 @@
     animation: landing-page-clickbate-banner-animate 9s linear infinite reverse;
 }
 
-.banner__inside, .gallery__inside, .service__inside {
+.banner__inside,
+.gallery__inside,
+.service__inside {
     border: 1px solid var(--current-border-color);
     border-radius: var(--border-radius-2);
     width: 100%;

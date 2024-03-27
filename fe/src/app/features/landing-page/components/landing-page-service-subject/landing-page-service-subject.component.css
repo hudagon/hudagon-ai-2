@@ -59,13 +59,17 @@
 .service__body__category__text-group__content {
     flex: 1;
     padding: 0 6px;
-    color: var(--current-text-color);
+    color: var(--dark-text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 4.5px;
     font-size: var(--fs-larger-1);
+}
+
+.service__body__category__text-group__content:last-child {
+    color: var(--current-text-color);
 }
 
 .service__body__category__text-group__content p {

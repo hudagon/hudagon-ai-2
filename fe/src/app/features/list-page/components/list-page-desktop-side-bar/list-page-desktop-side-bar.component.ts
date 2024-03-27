@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MainSharedService } from 'src/app/shareds/main-shared/services/main-shared.service';
 
 @Component({
   selector: 'app-list-page-desktop-side-bar',
@@ -15,6 +16,11 @@ export class ListPageDesktopSideBarComponent implements OnInit, AfterViewInit {
   styleCategory: any;
   ratioCategory: any;
   colorCategory: any;
+
+  constructor(
+    private mainSharedService: MainSharedService
+  ) {
+  }
 
   ngOnInit(): void {
   }
@@ -69,4 +75,9 @@ export class ListPageDesktopSideBarComponent implements OnInit, AfterViewInit {
 
     this.notifyToggleCategoryContent.emit({ category });
   }
+
+  getThemeMode() {
+    return this.mainSharedService.isDarkMode;
+  }
+
 }

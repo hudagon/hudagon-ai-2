@@ -8,6 +8,7 @@ import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@
 export class OverlayComponent implements OnInit, AfterViewInit {
   @Output() notifyToggleModal = new EventEmitter();
   @Input() z_index: string | undefined; 
+  @Input() overlayType: string | undefined; 
 
   ngOnInit(): void {
   }
@@ -17,6 +18,15 @@ export class OverlayComponent implements OnInit, AfterViewInit {
       const overlay = document.getElementById('overlay');
       if (overlay) {
         overlay.style.zIndex = this.z_index;
+      }
+    }
+
+    if (this.overlayType) {
+      const overlay = document.getElementById('overlay');
+      if (overlay) {
+        const lightColor = getComputedStyle(document.documentElement)
+                           .getPropertyValue(this.overlayType).trim();
+        overlay.style.setProperty('--overlay-color', lightColor);
       }
     }
   }

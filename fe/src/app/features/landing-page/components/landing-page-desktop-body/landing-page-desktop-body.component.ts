@@ -11,18 +11,4 @@ export class LandingPageDesktopBodyComponent {
   showServiceCategory(category: string) {
     this.currentServiceCategory = category;
   }
-
-  handleToggleTheme() {
-    const bannerRightSide = document.getElementById("banner__right-side");
-    if (bannerRightSide) {
-      bannerRightSide.classList.toggle("dark-mode");
-    }
-  }
-
-  handleToggleResume() {
-    const desktopFrameContainer = document.getElementById("banner__right-side__frame-container");
-    if (desktopFrameContainer) {
-      desktopFrameContainer.classList.toggle("no-animation");
-    }
-  }
 }

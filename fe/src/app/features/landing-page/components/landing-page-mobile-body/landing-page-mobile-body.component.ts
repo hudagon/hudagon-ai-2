@@ -12,20 +12,6 @@ export class LandingPageMobileBodyComponent implements OnInit {
     this.currentServiceCategory = "subject";
   }
 
-  handleToggleTheme() {
-    const galleryInside = document.getElementById("gallery__inside");
-    if (galleryInside) {
-      galleryInside.classList.toggle("dark-mode");
-    }
-  }
-
-  handleToggleResume() {
-    const galleryInsideFrameContainer = document.getElementById("gallery__inside__frame-container");
-    if (galleryInsideFrameContainer) {
-      galleryInsideFrameContainer.classList.toggle("no-animation");
-    }
-  }
-
   showServiceCategory(category: string) {
       this.currentServiceCategory = category;
   }

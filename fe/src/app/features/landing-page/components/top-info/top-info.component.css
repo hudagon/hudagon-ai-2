@@ -24,6 +24,11 @@
     font-size: var(--fs-less-1);
 }
 
+.mode-change-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
 
 .top-info>* {
     flex: 1;

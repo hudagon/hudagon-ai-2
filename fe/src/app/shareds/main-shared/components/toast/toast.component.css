@@ -51,7 +51,6 @@
 .toast-wrapper span {
     opacity: 0.81;
     font-size: var(--fs-less-2);
-    text-wrap: wrap;
 }
 
 .toast-wrapper .toast i:nth-child(3) {
@@ -95,19 +94,19 @@
 .toast-wrapper .toast.error {
     --color: #f24d4c;
     background-image:
-        linear-gradient(to right, #f24d4c55, #22242F 30%);
+        linear-gradient(to right, #f24d4c55, var(--current-panel-color) 30%);
 }
 
 .toast-wrapper .toast.warning {
     --color: #e9bd0c;
     background-image:
-        linear-gradient(to right, #e9bd0c55, #22242F 30%);
+        linear-gradient(to right, #e9bd0c55, var(--current-panel-color) 30%);
 }
 
 .toast-wrapper .toast.info {
     --color: #3498db;
     background-image:
-        linear-gradient(to right, #3498db55, #22242F 30%);
+        linear-gradient(to right, #3498db55, var(--current-panel-color) 30%);
 }
 
 /* Below Tablets [LARGE PHONE] */

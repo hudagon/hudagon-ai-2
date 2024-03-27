@@ -104,10 +104,71 @@ body {
 
 /*#region VARIABLES*/
 :root {
+    /*#region Light Mode*/
+    --light-primary-color: #3e008a;
+    --light-secondary-color: #a28700;
+    --light-border-color: #686868;
+    --light-background-color: whitesmoke;
+    --light-text-color: #333;
+    --light-panel-color: #cbcbcb;
+    --light-level2-border-color: #393b39;
+    --light-glass-blur: hsla(0, 0%, 7%, 0.695);
+    --light-skeleton-color: #dcdcdc;
+    --light-scrollbar-track: #cdcdcd;
+    --light-scrollbar-thumb: #727272;
+    --light-overlay-color: rgba(0, 0, 0, 0.615);
+    --light-overlay-color-light: rgba(208, 208, 208, 0.075);
+
+    --light-font-weight: 400;
+    --light-level3-color: rgba(195, 195, 195, 0.758);
+    --light-level2-color: rgb(210, 210, 210);
+    --light-level1-color: rgb(225, 225, 225);
+    /*#endregion*/
+
+    /*#region Dark Mode */
+    --dark-primary-color: #3e008a;
+    --dark-secondary-color: #c5b358;
+    --dark-border-color: #282b28;
+    --dark-background-color: #09060a;
+    --dark-text-color: #dfdfdf;
+    --dark-panel-color: #080508;
+    --dark-level2-border-color: #393b39;
+    --dark-glass-blur: hsla(0, 0%, 7%, 0.695);
+    --dark-skeleton-color: #170f1a;
+    --dark-scrollbar-track: #242424;
+    --dark-scrollbar-thumb: #727272;
+    --dark-overlay-color: rgba(0, 0, 0, 0.72);
+    --dark-overlay-color-light: rgba(15, 15, 15, 0.72);
+
+    --dark-font-weight: 300;
+    --dark-level3-color: rgba(21, 21, 21, 0.918);
+    --dark-level2-color: rgba(15, 15, 15, 0.952);
+    --dark-level1-color: rgba(6, 6, 6, 0.925);
+    /*#endregion*/
+
+    /*#region CURRENT MODE */
+    --primary-color: var(--light-primary-color);
+    --secondary-color: var(--light-secondary-color);
+    --current-border-color: var(--light-border-color);
+    --current-background-color: var(--light-background-color);
+    --current-text-color: var(--light-text-color);
+    --current-panel-color: var(--light-panel-color);
+    --current-level2-border-color: var(--light-level2-border-color);
+    --current-glass-blur: var(--light-glass-blur);
+    --current-skeleton-color: var(--light-skeleton-color);
+    --current-scrollbar-track: var(--light-scrollbar-track);
+    --current-scrollbar-thumb: var(--light-scrollbar-thumb);
+    --overlay-color: var(--light-overlay-color);
+    --overlay-color-light: var(--light-overlay-color-light);
+
+    --level3-color: var(--light-level3-color);
+    --level2-color: var(--light-level2-color);
+    --level1-color: var(--light-level1-color);
+    /*#endregion*/
+
     /* Scrollbar */
     --vertical-width: 3px;
     --horizontal-height: 3px;
-
 
     /* SOCIAL MEDIA */
     --facebook-color: #1974EC;
@@ -121,54 +182,6 @@ body {
     --secondary-color-lighter: #c9bc7a;
     --danger-color: #a73131;
     --red-color: #d0312d;
-
-    /*#region Light Mode*/
-    --light-border-color: #686868;
-    --light-background-color: whitesmoke;
-    --light-text-color: #333;
-
-    --light-font-weight: 400;
-    --light-level3-color: rgba(195, 195, 195, 0.9);
-    --light-level2-color: rgba(210, 210, 210, 0.9);
-    --light-level1-color: rgba(225, 225, 225, 0.9);
-    /*#endregion*/
-
-    /*#region Dark Mode */
-    --dark-border-color: #282b28;
-    --dark-background-color: #09060a;
-    --dark-text-color: #dfdfdf;
-    --dark-level2-border-color: #393b39;
-    --dark-glass-blur: hsla(0, 0%, 7%, 0.695);
-    --dark-skeleton-color: #170f1a;
-    --dark-panel-color: #080508;
-    --dark-scrollbar-track: #242424;
-    --dark-scrollbar-thumb: #727272;
-
-    --dark-font-weight: 300;
-    --dark-level3-color: rgba(21, 21, 21, 0.918);
-    --dark-level2-color: rgba(15, 15, 15, 0.952);
-    --dark-level1-color: rgba(6, 6, 6, 0.925);
-    /*#endregion*/
-
-    /*#region CURRENT MODE */
-    --current-border-color: var(--light-border-color);
-    --current-background-color: var(--light-background-color);
-    --current-text-color: var(--light-text-color);
-    --current-level2-border-color: var(--dark-level2-border-color);
-    --current-glass-blur: var(--dark-glass-blur);
-    --current-skeleton-color: var(--dark-skeleton-color);
-    --current-panel-color: var(--dark-panel-color);
-    --current-scrollbar-track: var(--dark-scrollbar-track);
-    --current-scrollbar-thumb: var(--dark-scrollbar-thumb);
-
-    --level3-color: var(--light-level3-color);
-    --level2-color: var(--light-level2-color);
-    --level1-color: var(--light-level1-color);
-    /*#endregion*/
-
-    /* Overlay color */
-    --overlay-color: rgba(0, 0, 0, 0.72);
-    --overlay-color-light: rgba(15, 15, 15, 0.72);
 
     /* Form Color */
     --checkbox-border-color: #505050;
@@ -223,12 +236,13 @@ body {
 
 .hover-effect-yellow-bright:hover {
     color: var(--secondary-color) !important;
+    text-shadow: 0 0 1.2px #333;
     filter: brightness(1.2);
 }
 
 .hover-effect-silver-border:hover {
-    border-color: var(--light-border-color);
-    filter: brightness(1.35);
+    border-color: var(--current-border-color);
+    filter: brightness(1.1);
 }
 
 .hover-effect-danger:hover {

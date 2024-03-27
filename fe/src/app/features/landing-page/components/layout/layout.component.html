@@ -11,7 +11,7 @@
         *ngIf="isTabletHamburgerOpen && ((getViewportWidth() <= getBreakpointValues('TABLET')!))" style="display: contents;"></app-landing-page-tablet-hamburger-content>
 
         <!-- LANDING PAGE HEADER -->
-        <div class="row">
+        <div *ngIf="(getViewportWidth() > getBreakpointValues('LARGE_PHONE')!)" class="row">
             <div class="col c-12">
                 <app-landing-page-header style="display: contents" (notifyToggleLoginModal)="handleToggleLoginModal()"></app-landing-page-header>
             </div>

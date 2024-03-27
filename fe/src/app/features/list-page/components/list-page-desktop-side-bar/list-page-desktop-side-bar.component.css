@@ -44,6 +44,14 @@
     font-family: var(--font-secondary);
 }
 
+.left-side__inside__upper__content__title__responsive-screen {
+    color: var(--dark-text-color);
+}
+
+.left-side__inside__upper__content__title__responsive-screen:hover {
+    color: var(--dark-text-color);
+}
+
 .left-side__inside__lower {
     flex: 1;
     border: 1px solid var(--current-border-color);
