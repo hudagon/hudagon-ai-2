@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class MainSharedService {
   isHamburgerToggled: boolean = false;
-  private themeSource = new BehaviorSubject('light');
+  private themeSource = new BehaviorSubject('dark');
   currentTheme = this.themeSource.asObservable();
   isDarkMode: boolean = false;
 
@@ -14,7 +14,7 @@ export class MainSharedService {
 
   changeTheme(theme: string) {
     this.themeSource.next(theme);
-    this.isDarkMode = !this.isDarkMode;
+    this.isDarkMode = (theme == 'dark');
     this.applyTheme(theme);
   }
 
@@ -38,5 +38,6 @@ export class MainSharedService {
     root.style.setProperty('--level3-color', `var(${themePrefix}-level3-color)`);
     root.style.setProperty('--level2-color', `var(${themePrefix}-level2-color)`);
     root.style.setProperty('--level1-color', `var(${themePrefix}-level1-color)`);
+    root.style.setProperty('--current-gradient-glowing-color', `var(${themePrefix}-gradient-glowing-color)`);
   }
 }

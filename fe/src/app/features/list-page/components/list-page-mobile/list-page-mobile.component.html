@@ -47,10 +47,10 @@
 
         <div class="body__gallery-group">
             <ul *ngIf="!isExhibitionLoading" class="body__gallery-group__list">
-                <li *ngFor="let x of paintingList" (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
+                <!-- <li *ngFor="let x of paintingList" (click)="togglePreviewPaintingModal()" class="body__gallery-group__list__item">
                     <img src="{{x.imgUrl}}"
                         alt="" class="body__gallery-group__list__item__img">
-                </li>
+                </li> -->
             </ul>
 
             <ul *ngIf="isExhibitionLoading" class="body__gallery-group__list-skeleton">
@@ -111,6 +111,10 @@
                 <span class="hamburger-content__footer__text">Chính
                     sách</span>
             </section>
+        </div>
+
+        <div class="body__theme-group">
+            <app-theme-bar></app-theme-bar>
         </div>
     </div>
 

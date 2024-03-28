@@ -118,6 +118,7 @@ body {
     --light-scrollbar-thumb: #727272;
     --light-overlay-color: rgba(0, 0, 0, 0.615);
     --light-overlay-color-light: rgba(208, 208, 208, 0.075);
+    --light-gradient-glowing-color: #96811a17;
 
     --light-font-weight: 400;
     --light-level3-color: rgba(203, 203, 203, 0.758);
@@ -139,6 +140,7 @@ body {
     --dark-scrollbar-thumb: #727272;
     --dark-overlay-color: rgba(0, 0, 0, 0.72);
     --dark-overlay-color-light: rgba(15, 15, 15, 0.72);
+    --dark-gradient-glowing-color: #14002c73;
 
     --dark-font-weight: 300;
     --dark-level3-color: rgba(21, 21, 21, 0.918);
@@ -160,6 +162,7 @@ body {
     --current-scrollbar-thumb: var(--light-scrollbar-thumb);
     --overlay-color: var(--light-overlay-color);
     --overlay-color-light: var(--light-overlay-color-light);
+    --current-gradient-glowing-color: var(--light-gradient-glowing-color);
 
     --level3-color: var(--light-level3-color);
     --level2-color: var(--light-level2-color);

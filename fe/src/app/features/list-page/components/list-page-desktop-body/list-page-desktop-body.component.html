@@ -121,13 +121,13 @@
                     </div>
                 </div>
 
-                <div *ngFor="let x of paintingList" (click)="togglePreviewModal(x.id)" class="right-side__inside__body__gallery__exhibition__item">
+                <!-- <div *ngFor="let x of paintingList" (click)="togglePreviewModal(x.id)" class="right-side__inside__body__gallery__exhibition__item">
                     <img src="{{x.imgUrl}}"
                         alt="" class="right-side__inside__body__gallery__exhibition__item__img">
                     <div *ngIf="(getViewportWidth() > getBreakpointValues('TABLET')!)" class="hover-effect-yellow-bright right-side__inside__body__gallery__exhibition__preview">
                         Xem trước
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <div *ngIf="isExhibitionLoading" class="right-side__inside__body__gallery__exhibition__skeleton">
@@ -171,6 +171,10 @@
                 class="hover-effect-yellow-bright right-side__inside__body__gallery__scroll-to-top">
                 <i class="fa-solid fa-angle-up"></i>
             </div>
+        </div>
+
+        <div class="right-side__inside__body__theme-group">
+            <app-theme-bar></app-theme-bar>
         </div>
     </section>
 

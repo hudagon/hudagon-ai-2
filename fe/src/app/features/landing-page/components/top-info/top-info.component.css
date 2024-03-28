@@ -9,6 +9,11 @@
     height: var(--top-info-height);
 }
 
+.theme-change-group {
+    display: flex;
+    align-items: center;
+}
+
 .top-info__term-and-policies {
     display: flex;
     align-items: center;

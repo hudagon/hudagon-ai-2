@@ -562,6 +562,11 @@
 }
 /*#endregion*/
 
+.right-side__inside__body__theme-group {
+    position: absolute;
+    bottom: 9px;
+    right: 9px;
+}
 
 /* Extra Large screens and TV */
 @media (min-width: 1603px) {

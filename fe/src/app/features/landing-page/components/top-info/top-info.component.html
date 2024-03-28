@@ -42,4 +42,8 @@
     </ul>
 
     <app-hamburger (notifyToggleHamburger)="handleToggleHamurber()" style="display: contents" *ngIf="(getViewportWidth() <= getBreakpointValues('TABLET')!)"></app-hamburger>
+    
+    <div *ngIf="(getViewportWidth() <= getBreakpointValues('TABLET')!)" class="theme-change-group">
+        <app-theme-bar></app-theme-bar>
+    </div>
 </div>

@@ -458,3 +458,9 @@
     left: -6px;
 }
 /*#endregion*/
+
+.body__theme-group {
+    position: absolute;
+    bottom: 3px;
+    right: 9px;
+}

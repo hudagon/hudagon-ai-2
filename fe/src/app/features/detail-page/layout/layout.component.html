@@ -1,62 +1,68 @@
 <div class="wrapper">
-    <div class="return-group hover-effect-yellow-bright">
-        <i class="fa-solid fa-chevron-left"></i>
-        <span routerLink="/list" class="return-group__text">
-            Trở về
-        </span>
-    </div>
-
-    <div class="preview-gallery-group">
-        <ul class="preview-gallery-group__list">
-            <li class="preview-gallery-group__list__item"></li>
-            <li class="preview-gallery-group__list__item"></li>
-            <li class="preview-gallery-group__list__item"></li>
-            <li class="preview-gallery-group__list__item"></li>
-            <li class="preview-gallery-group__list__item"></li>
-            <li class="preview-gallery-group__list__item"></li>
-        </ul>
-    </div>
-
-    <section class="painting-group">
-
-        <div class="painting">
-            <img src="https://firebasestorage.googleapis.com/v0/b/test-firebase-image-81d97.appspot.com/o/Screenshot%202024-02-20%20151404.png?alt=media&token=971da7be-cae5-4f25-95c6-146b484ac3b2" alt="" class="painting__img">
+    <div class="left-side">
+        <div class="return-group hover-effect-yellow-bright">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span routerLink="/list" class="return-group__text">
+                Trở về
+            </span>
         </div>
 
-    </section>
-    
-    <section class="function-group-wrapper">
-        <div class="function-group">
-            <div class="function-group__user-group">
-                <div class="function-group__user-group__cart-group">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="function-group__user-group__cart-group__notify">
-                        0
-                    </span>
+        <div class="preview-gallery-group">
+            <ul class="preview-gallery-group__list">
+                <li class="preview-gallery-group__list__item"></li>
+                <li class="preview-gallery-group__list__item"></li>
+                <li class="preview-gallery-group__list__item"></li>
+                <li class="preview-gallery-group__list__item"></li>
+                <li class="preview-gallery-group__list__item"></li>
+                <li class="preview-gallery-group__list__item"></li>
+            </ul>
+        </div>
+
+        <section class="painting-group">
+            <div class="painting">
+                <img src="../../../../assets/images/son_mai.png" alt="" class="painting__img">
+            </div>
+        </section>
+
+        <div class="theme-group">
+            <app-theme-bar></app-theme-bar>
+        </div>
+    </div>
+
+    <div class="right-side">
+        <section class="function-group-wrapper">
+            <div class="function-group">
+                <div class="function-group__user-group">
+                    <div class="function-group__user-group__cart-group">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="function-group__user-group__cart-group__notify">
+                            0
+                        </span>
+                    </div>
+
+                    <div class="function-group__user-group__user-group">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </div>
                 </div>
 
-                <div class="function-group__user-group__user-group">
-                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                </div>
+                <header class="function-group__header">
+                    <ul class="function-group__header__tab-list">
+                        <li class="function-group__header__tab-list__item">
+                            Tùy chọn
+                        </li>
+                        <li class="function-group__header__tab-list__item">
+                            Chi tiết
+                        </li>
+                        <li class="function-group__header__tab-list__item">
+                            Phản hồi
+                        </li>
+                    </ul>
+                </header>
             </div>
 
-            <header class="function-group__header">
-                <ul class="function-group__header__tab-list">
-                    <li class="function-group__header__tab-list__item">
-                        Tùy chọn
-                    </li>
-                    <li class="function-group__header__tab-list__item">
-                        Chi tiết
-                    </li>
-                    <li class="function-group__header__tab-list__item">
-                        Phản hồi
-                    </li>
-                </ul>
-            </header>
-        </div>
+            <div class="checkout-group">
 
-        <div class="checkout-group">
-
-        </div>
-    </section>
+            </div>
+        </section>
+    </div>
 </div>

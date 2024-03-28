@@ -69,12 +69,9 @@
     border: 1px solid var(--light-border-color);
 }
 
-.landing-page__theme-bar__wrapper__switch-theme-group__checkbox:checked+.landing-page__theme-bar__wrapper__switch-theme-group__checkbox-label .landing-page__theme-bar__wrapper__switch-theme-group__ball {
-    transform: translateX(125%);
-}
-
 .landing-page__theme-bar__wrapper__switch-theme-group__ball.dark-mode {
     background-color: black;
+    transform: translateX(125%);
     border-color: var(--current-border-color);
 }
 
