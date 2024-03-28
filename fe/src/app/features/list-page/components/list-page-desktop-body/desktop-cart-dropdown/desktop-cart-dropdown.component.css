@@ -10,6 +10,7 @@
     flex-direction: column;
     overflow-y: auto;
     max-height: 270px;
+    background-color: var(--level2-color);
 }
 
 .list__item {

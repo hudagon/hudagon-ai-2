@@ -17,7 +17,7 @@
 }
 
 .level2-category-list__item {
-    border: 1px solid var(--current-border-color);
+    border: 1px solid transparent;
     border-radius: var(--border-radius-1);
     width: 120px;
     height: 100%;
@@ -52,6 +52,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--dark-text-color);
 }
 
 .level2-category-list__item__text.darker-overlay {

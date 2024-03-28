@@ -5,7 +5,7 @@
                 <li (click)="toggleToFilter($event, { id: x.id, name: x.name, level2CategoryId: categoryColorList[0].level2CategoryId, level1CategoryId: x.level1CategoryId })"
                     [ngClass]="{'activated': isCategoryTagSelected(x.id, categoryColorList[0].level2CategoryId)}"
                     [attr.data-color]="x.categoryDesc" class="level2-category-list__item activated color-item">
-                    <span [ngClass]="{'dark-text': x.categoryDesc == '#ffd966' || x.categoryDesc == 'whitesmoke'}"
+                    <span [ngClass]="{'dark-text': x.categoryDesc == '#ffd966' || x.categoryDesc == 'white'}"
                         class="level2-category-list__item__text">
                         {{x.name}}
                     </span>

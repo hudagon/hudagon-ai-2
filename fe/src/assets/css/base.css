@@ -120,9 +120,9 @@ body {
     --light-overlay-color-light: rgba(208, 208, 208, 0.075);
 
     --light-font-weight: 400;
-    --light-level3-color: rgba(195, 195, 195, 0.758);
-    --light-level2-color: rgb(210, 210, 210);
-    --light-level1-color: rgb(225, 225, 225);
+    --light-level3-color: rgba(203, 203, 203, 0.758);
+    --light-level2-color: rgb(222, 222, 222);
+    --light-level1-color: rgb(239, 239, 239);
     /*#endregion*/
 
     /*#region Dark Mode */

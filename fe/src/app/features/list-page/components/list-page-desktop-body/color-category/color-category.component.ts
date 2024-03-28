@@ -76,7 +76,7 @@ export class ColorCategoryComponent implements OnInit, AfterViewInit {
     {
       'id': 114,
       'name': 'Trắng',
-      'categoryDesc': 'whitesmoke',
+      'categoryDesc': 'white',
       'level2CategoryId': 12,
       'level2CategoryName': 'color',
       'level1CategoryId': 5

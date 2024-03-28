@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { MainSharedService } from 'src/app/shareds/main-shared/services/main-shared.service';
 
 @Component({
   selector: 'app-list-page-tablet-side-bar',
@@ -17,6 +18,10 @@ export class ListPageTabletSideBarComponent {
   styleCategory: any;
   ratioCategory: any;
   colorCategory: any;
+
+  constructor(
+    private mainSharedService: MainSharedService
+  ) {}
 
   ngOnInit(): void {
     this.categoryLevel1List = [
@@ -107,4 +112,7 @@ export class ListPageTabletSideBarComponent {
     this.notifyToggleTermAndServicePopUp.emit();
   }
   
+  getThemeMode() {
+    return this.mainSharedService.isDarkMode;
+  }
 }

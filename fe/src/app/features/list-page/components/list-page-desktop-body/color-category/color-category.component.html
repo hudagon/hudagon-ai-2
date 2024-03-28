@@ -7,7 +7,7 @@
                         <div (click)="toggleToFilter($event, { id: y.id, name: y.name, level2CategoryId: x.level2CategoryId, level1CategoryId: x.level1CategoryId } )"
                             [ngClass]="{
                             'activated': isCategoryTagSelected(y.id, x.level2CategoryId),
-                            'dark-text': y.categoryDesc == '#ffd966' || y.categoryDesc == 'whitesmoke'
+                            'dark-text': y.categoryDesc == '#ffd966' || y.categoryDesc == 'white'
                           }" class="hover-effect-brighter-opaquer upper__color-group__overlay">
                             <span>{{y.name}}</span>
                         </div>
